@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes:
+    Context7 --default,
+    dark --prefers-dark;
+}
+
+/* Context7 Professional Theme with Rich Maroon Primary */
+@theme {
+  --color-primary: #8b1538;
+  --color-primary-content: #ffffff;
+  --color-secondary: #6366f1;
+  --color-secondary-content: #ffffff;
+  --color-accent: #f59e0b;
+  --color-accent-content: #ffffff;
+  --color-neutral: #374151;
+  --color-neutral-content: #f9fafb;
+  --color-base-100: #ffffff;
+  --color-base-200: #f9fafb;
+  --color-base-300: #f3f4f6;
+  --color-base-content: #1f2937;
+  --color-info: #0ea5e9;
+  --color-info-content: #ffffff;
+  --color-success: #10b981;
+  --color-success-content: #ffffff;
+  --color-warning: #f59e0b;
+  --color-warning-content: #ffffff;
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+  --border: 1px;
+  --btn-border: "transparent";
+}
+
+/* Professional styling enhancements */
+.btn {
+  @apply rounded;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease-in-out;
+  border-color: transparent;
+}
+
+.btn:hover {
+  transform: scale(0.95);
+  /* box-shadow: 0 4px 12px rgba(139, 21, 56, 0.25); */
+}
+
+.card {
+  border: 1px solid #f3f4f6;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}

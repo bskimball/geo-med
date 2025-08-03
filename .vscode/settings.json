@@ -1,0 +1,10 @@
+{
+    "chat.mcp.serverSampling": {
+        "geo-med/.vscode/mcp.json: Github": {
+            "allowedModels": [
+                "github.copilot-chat/gpt-4.1",
+                "github.copilot-chat/claude-sonnet-4"
+            ]
+        }
+    }
+}

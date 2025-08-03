@@ -1,0 +1,20 @@
+{
+  "servers": {
+    // https://github.com/ppl-ai/modelcontextprotocol/
+    "Astro docs": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": ["-y", "mcp-remote", "https://mcp.docs.astro.build/mcp"]
+    },
+    "Context7": {
+     "type": "stdio",
+     "command": "bunx",
+     "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "Lucide icons": {
+     "type": "stdio",
+     "command": "bunx",
+     "args": ["lucide-icons-mcp", "--stdio"]
+    }
+  }
+}
