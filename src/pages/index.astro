@@ -12,7 +12,7 @@ import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout
-  bodyClass="min-h-screen bg-[url('/sold-home-bkg.jpeg')] bg-no-repeat bg-contain bg-top bg-center"
+  bodyClass="min-h-screen bg-[url('/sold-home-bkg.jpg')] bg-no-repeat bg-contain bg-top bg-center"
   title="George Medairy - Real Estate Agent"
   description="Discover your dream home with George Medairy, your trusted real estate agent."
 >
@@ -253,9 +253,9 @@ import Navbar from "../components/Navbar.astro";
                 </p>
                 <a href="/contact" class="btn btn-secondary">Contact Us</a>
               </div>
-              <div>
-                <div class="bg-white p-4 rounded-lg shadow-lg mt-6">
-                  <img src={remaxLogo.src} alt="Remax Logo" class="w-32 mt-4" />
+              <div class="flex">
+                <div class="bg-white p-4 rounded-lg shadow-lg mt-6 inline-flex">
+                  <img src={remaxLogo.src} alt="Remax Logo" class="w-32" />
                 </div>
               </div>
             </div>
