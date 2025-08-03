@@ -8,12 +8,16 @@ interface Props {
   title?: string;
   description?: string;
 }
-let { bodyClass = "min-h-screen bg-base-100 text-base-content" } = Astro.props;
+let {
+  bodyClass = "min-h-screen bg-base-100 text-base-content",
+  title = "George Medairy",
+  description = "Personal website of George Medairy, a real estate agent in Delaware. Helping you find your dream home in the First State.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-theme="context7">
-  <BaseHead title="Context7 Theme" />
+  <BaseHead title={title} description={description} />
   <body class={bodyClass}>
     <main>
       <slot />
