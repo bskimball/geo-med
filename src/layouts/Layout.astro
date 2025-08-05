@@ -9,7 +9,7 @@ interface Props {
   description?: string;
 }
 let {
-  bodyClass = "min-h-screen bg-base-100 text-base-content",
+  bodyClass = "min-h-screen bg-base-100 text-base-content flex flex-col",
   title = "George Medairy",
   description = "Personal website of George Medairy, a real estate agent in Delaware. Helping you find your dream home in the First State.",
 } = Astro.props;
@@ -19,7 +19,7 @@ let {
 <html lang="en" data-theme="context7">
   <BaseHead title={title} description={description} />
   <body class={bodyClass}>
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />

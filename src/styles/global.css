@@ -34,6 +34,21 @@
   --btn-border: "transparent";
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* 100% of viewport height */
+  width: 100vw; /* 100% of viewport width */
+}
+
 /* Professional styling enhancements */
 .btn {
   @apply rounded;
