@@ -1,8 +1,26 @@
+---
+import { Menu } from "@lucide/astro";
+---
+
 <div class="navbar container mx-auto max-w-7xl px-0">
-  <div class="flex-1">
-    <a href="/">George Medairy</a>
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <Menu />
+      </div>
+      <ul
+        class="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+      >
+        <li><a href="/about">About us</a></li>
+        <li><a href="/explore">Explore Homes</a></li>
+        <li>
+          <a href="/contact">Contact us</a>
+        </li>
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-xl" href="/">George Medairy</a>
   </div>
-  <div class="flex-none">
+  <div class="navbar-end hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
       <li><a href="/about">About us</a></li>
       <li><a href="/explore">Explore Homes</a></li>

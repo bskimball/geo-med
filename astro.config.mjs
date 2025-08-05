@@ -9,5 +9,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  adapter: cloudflare()
+  // adapter: cloudflare()
 });
