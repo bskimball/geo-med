@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
+import ContactForm from "../components/ContactForm";
+import { Mail, Phone, MapPin } from "@lucide/astro";
 ---
 
 <Layout
@@ -12,17 +14,39 @@ import Navbar from "../components/Navbar.astro";
       <Navbar />
     </header>
     <div class="container max-w-7xl">
-      <h1>Contact Us</h1>
-      <p>
-        If you have any questions or need assistance with your real estate
-        needs, feel free to reach out. You can contact us via email or phone, or
-        visit our office in Delaware.
-      </p>
-      <p>
-        Email: <a href="mailto:george@medairyrealestate.com">
-          george@medairyrealestate.com
-        </a>
-      </p>
+      <h1 class="text-4xl font-bold leading-24">Contact Us</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div>
+          <div class="mb-6">
+            <ContactForm client:load />
+          </div>
+        </div>
+        <div class="space-y-4 text-lg">
+          <p class="text-lg mb-6">We would love to hear from you!</p>
+          <p>
+            If you have any questions or need assistance with your real estate
+            needs, feel free to reach out. You can contact us via email or
+            phone, or visit our office in Delaware.
+          </p>
+          {/* Contact Info */}
+          <div class="border-t border-base-300 pt-6 mt-8 space-y-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <a href="mailto:george@medairyrealestate.com">
+                  <Mail class="inline-block mr-1" /> george@medairyrealestate.com
+                </a>
+              </div>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <a href="tel:+18149312411">
+                  <Phone class="inline-block mr-1" /> (814) 931-2411
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>
