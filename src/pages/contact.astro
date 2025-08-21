@@ -19,16 +19,18 @@ const optimizedIconBackground = await getImage({
   description="Get in touch with George Medairy, your trusted real estate agent in Delaware. Contact us today to discuss your real estate needs."
 >
   <div class="min-h-screen">
-    <header>
+    <header class="bg-primary shadow-xl text-primary-content">
       <Navbar />
     </header>
 
     {/* Hero Section */}
-    <section class="bg-gradient-to-r from-primary to-base-100 text-white py-16">
+    <section class="bg-primary text-primary-content py-16">
       <div class="container max-w-7xl mx-auto px-4">
         <div class="text-center">
-          <h1 class="text-5xl font-bold mb-4">Get In Touch</h1>
-          <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+          <h1 class="text-5xl font-bold mb-4 text-primary-content">
+            Get In Touch
+          </h1>
+          <p class="text-xl text-primary-content/70 max-w-2xl mx-auto">
             Ready to make your real estate dreams come true? Let's start the
             conversation today.
           </p>
@@ -71,45 +73,41 @@ const optimizedIconBackground = await getImage({
             </div>
 
             <div class="space-y-4">
-              <div class="flex items-center p-4 bg-blue-50 rounded-lg">
-                <Mail class="w-6 h-6 text-blue-600 mr-3" />
+              <div class="flex items-center p-4 bg-primary/10 rounded-lg">
+                <Mail class="w-6 h-6 text-primary mr-3" />
                 <div>
-                  <p class="font-semibold text-gray-800">Email</p>
                   <a
                     href="mailto:george@medairyrealestate.com"
-                    class="text-blue-600 hover:text-blue-800 transition-colors"
+                    class="text-primary hover:text-primary/75 transition-colors"
                   >
                     george@medairyrealestate.com
                   </a>
                 </div>
               </div>
 
-              <div class="flex items-center p-4 bg-green-50 rounded-lg">
-                <Phone class="w-6 h-6 text-green-600 mr-3" />
+              <div class="flex items-center p-4 bg-secondary/10 rounded-lg">
+                <Phone class="w-6 h-6 text-secondary mr-3" />
                 <div>
-                  <p class="font-semibold text-gray-800">Phone</p>
                   <a
                     href="tel:+18149312411"
-                    class="text-green-600 hover:text-green-800 transition-colors"
+                    class="text-secondary hover:text-secondary/75 transition-colors"
                   >
                     (814) 931-2411
                   </a>
                 </div>
               </div>
 
-              <div class="flex items-center p-4 bg-purple-50 rounded-lg">
-                <MapPin class="w-6 h-6 text-purple-600 mr-3" />
+              <div class="flex items-center p-4 bg-accent/10 rounded-lg">
+                <MapPin class="w-6 h-6 text-accent mr-3" />
                 <div>
-                  <p class="font-semibold text-gray-800">Location</p>
-                  <p class="text-purple-600">Delaware, USA</p>
+                  <p class="text-accent">Delaware, USA</p>
                 </div>
               </div>
 
-              <div class="flex items-center p-4 bg-orange-50 rounded-lg">
-                <Clock class="w-6 h-6 text-orange-600 mr-3" />
+              <div class="flex items-center p-4 bg-base-300 rounded-lg">
+                <Clock class="w-6 h-6 text-base-content mr-3" />
                 <div>
-                  <p class="font-semibold text-gray-800">Available</p>
-                  <p class="text-orange-600">Mon-Sat, 9AM-7PM</p>
+                  <p class="text-base-content">Mon-Sat, 9AM-7PM</p>
                 </div>
               </div>
             </div>
@@ -133,7 +131,7 @@ const optimizedIconBackground = await getImage({
               </a>
               <a
                 href="mailto:george@medairyrealestate.com"
-                class="btn btn-lg btn-outline"
+                class="btn btn-lg btn-accent"
               >
                 Send Email
               </a>
