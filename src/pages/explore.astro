@@ -1,4 +1,5 @@
 ---
+import LoanCalculator from "../components/LoanCalculator";
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -13,15 +14,24 @@ import Layout from "../layouts/Layout.astro";
     </header>
     <div class="container max-w-7xl">
       <h1>Explore</h1>
-      <p>
-        Discover a wide range of properties available for sale or rent in
-        Delaware. Our listings include stunning homes, modern apartments, and
-        lucrative investment opportunities.
-      </p>
-      <p>
-        Use our advanced search filters to narrow down your options and find the
-        perfect property that meets your needs and budget.
-      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="col-span-2">
+          <p>
+            Discover a wide range of properties available for sale or rent in
+            Delaware. Our listings include stunning homes, modern apartments,
+            and lucrative investment opportunities.
+          </p>
+          <p>
+            Use our advanced search filters to narrow down your options and find
+            the perfect property that meets your needs and budget.
+          </p>
+        </div>
+        <div>
+          <div class="card p-6 bg-base-100 rounded-xl shadow-xl">
+            <LoanCalculator client:load />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

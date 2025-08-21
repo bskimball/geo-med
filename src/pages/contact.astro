@@ -2,47 +2,141 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import ContactForm from "../components/ContactForm";
-import { Mail, Phone, MapPin } from "@lucide/astro";
+import LoanCalculator from "../components/LoanCalculator";
+import { Mail, Phone, MapPin, Clock } from "@lucide/astro";
+import georgeThumbsUp from "../assets/george-thumbs-up.jpg";
+import iconBackground from "../assets/icon-background.png";
+import { Image, getImage } from "astro:assets";
+
+const optimizedIconBackground = await getImage({
+  src: iconBackground,
+  format: "webp",
+});
 ---
 
 <Layout
   title="Contact - George Medairy"
   description="Get in touch with George Medairy, your trusted real estate agent in Delaware. Contact us today to discuss your real estate needs."
 >
-  <div>
+  <div class="min-h-screen">
     <header>
       <Navbar />
     </header>
-    <div class="container max-w-7xl">
-      <h1 class="text-4xl font-bold leading-24">Contact Us</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-        <div>
-          <div class="mb-6">
+
+    {/* Hero Section */}
+    <section class="bg-gradient-to-r from-primary to-base-100 text-white py-16">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="text-center">
+          <h1 class="text-5xl font-bold mb-4">Get In Touch</h1>
+          <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+            Ready to make your real estate dreams come true? Let's start the
+            conversation today.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Contact Section */}
+    <div class="bg-base-300">
+      <div class="container max-w-7xl mx-auto py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          {/* Contact Form Section */}
+          <div class="lg:col-span-3 bg-white rounded-2xl shadow-xl p-8">
+            <div class="mb-8">
+              <h2 class="text-3xl font-bold text-base-content mb-2">
+                Send a Message
+              </h2>
+              <p class="text-base-content/70">
+                Ready to start your real estate journey? Let's discuss your
+                needs.
+              </p>
+            </div>
             <ContactForm client:load />
           </div>
-        </div>
-        <div class="space-y-4 text-lg">
-          <p class="text-lg mb-6">We would love to hear from you!</p>
-          <p>
-            If you have any questions or need assistance with your real estate
-            needs, feel free to reach out. You can contact us via email or
-            phone, or visit our office in Delaware.
-          </p>
-          {/* Contact Info */}
-          <div class="border-t border-base-300 pt-6 mt-8 space-y-4">
-            <div>
-              <div class="flex items-center gap-2">
-                <a href="mailto:george@medairyrealestate.com">
-                  <Mail class="inline-block mr-1" /> george@medairyrealestate.com
-                </a>
+
+          {/* Contact Info & Image */}
+          <div
+            class="space-y-8 lg:col-span-2 bg-white rounded-2xl shadow-xl p-8"
+          >
+            <div class="text-center mb-6">
+              <Image
+                src={georgeThumbsUp}
+                alt="George Medairy"
+                class="rounded-xl mx-auto shadow-lg object-cover"
+              />
+              <h3 class="text-2xl font-bold text-gray-800 mt-4">
+                George Medairy
+              </h3>
+              <p class="text-gray-600">Your Trusted Real Estate Partner</p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-center p-4 bg-blue-50 rounded-lg">
+                <Mail class="w-6 h-6 text-blue-600 mr-3" />
+                <div>
+                  <p class="font-semibold text-gray-800">Email</p>
+                  <a
+                    href="mailto:george@medairyrealestate.com"
+                    class="text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    george@medairyrealestate.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center p-4 bg-green-50 rounded-lg">
+                <Phone class="w-6 h-6 text-green-600 mr-3" />
+                <div>
+                  <p class="font-semibold text-gray-800">Phone</p>
+                  <a
+                    href="tel:+18149312411"
+                    class="text-green-600 hover:text-green-800 transition-colors"
+                  >
+                    (814) 931-2411
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center p-4 bg-purple-50 rounded-lg">
+                <MapPin class="w-6 h-6 text-purple-600 mr-3" />
+                <div>
+                  <p class="font-semibold text-gray-800">Location</p>
+                  <p class="text-purple-600">Delaware, USA</p>
+                </div>
+              </div>
+
+              <div class="flex items-center p-4 bg-orange-50 rounded-lg">
+                <Clock class="w-6 h-6 text-orange-600 mr-3" />
+                <div>
+                  <p class="font-semibold text-gray-800">Available</p>
+                  <p class="text-orange-600">Mon-Sat, 9AM-7PM</p>
+                </div>
               </div>
             </div>
-            <div>
-              <div class="flex items-center gap-2">
-                <a href="tel:+18149312411">
-                  <Phone class="inline-block mr-1" /> (814) 931-2411
-                </a>
-              </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action Section */}
+      <div class="bg-primary text-primary-content">
+        <div class="container mx-auto max-w-7xl py-16">
+          <div class="bg-primary/50 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Whether you're buying, selling, or just exploring your options,
+              I'm here to help you navigate the real estate market with
+              confidence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="tel:+18149312411" class="btn btn-lg btn-secondary">
+                Call Now
+              </a>
+              <a
+                href="mailto:george@medairyrealestate.com"
+                class="btn btn-lg btn-outline"
+              >
+                Send Email
+              </a>
             </div>
           </div>
         </div>
