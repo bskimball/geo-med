@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Image, getImage } from 'astro:assets';
 import georgeThumbsUp from '../assets/george-thumbs-up.jpg';
+import georgeUpClose from '../assets/george-up-close.jpg';
 import dreamHome from '../assets/dream-home.jpg';
 import sellHome from '../assets/sell-home.jpg';
 import rentHome from '../assets/rent-home.jpg';
@@ -22,8 +23,10 @@ import {
   Users,
   Phone,
   House as Home,
+  MousePointerClick,
 } from '@lucide/astro';
 import Navbar from '../components/Navbar.astro';
+import ServiceCard from '../components/ServiceCard.astro';
 
 const optimizedSoldHomeBkg = await getImage({
   src: soldHomeBkg,
@@ -51,7 +54,8 @@ const optimizedDelawareRoadMap = await getImage({
   description="Expert Delaware real estate agent specializing in residential properties and VA loans. Trusted by veterans and families. Find your dream home today."
 >
   <!-- Hero Section -->
-  <div class="relative min-h-[90vh] overflow-hidden">
+  <div class="relative h-screen overflow-hidden">
+    <!-- Background Image -->
     <div
       class="absolute inset-0 bg-cover bg-center"
       style={`background-image: url(${optimizedSoldHomeBkg.src});`}
@@ -59,97 +63,104 @@ const optimizedDelawareRoadMap = await getImage({
     </div>
     <div class="absolute inset-0 hero-gradient"></div>
 
-    <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg">
+    <!-- Navbar -->
+    <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20">
       <Navbar />
     </header>
 
-    <div
-      class="relative z-10 container mx-auto max-w-7xl px-4 h-[calc(90vh-80px)] flex items-center"
-    >
-      <div class="w-full lg:w-1/2 space-y-8 animate-fade-in-up py-12">
-        <div class="inline-block">
-          <span class="badge-veteran">
-            <Shield class="w-4 h-4" />
-            Veteran-Friendly Agent
-          </span>
-        </div>
+    <!-- Hero Content Container -->
+    <div class="relative h-[calc(100vh-5rem)]">
+      <!-- George Image - Right Side, Full Height -->
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-[50vw]">
+        <Image
+          src={georgeJacket}
+          alt="George Medairy - Your Delaware Real Estate Expert"
+          class="hero-image drop-shadow-2xl w-full h-full object-cover object-bottom"
+        />
+      </div>
 
-        <h1 class="text-white text-shadow-lg">
-          Find Your Home in the <span class="text-accent">First State</span>
-        </h1>
+      <!-- Text Content - Overlays Image -->
+      <div class="relative z-10 h-full">
+        <div class="container mx-auto max-w-7xl px-4 h-full flex items-center">
+          <div class="w-full lg:w-[55%] space-y-8 animate-fade-in-up">
+            <div class="inline-block">
+              <span class="badge-veteran">
+                <Shield class="w-4 h-4" />
+                Veteran-Friendly Agent
+              </span>
+            </div>
 
-        <p class="text-xl text-white/90 text-shadow leading-relaxed">
-          Trusted Delaware real estate expert serving residential buyers,
-          sellers, and proud veterans. Whether you're using a VA loan or
-          traditional financing, I'll guide you home.
-        </p>
+            <h1 class="text-white text-shadow-lg">
+              Find Your Home in the <span class="text-accent">First State</span>
+            </h1>
 
-        <div class="flex flex-wrap gap-4">
-          <a href="/explore" class="btn btn-accent btn-lg">
-            <Home class="w-5 h-5" />
-            Browse Homes
-          </a>
-          <a href="/contact" class="btn btn-secondary btn-lg">
-            <Phone class="w-5 h-5" />
-            Get Started
-          </a>
-        </div>
+            <p class="text-xl text-white/90 text-shadow leading-relaxed">
+              Trusted Delaware real estate expert serving residential buyers,
+              sellers, and proud veterans. Whether you're using a VA loan or
+              traditional financing, I'll guide you home.
+            </p>
 
-        <!-- Trust Indicators -->
-        <div class="flex flex-wrap gap-6 pt-8">
-          <div class="flex items-center gap-3 text-white/90 trust-indicator">
-            <div
-              class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
-            >
-              <Award class="w-6 h-6 text-accent" />
+            <div class="flex flex-wrap gap-4">
+              <a href="/explore" class="btn btn-accent btn-lg">
+                <Search class="w-5 h-5 mr-1" />
+                Browse Homes
+              </a>
+              <a href="/contact" class="btn btn-secondary btn-lg">
+                <MousePointerClick class="w-5 h-5 mr-1" />
+                Get Started
+              </a>
             </div>
-            <div>
-              <div class="font-bold">15+ Years</div>
-              <div class="text-sm text-white/70">Experience</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 text-white/90 trust-indicator">
-            <div
-              class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
-            >
-              <Users class="w-6 h-6 text-accent" />
-            </div>
-            <div>
-              <div class="font-bold">500+ Families</div>
-              <div class="text-sm text-white/70">Served</div>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 text-white/90 trust-indicator">
-            <div
-              class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
-            >
-              <TrendingUp class="w-6 h-6 text-accent" />
-            </div>
-            <div>
-              <div class="font-bold">$50M+</div>
-              <div class="text-sm text-white/70">In Sales</div>
+
+            <!-- Trust Indicators -->
+            <div class="flex flex-wrap gap-x-8 gap-y-4 pt-6">
+              <div
+                class="flex items-center gap-3 text-white/90 trust-indicator"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"
+                >
+                  <Award class="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <div class="font-bold">Dedicated</div>
+                  <div class="text-sm text-white/70">Personal Service</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-3 text-white/90 trust-indicator"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"
+                >
+                  <Users class="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <div class="font-bold">Always Available</div>
+                  <div class="text-sm text-white/70">24/7 Support</div>
+                </div>
+              </div>
+              <div
+                class="flex items-center gap-3 text-white/90 trust-indicator"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0"
+                >
+                  <TrendingUp class="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <div class="font-bold">Local Expert</div>
+                  <div class="text-sm text-white/70">Delaware Specialist</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Image positioned from top of hero (below nav), right aligned, extends to bottom -->
-    <div
-      class="hidden lg:block absolute top-0 right-0 z-[5] lg:pt-22"
-      style="width: 40vw; height: calc(90vh - 80px);"
-    >
-      <Image
-        src={georgeJacket}
-        alt="George Medairy - Your Delaware Real Estate Expert"
-        class="hero-image drop-shadow-2xl h-full w-auto object-contain object-bottom ml-auto"
-        style="display: block; margin-left: auto;"
-      />
-    </div>
   </div>
 
   <!-- Services Section -->
-  <section class="py-20 bg-base-100 services-section">
+  <section class="py-20 services-section" style="background-color: var(--color-section-sage);">
     <div class="container mx-auto max-w-7xl px-4">
       <div class="text-center mb-16 max-w-3xl mx-auto section-header">
         <span class="text-accent font-semibold uppercase tracking-wider text-sm"
@@ -165,204 +176,204 @@ const optimizedDelawareRoadMap = await getImage({
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 service-cards"
       >
-        <div class="card bg-base-100 shadow-xl service-card">
-          <div class="relative h-56 overflow-hidden">
-            <Image
-              src={dreamHome}
-              alt="Buy Your Dream Home"
-              class="card-image w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-            >
-            </div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-2xl text-shadow">
-                Buy Your Home
-              </h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="text-base-content/80 mb-4">
-              From first-time buyers to seasoned investors, I'll help you find
-              the perfect property that fits your lifestyle and budget.
-            </p>
-            <ul class="space-y-2 text-sm">
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Personalized property search</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Negotiation expertise</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Market insights & analysis</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ServiceCard title="Buy Your Home">
+          <Image
+            slot="media"
+            src={dreamHome}
+            alt="Buy Your Dream Home"
+            class="card-image w-full h-full object-cover"
+          />
+          <p class="text-base-content/80 mb-4">
+            From first-time buyers to seasoned investors, I'll help you find the
+            perfect property that fits your lifestyle and budget.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Personalized property search</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Negotiation expertise</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Market insights & analysis</span>
+            </li>
+          </ul>
+        </ServiceCard>
 
-        <div class="card bg-base-100 shadow-xl service-card">
-          <div class="relative h-56 overflow-hidden">
-            <Image
-              src={sellHome}
-              alt="Sell Your Property"
-              class="card-image w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-            >
-            </div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-2xl text-shadow">
-                Sell For Top Dollar
-              </h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="text-base-content/80 mb-4">
-              Strategic marketing and pricing to ensure you get maximum value
-              for your property in the shortest time possible.
-            </p>
-            <ul class="space-y-2 text-sm">
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Professional staging advice</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Strategic pricing analysis</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Multi-channel marketing</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ServiceCard title="Sell For Top Dollar">
+          <Image
+            slot="media"
+            src={sellHome}
+            alt="Sell Your Property"
+            class="card-image w-full h-full object-cover"
+          />
+          <p class="text-base-content/80 mb-4">
+            Strategic marketing and pricing to ensure you get maximum value for
+            your property in the shortest time possible.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Professional staging advice</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Strategic pricing analysis</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Multi-channel marketing</span>
+            </li>
+          </ul>
+        </ServiceCard>
 
-        <div class="card bg-base-100 shadow-xl service-card">
-          <div class="relative h-56 overflow-hidden">
-            <Image
-              src={rentHome}
-              alt="Rental Properties"
-              class="card-image w-full h-full object-cover"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-            >
-            </div>
-            <div class="absolute bottom-4 left-4 right-4">
-              <h3 class="text-white font-bold text-2xl text-shadow">
-                Find Rentals
-              </h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="text-base-content/80 mb-4">
-              Discover quality rental properties that match your lifestyle,
-              budget, and location preferences throughout Delaware.
-            </p>
-            <ul class="space-y-2 text-sm">
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Curated rental listings</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Lease negotiation support</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
-                <span>Landlord relations</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <ServiceCard title="Find Rentals">
+          <Image
+            slot="media"
+            src={rentHome}
+            alt="Rental Properties"
+            class="card-image w-full h-full object-cover"
+          />
+          <p class="text-base-content/80 mb-4">
+            Discover quality rental properties that match your lifestyle,
+            budget, and location preferences throughout Delaware.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Curated rental listings</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Lease negotiation support</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <CircleCheck class="w-4 h-4 text-accent flex-shrink-0" />
+              <span>Landlord relations</span>
+            </li>
+          </ul>
+        </ServiceCard>
       </div>
     </div>
   </section>
 
   <!-- Veteran Section -->
-  <section class="py-20 patriot-gradient text-white relative overflow-hidden">
-    <div class="pattern-dots absolute inset-0 opacity-30"></div>
+  <section class="py-24 relative overflow-hidden bg-gradient-to-br from-[#2c3e50] via-[#34495e] to-[#2c3e50]">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, currentColor 2px, currentColor 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, currentColor 2px, currentColor 4px); background-size: 40px 40px;"></div>
+    </div>
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-gradient-to-l from-accent/30 to-transparent"></div>
+
     <div class="container mx-auto max-w-7xl px-4 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-          <div
-            class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full"
-          >
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left Content -->
+        <div class="space-y-8">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-3 bg-accent/20 backdrop-blur-sm px-5 py-2.5 rounded-full border border-accent/30">
             <Shield class="w-5 h-5 text-accent" />
-            <span class="font-semibold uppercase tracking-wider text-sm"
-              >Proudly Serving Veterans</span
-            >
+            <span class="font-semibold uppercase tracking-[0.15em] text-sm text-accent">Proudly Serving Veterans</span>
           </div>
 
-          <h2 class="text-shadow">Honoring Those Who Served</h2>
+          <!-- Heading -->
+          <div>
+            <h2 class="text-white text-shadow mb-4">Honoring Those Who Served</h2>
+            <div class="w-20 h-1 bg-gradient-to-r from-accent to-accent/30 rounded-full"></div>
+          </div>
 
-          <p class="text-lg text-white/90 leading-relaxed">
+          <p class="text-lg text-white/80 leading-relaxed">
             As a dedicated advocate for veterans, I specialize in VA home loans
             and understand the unique benefits available to those who've served
             our nation. Let me help you leverage your hard-earned benefits to
             find the perfect home.
           </p>
 
-          <div class="space-y-4">
-            <div
-              class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4"
-            >
-              <CircleCheck class="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <div>
-                <h4 class="font-bold mb-1">VA Loan Expertise</h4>
-                <p class="text-white/80 text-sm">
-                  Navigate the VA loan process with confidence and maximize your
-                  benefits.
-                </p>
+          <!-- Feature Cards - Redesigned -->
+          <div class="space-y-3">
+            <!-- Card 1 -->
+            <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                  <BadgeCheck class="w-6 h-6 text-accent" />
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white mb-1">VA Loan Expertise</h4>
+                  <p class="text-white/70">
+                    Navigate the VA loan process with confidence and maximize your
+                    benefits.
+                  </p>
+                </div>
+              </div>
+              <!-- Decorative corner accent -->
+              <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
               </div>
             </div>
 
-            <div
-              class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4"
-            >
-              <CircleCheck class="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <div>
-                <h4 class="font-bold mb-1">Zero Down Payment Options</h4>
-                <p class="text-white/80 text-sm">
-                  Explore homes with little to no money down through VA
-                  financing.
-                </p>
+            <!-- Card 2 -->
+            <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                  <TrendingUp class="w-6 h-6 text-accent" />
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white mb-1">Zero Down Payment Options</h4>
+                  <p class="text-white/70">
+                    Explore homes with little to no money down through VA
+                    financing.
+                  </p>
+                </div>
+              </div>
+              <!-- Decorative corner accent -->
+              <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
               </div>
             </div>
 
-            <div
-              class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4"
-            >
-              <CircleCheck class="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-              <div>
-                <h4 class="font-bold mb-1">Dedicated Support</h4>
-                <p class="text-white/80 text-sm">
-                  Personalized service that respects and honors your military
-                  background.
-                </p>
+            <!-- Card 3 -->
+            <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                  <Award class="w-6 h-6 text-accent" />
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-bold text-white mb-1">Dedicated Support</h4>
+                  <p class="text-white/70">
+                    Personalized service that respects and honors your military
+                    background.
+                  </p>
+                </div>
+              </div>
+              <!-- Decorative corner accent -->
+              <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
               </div>
             </div>
           </div>
 
-          <a href="/contact" class="btn btn-accent btn-lg inline-flex">
-            Schedule Consultation
-            <Rocket class="w-5 h-5" />
+          <a href="/contact" class="btn btn-accent btn-lg inline-flex mt-4 group">
+            <span>Schedule Consultation</span>
+            <Rocket class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
 
-        <div class="relative">
-          <div class="absolute -inset-4 bg-accent/20 rounded-2xl blur-2xl">
-          </div>
+        <!-- Right Image -->
+        <div class="relative lg:pl-8">
+          <!-- Decorative frame -->
+          <div class="absolute -inset-4 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent rounded-3xl blur-2xl"></div>
+          <div class="absolute -top-6 -left-6 w-24 h-24 border-l-2 border-t-2 border-accent/40 rounded-tl-3xl"></div>
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 border-r-2 border-b-2 border-accent/40 rounded-br-3xl"></div>
+
           <Image
-            src={georgeThumbsUp}
+            src={georgeUpClose}
             alt="George Medairy - Veteran Real Estate Specialist"
-            class="relative rounded-2xl shadow-2xl"
+            class="relative rounded-2xl shadow-2xl veteran-image"
           />
         </div>
       </div>
@@ -370,7 +381,7 @@ const optimizedDelawareRoadMap = await getImage({
   </section>
 
   <!-- Process Section -->
-  <section class="py-20 bg-base-200 pattern-grid process-section">
+  <section class="py-20 pattern-grid process-section" style="background-color: var(--color-section-blue);">
     <div class="container mx-auto max-w-7xl px-4">
       <div class="text-center mb-16 max-w-3xl mx-auto section-header">
         <span class="text-accent font-semibold uppercase tracking-wider text-sm"
@@ -457,78 +468,97 @@ const optimizedDelawareRoadMap = await getImage({
   </section>
 
   <!-- Why Choose Me Section -->
-  <section class="py-20 bg-base-100">
-    <div class="container mx-auto max-w-7xl px-4">
+  <section class="py-20 relative overflow-hidden" style="background: linear-gradient(135deg, #2c4a3e 0%, #3a6250 50%, #2c4a3e 100%);">
+    <!-- Decorative Elements -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Pattern Overlay -->
+    <div
+      class="absolute inset-0 opacity-[0.08] pointer-events-none"
+      style="background-image: radial-gradient(circle, rgba(217,160,91,0.4) 1px, transparent 1px); background-size: 32px 32px;"
+    >
+    </div>
+
+    <div class="container mx-auto max-w-7xl px-4 relative z-10">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
+        <div class="order-2 lg:order-1 relative">
+          <!-- Decorative accent around image -->
+          <div class="absolute -inset-3 bg-gradient-to-br from-accent/30 via-accent/10 to-transparent rounded-3xl blur-xl"></div>
+          <div class="absolute -top-4 -left-4 w-20 h-20 border-l-2 border-t-2 border-accent/50 rounded-tl-2xl"></div>
+          <div class="absolute -bottom-4 -right-4 w-20 h-20 border-r-2 border-b-2 border-accent/50 rounded-br-2xl"></div>
+
           <Image
             src={georgeThumbsUp}
             alt="George Medairy - Trusted Delaware Realtor"
-            class="rounded-2xl shadow-2xl"
+            class="relative rounded-2xl shadow-2xl"
           />
         </div>
 
         <div class="order-1 lg:order-2 space-y-6">
-          <span
-            class="text-accent font-semibold uppercase tracking-wider text-sm"
-            >Why Choose Me</span
-          >
-          <h2>Experience You Can Trust</h2>
+          <div class="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent/30">
+            <Award class="w-4 h-4 text-accent" />
+            <span class="text-accent font-semibold uppercase tracking-wider text-sm">Why Choose Me</span>
+          </div>
 
-          <p class="text-lg text-base-content/70 leading-relaxed">
-            With over 15 years of experience in Delaware real estate, I've built
-            a reputation on integrity, local expertise, and delivering results
-            that exceed expectations.
+          <h2 class="text-white text-shadow">Commitment You Can Trust</h2>
+
+          <p class="text-lg text-white/90 leading-relaxed">
+            As a dedicated Delaware real estate professional, I bring fresh
+            energy, modern marketing strategies, and unwavering commitment to
+            helping you achieve your real estate goals.
           </p>
 
           <div class="space-y-4">
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div
-                class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1"
+                class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1 border border-accent/30"
               >
-                <CircleCheck class="w-6 h-6 text-primary" />
+                <CircleCheck class="w-6 h-6 text-accent" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Deep Local Knowledge</h4>
-                <p class="text-base-content/70">
+                <h4 class="font-bold mb-1 text-white">Deep Local Knowledge</h4>
+                <p class="text-white/80 text-sm">
                   Extensive understanding of Delaware neighborhoods, schools,
                   and market trends.
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div
-                class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-1"
+                class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1 border border-accent/30"
               >
-                <CircleCheck class="w-6 h-6 text-secondary" />
+                <CircleCheck class="w-6 h-6 text-accent" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Personalized Approach</h4>
-                <p class="text-base-content/70">
+                <h4 class="font-bold mb-1 text-white">Personalized Approach</h4>
+                <p class="text-white/80 text-sm">
                   Every client is unique. I tailor my strategy to your specific
                   goals and timeline.
                 </p>
               </div>
             </div>
 
-            <div class="flex items-start gap-4">
+            <div class="flex items-start gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300">
               <div
-                class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1"
+                class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1 border border-accent/30"
               >
                 <CircleCheck class="w-6 h-6 text-accent" />
               </div>
               <div>
-                <h4 class="font-bold mb-1">Proven Track Record</h4>
-                <p class="text-base-content/70">
-                  500+ satisfied families and over $50M in successful
-                  transactions.
+                <h4 class="font-bold mb-1 text-white">Client-Focused Dedication</h4>
+                <p class="text-white/80 text-sm">
+                  Your success is my priority. I'm committed to providing
+                  exceptional service and being available whenever you need me.
                 </p>
               </div>
             </div>
           </div>
 
-          <a href="/about" class="btn btn-secondary inline-flex">
+          <a href="/about" class="btn btn-accent inline-flex">
             Learn More About Me
           </a>
         </div>
@@ -538,18 +568,19 @@ const optimizedDelawareRoadMap = await getImage({
 
   <!-- CTA Section -->
   <section
-    class="py-20 bg-primary text-primary-content relative overflow-hidden"
+    class="py-20 relative overflow-hidden"
+    style="background-color: var(--color-section-cream);"
   >
     <div
-      class="absolute inset-0 opacity-20"
+      class="absolute inset-0 opacity-10"
       style={`background-image: url(${optimizedDelawareRoadMap.src}); background-size: cover; background-position: center;`}
     >
     </div>
     <div class="container mx-auto max-w-4xl px-4 text-center relative z-10">
-      <h2 class="text-white mb-6 text-shadow">
+      <h2 class="mb-6">
         Ready to Find Your Dream Home?
       </h2>
-      <p class="text-xl text-white/90 mb-8 text-shadow-sm max-w-2xl mx-auto">
+      <p class="text-xl text-base-content/80 mb-8 max-w-2xl mx-auto">
         Whether you're buying, selling, or just exploring your options, I'm here
         to help. Let's start a conversation about your real estate goals today.
       </p>

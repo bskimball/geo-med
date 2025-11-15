@@ -28,35 +28,46 @@ const optimizedIconBackground = await getImage({
   description="Meet George Medairy, your dedicated Delaware real estate agent specializing in residential properties and VA loans. Over 15 years of trusted service."
 >
   <div class="min-h-screen">
-    <header class="patriot-gradient shadow-xl text-primary-content">
-      <Navbar />
-    </header>
-
     {/* Hero Section */}
-    <section class="patriot-gradient text-white py-20 relative overflow-hidden">
-      <div class="pattern-dots absolute inset-0 opacity-20"></div>
-      <div class="container max-w-7xl mx-auto px-4 relative z-10">
-        <div class="text-center max-w-3xl mx-auto">
-          <div
-            class="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
-          >
-            <Shield class="w-5 h-5 text-accent" />
-            <span class="text-sm font-semibold uppercase tracking-wider"
-              >Delaware Real Estate Expert</span
-            >
+    <div class="relative h-[60vh] min-h-[500px] overflow-hidden">
+      <!-- Background Image -->
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style={`background-image: url(${optimizedIconBackground.src});`}
+      >
+      </div>
+      <div class="absolute inset-0 hero-gradient"></div>
+
+      <!-- Navbar -->
+      <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20">
+        <Navbar />
+      </header>
+
+      <!-- Hero Content -->
+      <div class="relative h-[calc(60vh-5rem)] min-h-[420px]">
+        <div class="relative z-10 h-full">
+          <div class="container mx-auto max-w-7xl px-4 h-full flex items-center">
+            <div class="w-full max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up">
+              <div class="inline-block">
+                <span class="badge-veteran">
+                  <Shield class="w-4 h-4" />
+                  Delaware Real Estate Expert
+                </span>
+              </div>
+              <h1 class="text-white text-shadow-lg">About George Medairy</h1>
+              <p class="text-xl text-white/90 text-shadow leading-relaxed">
+                Your dedicated real estate partner in Delaware, committed to serving
+                residential buyers, sellers, and honoring those who've served our
+                nation.
+              </p>
+            </div>
           </div>
-          <h1 class="mb-6 text-shadow-lg">About George Medairy</h1>
-          <p class="text-xl text-white/90 text-shadow">
-            Your dedicated real estate partner in Delaware, committed to serving
-            residential buyers, sellers, and honoring those who've served our
-            nation.
-          </p>
         </div>
       </div>
-    </section>
+    </div>
 
     {/* Stats Section */}
-    <section class="bg-base-200 py-12 border-y border-base-300">
+    <section class="py-12 border-y border-base-300" style="background-color: var(--color-section-cream);">
       <div class="container max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div class="space-y-2">
@@ -64,10 +75,10 @@ const optimizedIconBackground = await getImage({
               class="text-4xl font-bold text-primary"
               style="font-family: var(--font-serif);"
             >
-              15+
+              Fully
             </div>
             <div class="text-sm uppercase tracking-wider text-base-content/70">
-              Years Experience
+              Licensed & Ready
             </div>
           </div>
           <div class="space-y-2">
@@ -75,10 +86,10 @@ const optimizedIconBackground = await getImage({
               class="text-4xl font-bold text-secondary"
               style="font-family: var(--font-serif);"
             >
-              500+
+              24/7
             </div>
             <div class="text-sm uppercase tracking-wider text-base-content/70">
-              Families Served
+              Availability
             </div>
           </div>
           <div class="space-y-2">
@@ -86,10 +97,10 @@ const optimizedIconBackground = await getImage({
               class="text-4xl font-bold text-accent"
               style="font-family: var(--font-serif);"
             >
-              $50M+
+              100%
             </div>
             <div class="text-sm uppercase tracking-wider text-base-content/70">
-              In Sales
+              Client Focused
             </div>
           </div>
           <div class="space-y-2">
@@ -97,10 +108,10 @@ const optimizedIconBackground = await getImage({
               class="text-4xl font-bold text-primary"
               style="font-family: var(--font-serif);"
             >
-              100%
+              Local
             </div>
             <div class="text-sm uppercase tracking-wider text-base-content/70">
-              Dedication
+              Delaware Expert
             </div>
           </div>
         </div>
@@ -108,7 +119,7 @@ const optimizedIconBackground = await getImage({
     </section>
 
     {/* My Story Section */}
-    <section class="py-20 bg-base-100">
+    <section class="py-20" style="background-color: var(--color-section-light);">
       <div class="container max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div class="order-2 lg:order-1">
@@ -127,21 +138,23 @@ const optimizedIconBackground = await getImage({
             <h2>Helping Delawareans Find Home</h2>
             <div class="space-y-4 text-lg text-base-content/80 leading-relaxed">
               <p>
-                For over 15 years, I've had the privilege of helping families
-                across Delaware find their perfect home. Real estate isn't just
+                Real estate is my passion, and helping families find their
+                perfect home is what drives me every day. Real estate isn't just
                 about properties—it's about people, dreams, and new beginnings.
               </p>
               <p>
-                What started as a passion for helping others has grown into a
-                career built on trust, integrity, and deep local expertise. I
-                understand the Delaware market inside and out—from the beaches
-                to the suburbs, from first-time buyers to growing families.
+                As a lifelong Delaware resident, I bring a deep understanding of
+                our local communities—from the beaches to the suburbs, the
+                hidden gems and the up-and-coming neighborhoods. My dedication
+                to staying current with market trends, combined with genuine
+                care for each client's unique needs, means I'm fully committed
+                to making your real estate journey smooth and successful.
               </p>
               <p>
-                I'm particularly proud to serve our veterans, helping them
-                navigate VA loans and leverage the benefits they've earned
+                I'm particularly passionate about serving our veterans, helping
+                them navigate VA loans and leverage the benefits they've earned
                 through their service. It's my honor to give back to those
-                who've given so much.
+                who've given so much for our country.
               </p>
             </div>
 
@@ -165,7 +178,7 @@ const optimizedIconBackground = await getImage({
     </section>
 
     {/* Values Section */}
-    <section class="py-20 bg-base-200 pattern-grid">
+    <section class="py-20 pattern-grid" style="background-color: var(--color-section-sage);">
       <div class="container max-w-7xl mx-auto px-4">
         <div class="text-center mb-16 max-w-3xl mx-auto">
           <span
@@ -230,92 +243,124 @@ const optimizedIconBackground = await getImage({
     </section>
 
     {/* Why Choose Me Section */}
-    <section class="py-20 bg-base-100">
-      <div class="container max-w-7xl mx-auto px-4">
+    <section class="py-24 relative overflow-hidden bg-gradient-to-br from-[#2c3e50] via-[#34495e] to-[#2c3e50]">
+      <!-- Decorative background elements -->
+      <div class="absolute inset-0 opacity-[0.03]">
+        <div class="absolute inset-0" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, currentColor 2px, currentColor 4px), repeating-linear-gradient(90deg, transparent, transparent 2px, currentColor 2px, currentColor 4px); background-size: 40px 40px;"></div>
+      </div>
+      <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-gradient-to-l from-accent/30 to-transparent"></div>
+
+      <div class="container max-w-7xl mx-auto px-4 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="space-y-6">
-            <span
-              class="text-accent font-semibold uppercase tracking-wider text-sm"
-              >Why Choose Me</span
-            >
-            <h2>Experience That Makes the Difference</h2>
-            <p class="text-lg text-base-content/70 leading-relaxed">
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-3 bg-accent/20 backdrop-blur-sm px-5 py-2.5 rounded-full border border-accent/30">
+              <Star class="w-5 h-5 text-accent" />
+              <span class="font-semibold uppercase tracking-[0.15em] text-sm text-accent">Why Choose Me</span>
+            </div>
+
+            <div>
+              <h2 class="text-white text-shadow mb-4">Experience That Makes the Difference</h2>
+              <div class="w-20 h-1 bg-gradient-to-r from-accent to-accent/30 rounded-full"></div>
+            </div>
+
+            <p class="text-lg text-white/80 leading-relaxed">
               In a market this competitive, you need an agent who knows Delaware
               inside and out—someone who can anticipate challenges and turn them
               into opportunities.
             </p>
 
-            <div class="space-y-4">
-              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
-                <div
-                  class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <Home class="w-6 h-6 text-primary" />
+            <div class="space-y-3">
+              <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                    <Home class="w-6 h-6 text-accent" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-white mb-1">Deep Local Knowledge</h4>
+                    <p class="text-white/70 text-sm">
+                      15+ years of Delaware market expertise. I know the
+                      neighborhoods, schools, market trends, and hidden gems that
+                      make each area special.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-bold mb-1">Deep Local Knowledge</h4>
-                  <p class="text-base-content/70 text-sm">
-                    15+ years of Delaware market expertise. I know the
-                    neighborhoods, schools, market trends, and hidden gems that
-                    make each area special.
-                  </p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
-                <div
-                  class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <Shield class="w-6 h-6 text-secondary" />
-                </div>
-                <div>
-                  <h4 class="font-bold mb-1">VA Loan Specialist</h4>
-                  <p class="text-base-content/70 text-sm">
-                    Dedicated expertise in helping veterans navigate VA loans
-                    and maximize their hard-earned benefits with zero-down
-                    payment options.
-                  </p>
+                <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                  <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
                 </div>
               </div>
 
-              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
-                <div
-                  class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <Users class="w-6 h-6 text-accent" />
+              <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                    <Shield class="w-6 h-6 text-accent" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-white mb-1">VA Loan Specialist</h4>
+                    <p class="text-white/70 text-sm">
+                      Dedicated expertise in helping veterans navigate VA loans
+                      and maximize their hard-earned benefits with zero-down
+                      payment options.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-bold mb-1">Personalized Strategy</h4>
-                  <p class="text-base-content/70 text-sm">
-                    No cookie-cutter approaches. Every client gets a custom
-                    strategy aligned with their unique goals, timeline, and
-                    budget.
-                  </p>
+                <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                  <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
                 </div>
               </div>
 
-              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
-                <div
-                  class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1"
-                >
-                  <TrendingUp class="w-6 h-6 text-primary" />
+              <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                    <Users class="w-6 h-6 text-accent" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-white mb-1">Personalized Strategy</h4>
+                    <p class="text-white/70 text-sm">
+                      No cookie-cutter approaches. Every client gets a custom
+                      strategy aligned with their unique goals, timeline, and
+                      budget.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-bold mb-1">Proven Track Record</h4>
-                  <p class="text-base-content/70 text-sm">
-                    500+ satisfied families, $50M+ in successful transactions,
-                    and a reputation built on results that exceed expectations.
-                  </p>
+                <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                  <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
+                </div>
+              </div>
+
+              <div class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500">
+                <div class="flex items-start gap-4">
+                  <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500">
+                    <TrendingUp class="w-6 h-6 text-accent" />
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-bold text-white mb-1">Proven Track Record</h4>
+                    <p class="text-white/70 text-sm">
+                      500+ satisfied families, $50M+ in successful transactions,
+                      and a reputation built on results that exceed expectations.
+                    </p>
+                  </div>
+                </div>
+                <div class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"></div>
+                  <div class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
+          <div class="relative lg:pl-8">
+            <!-- Decorative frame -->
+            <div class="absolute -inset-4 bg-gradient-to-br from-accent/20 via-accent/5 to-transparent rounded-3xl blur-2xl"></div>
+            <div class="absolute -top-6 -left-6 w-24 h-24 border-l-2 border-t-2 border-accent/40 rounded-tl-3xl"></div>
+            <div class="absolute -bottom-6 -right-6 w-24 h-24 border-r-2 border-b-2 border-accent/40 rounded-br-3xl"></div>
+
             <Image
               src={georgeThumbsUp}
               alt="George Medairy - Trusted Delaware Realtor"
-              class="rounded-2xl shadow-2xl"
+              class="relative rounded-2xl shadow-2xl"
             />
           </div>
         </div>
@@ -323,11 +368,11 @@ const optimizedIconBackground = await getImage({
     </section>
 
     {/* Call to Action Section */}
-    <section class="py-20 patriot-gradient text-white relative overflow-hidden">
-      <div class="pattern-dots absolute inset-0 opacity-20"></div>
+    <section class="py-20 relative overflow-hidden" style="background-color: var(--color-section-cream);">
+      <div class="pattern-dots absolute inset-0 opacity-10"></div>
       <div class="container mx-auto max-w-4xl px-4 text-center relative z-10">
-        <h2 class="mb-6 text-shadow">Let's Work Together</h2>
-        <p class="text-xl text-white/90 mb-8 text-shadow-sm max-w-2xl mx-auto">
+        <h2 class="mb-6">Let's Work Together</h2>
+        <p class="text-xl text-base-content/80 mb-8 max-w-2xl mx-auto">
           Whether you're buying your first home, selling a property, or helping
           a veteran find their dream home—I'm here to make it happen.
         </p>

@@ -6,8 +6,19 @@ let date = new Date();
 let year = date.getFullYear();
 ---
 
-<footer class="bg-secondary text-secondary-content">
-  <div class="container mx-auto max-w-7xl px-4">
+<footer
+  class="relative text-white overflow-hidden border-t-4 border-primary"
+  style="background: linear-gradient(45deg, #2c4a3e 0%, #3a6250 35%, #a85d44 100%);"
+>
+
+  <!-- Dot Pattern Overlay -->
+  <div
+    class="absolute inset-0 opacity-20 pointer-events-none"
+    style="background-image: radial-gradient(circle, rgba(217,160,91,0.3) 1px, transparent 1px); background-size: 24px 24px;"
+  >
+  </div>
+
+  <div class="container mx-auto max-w-7xl px-4 relative z-10">
     <!-- Main Footer Content -->
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16 border-b border-white/10"
@@ -20,7 +31,7 @@ let year = date.getFullYear();
         >
           George Medairy
         </h3>
-        <p class="text-secondary-content/80 leading-relaxed">
+        <p class="text-white/80 leading-relaxed">
           Your trusted Delaware real estate expert serving residential buyers,
           sellers, and veterans. Helping you find your place to call home.
         </p>
@@ -37,7 +48,7 @@ let year = date.getFullYear();
       <!-- Quick Links -->
       <div class="space-y-4">
         <h4
-          class="font-bold text-xl text-accent uppercase tracking-wider"
+          class="font-bold text-accent uppercase tracking-wider"
           style="font-family: var(--font-sans);"
         >
           Quick Links
@@ -46,7 +57,7 @@ let year = date.getFullYear();
           <li>
             <a
               href="/"
-              class="text-secondary-content/80 hover:text-accent transition-colors"
+              class="text-white/80 hover:text-accent transition-colors"
             >
               Home
             </a>
@@ -54,7 +65,7 @@ let year = date.getFullYear();
           <li>
             <a
               href="/about"
-              class="text-secondary-content/80 hover:text-accent transition-colors"
+              class="text-white/80 hover:text-accent transition-colors"
             >
               About Me
             </a>
@@ -62,7 +73,7 @@ let year = date.getFullYear();
           <li>
             <a
               href="/explore"
-              class="text-secondary-content/80 hover:text-accent transition-colors"
+              class="text-white/80 hover:text-accent transition-colors"
             >
               Explore Properties
             </a>
@@ -70,7 +81,7 @@ let year = date.getFullYear();
           <li>
             <a
               href="/contact"
-              class="text-secondary-content/80 hover:text-accent transition-colors"
+              class="text-white/80 hover:text-accent transition-colors"
             >
               Contact
             </a>
@@ -81,24 +92,24 @@ let year = date.getFullYear();
       <!-- Services -->
       <div class="space-y-4">
         <h4
-          class="font-bold text-xl text-accent uppercase tracking-wider"
+          class="font-bold text-accent uppercase tracking-wider"
           style="font-family: var(--font-sans);"
         >
           Services
         </h4>
         <ul class="space-y-3">
-          <li class="text-secondary-content/80">Residential Sales</li>
-          <li class="text-secondary-content/80">Property Listings</li>
-          <li class="text-secondary-content/80">VA Loan Assistance</li>
-          <li class="text-secondary-content/80">First-Time Buyer Support</li>
-          <li class="text-secondary-content/80">Market Analysis</li>
+          <li class="text-white/80">Residential Sales</li>
+          <li class="text-white/80">Property Listings</li>
+          <li class="text-white/80">VA Loan Assistance</li>
+          <li class="text-white/80">First-Time Buyer Support</li>
+          <li class="text-white/80">Market Analysis</li>
         </ul>
       </div>
 
       <!-- Contact Info -->
       <div class="space-y-4">
         <h4
-          class="font-bold text-xl text-accent uppercase tracking-wider"
+          class="font-bold text-accent uppercase tracking-wider"
           style="font-family: var(--font-sans);"
         >
           Get In Touch
@@ -106,7 +117,7 @@ let year = date.getFullYear();
         <div class="space-y-3">
           <a
             href="tel:+18149312411"
-            class="flex items-center gap-3 text-secondary-content/80 hover:text-accent transition-colors group"
+            class="flex items-center gap-3 text-white/80 hover:text-accent transition-colors group"
           >
             <div
               class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors"
@@ -118,7 +129,7 @@ let year = date.getFullYear();
 
           <a
             href="mailto:george@medairyrealestate.com"
-            class="flex items-center gap-3 text-secondary-content/80 hover:text-accent transition-colors group"
+            class="flex items-center gap-3 text-white/80 hover:text-accent transition-colors group"
           >
             <div
               class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors"
@@ -128,7 +139,7 @@ let year = date.getFullYear();
             <span class="break-all">george@medairyrealestate.com</span>
           </a>
 
-          <div class="flex items-center gap-3 text-secondary-content/80">
+          <div class="flex items-center gap-3 text-white/80">
             <div
               class="w-10 h-10 rounded-lg bg-accent/20 flex items-center justify-center"
             >
@@ -143,23 +154,23 @@ let year = date.getFullYear();
     <!-- Bottom Bar -->
     <div class="py-8">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-secondary-content/70">
+        <p class="text-white/70">
           &copy; {year} George Medairy Real Estate. All rights reserved.
         </p>
 
         <div class="flex items-center gap-4">
-          <span class="text-secondary-content/70">Follow me:</span>
+          <span class="text-white/70">Follow me:</span>
           <div class="flex gap-3">
             <a
               href="#"
-              class="w-11 h-11 rounded-lg bg-white/10 hover:bg-accent/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 fill-secondary-content hover:fill-accent"
+              class="w-11 h-11 rounded-lg bg-white/10 hover:bg-accent/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 fill-white hover:fill-accent"
               aria-label="Facebook"
             >
               <div class="w-5 h-5" set:html={siFacebook.svg} />
             </a>
             <a
               href="#"
-              class="w-11 h-11 rounded-lg bg-white/10 hover:bg-accent/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 fill-secondary-content hover:fill-accent"
+              class="w-11 h-11 rounded-lg bg-white/10 hover:bg-accent/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:-translate-y-1 fill-white hover:fill-accent"
               aria-label="Instagram"
             >
               <div class="w-5 h-5" set:html={siInstagram.svg} />
