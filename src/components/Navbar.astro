@@ -1,72 +1,130 @@
 ---
-import { Menu } from "@lucide/astro";
+import { Menu, Phone } from '@lucide/astro';
 ---
 
-<div class="navbar container mx-auto max-w-7xl px-0">
+<nav class="navbar container mx-auto max-w-7xl px-4 py-4">
   <div class="navbar-start">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <Menu />
+      <div
+        tabindex="0"
+        role="button"
+        class="btn btn-ghost lg:hidden text-primary-content hover:bg-white/10"
+      >
+        <Menu class="w-6 h-6" />
       </div>
       <ul
-        class="menu menu-sm dropdown-content bg-base-100 text-base-content rounded-box z-1 mt-3 w-52 p-2 shadow"
+        class="menu menu-sm dropdown-content bg-white text-base-content rounded-xl z-50 mt-3 w-56 p-3 shadow-2xl border border-base-300"
       >
-        <li><a href="/about">About us</a></li>
-        <li><a href="/explore">Explore Homes</a></li>
         <li>
-          <div>Delaware Beach Cams</div>
-          <ul>
-            <li>
-              <a
-                href="http://www.rehobothbeachcam.com/"
-                target="_blank"
-                rel="noopener noreferrer">Rehoboth Beach</a
-              >
-            </li>
-            <li>
-              <a
-                href="http://www.bethanycam.com/"
-                target="_blank"
-                rel="noopener noreferrer">Bethany Beach</a
-              >
-            </li>
-          </ul>
+          <a
+            href="/about"
+            class="rounded-lg hover:bg-primary/10 hover:text-primary">About</a
+          >
         </li>
         <li>
-          <a href="/contact">Contact us</a>
+          <a
+            href="/explore"
+            class="rounded-lg hover:bg-primary/10 hover:text-primary"
+          >
+            Explore Homes
+          </a>
+        </li>
+        <li>
+          <details>
+            <summary class="rounded-lg hover:bg-primary/10 hover:text-primary"
+              >Beach Cams</summary
+            >
+            <ul class="bg-base-200 rounded-lg">
+              <li>
+                <a
+                  href="http://www.rehobothbeachcam.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg hover:bg-primary/10">Rehoboth Beach</a
+                >
+              </li>
+              <li>
+                <a
+                  href="http://www.bethanycam.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="rounded-lg hover:bg-primary/10">Bethany Beach</a
+                >
+              </li>
+            </ul>
+          </details>
+        </li>
+        <li class="mt-2">
+          <a href="/contact" class="btn btn-secondary btn-sm w-full">
+            <Phone class="w-4 h-4" />
+            Contact
+          </a>
         </li>
       </ul>
     </div>
-    <a class="text-xl font-semibold" href="/">George Medairy</a>
+    <a
+      class="text-2xl font-bold text-primary-content hover:text-accent transition-colors"
+      href="/"
+      style="font-family: var(--font-serif);"
+    >
+      George Medairy
+    </a>
   </div>
   <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal items-center px-1">
-      <li><a href="/about">About us</a></li>
-      <li><a href="/explore">Explore Homes</a></li>
+    <ul class="menu menu-horizontal items-center gap-2 px-1">
+      <li>
+        <a
+          href="/about"
+          class="text-primary-content hover:text-accent transition-colors font-medium"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          href="/explore"
+          class="text-primary-content hover:text-accent transition-colors font-medium"
+        >
+          Explore Homes
+        </a>
+      </li>
       <li class="relative z-10">
         <details>
-          <summary>Delaware Beach Cams</summary>
-          <ul class="text-base-content">
+          <summary
+            class="text-primary-content hover:text-accent transition-colors font-medium cursor-pointer"
+          >
+            Beach Cams
+          </summary>
+          <ul
+            class="bg-white text-base-content rounded-xl shadow-2xl border border-base-300 p-2 min-w-[200px]"
+          >
             <li>
               <a
                 href="http://www.rehobothbeachcam.com/"
                 target="_blank"
-                rel="noopener noreferrer">Rehoboth Beach</a
+                rel="noopener noreferrer"
+                class="rounded-lg hover:bg-primary/10 hover:text-primary"
+                >Rehoboth Beach</a
               >
             </li>
             <li>
               <a
                 href="http://www.bethanycam.com/"
                 target="_blank"
-                rel="noopener noreferrer">Bethany Beach</a
+                rel="noopener noreferrer"
+                class="rounded-lg hover:bg-primary/10 hover:text-primary"
+                >Bethany Beach</a
               >
             </li>
           </ul>
         </details>
       </li>
-      <li>
-        <a href="/contact" class="btn btn-secondary">Contact us</a>
+      <li class="ml-4">
+        <a href="/contact" class="btn btn-accent">
+          <Phone class="w-4 h-4" />
+          Contact
+        </a>
       </li>
     </ul>
   </div>
-</div>
+</nav>

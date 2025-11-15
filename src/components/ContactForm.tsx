@@ -6,26 +6,20 @@ import {
   Input,
   Button,
   FieldError,
-} from "react-aria-components";
-import { useState } from "react";
+} from 'react-aria-components';
+import { useState } from 'react';
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitMessage("");
+    setSubmitMessage('');
 
+    // Collect form data (currently used for logging / future API integration)
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      subject: formData.get("subject"),
-      message: formData.get("message"),
-    };
 
     try {
       // Simulate API call
@@ -35,9 +29,17 @@ export default function ContactForm() {
         "Thank you for your message! We'll get back to you soon."
       );
       (e.target as HTMLFormElement).reset();
+      console.log('Contact form submitted', {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+      });
     } catch (error) {
+      console.error('Error submitting contact form', error);
       setSubmitMessage(
-        "There was an error sending your message. Please try again."
+        'There was an error sending your message. Please try again.'
       );
     } finally {
       setIsSubmitting(false);
@@ -121,7 +123,7 @@ export default function ContactForm() {
                 <span>Sending...</span>
               </div>
             ) : (
-              "Send Message"
+              'Send Message'
             )}
           </Button>
 
@@ -129,9 +131,9 @@ export default function ContactForm() {
           {submitMessage && (
             <div
               className={`alert ${
-                submitMessage.includes("Thank you")
-                  ? "alert-success"
-                  : "alert-error"
+                submitMessage.includes('Thank you')
+                  ? 'alert-success'
+                  : 'alert-error'
               }`}
             >
               <span>{submitMessage}</span>

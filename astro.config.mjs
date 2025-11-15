@@ -9,8 +9,8 @@ import react from '@astrojs/react';
 export default defineConfig({
   // adapter: cloudflare()
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
 
-  integrations: [react()]
+  integrations: [react()],
 });

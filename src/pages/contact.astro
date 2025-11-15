@@ -1,144 +1,370 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import ContactForm from "../components/ContactForm";
-import LoanCalculator from "../components/LoanCalculator";
-import { Mail, Phone, MapPin, Clock } from "@lucide/astro";
-import georgeThumbsUp from "../assets/george-thumbs-up.jpg";
-import iconBackground from "../assets/icon-background.png";
-import { Image, getImage } from "astro:assets";
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactForm from '../components/ContactForm';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  MessageCircle,
+  Shield,
+  Award,
+} from '@lucide/astro';
+import georgeThumbsUp from '../assets/george-thumbs-up.jpg';
+import iconBackground from '../assets/icon-background.png';
+import { Image, getImage } from 'astro:assets';
 
 const optimizedIconBackground = await getImage({
   src: iconBackground,
-  format: "webp",
+  format: 'webp',
 });
 ---
 
 <Layout
-  title="Contact - George Medairy"
-  description="Get in touch with George Medairy, your trusted real estate agent in Delaware. Contact us today to discuss your real estate needs."
+  title="Contact George Medairy - Delaware Real Estate Agent"
+  description="Ready to find your dream home in Delaware? Contact George Medairy today for expert real estate guidance. Serving residential buyers and veterans."
 >
   <div class="min-h-screen">
-    <header class="bg-primary shadow-xl text-primary-content">
+    <header class="patriot-gradient shadow-xl text-primary-content">
       <Navbar />
     </header>
 
     {/* Hero Section */}
-    <section class="bg-primary text-primary-content py-16">
-      <div class="container max-w-7xl mx-auto px-4">
-        <div class="text-center">
-          <h1 class="text-5xl font-bold mb-4 text-primary-content">
-            Get In Touch
-          </h1>
-          <p class="text-xl text-primary-content/70 max-w-2xl mx-auto">
-            Ready to make your real estate dreams come true? Let's start the
-            conversation today.
+    <section class="patriot-gradient text-white py-20 relative overflow-hidden">
+      <div class="pattern-dots absolute inset-0 opacity-20"></div>
+      <div class="container max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div
+            class="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+          >
+            <MessageCircle class="w-5 h-5 text-accent" />
+            <span class="text-sm font-semibold uppercase tracking-wider"
+              >Let's Connect</span
+            >
+          </div>
+          <h1 class="mb-6 text-shadow-lg">Ready to Find Your Home?</h1>
+          <p class="text-xl text-white/90 text-shadow">
+            Whether you're buying, selling, or just have questions about the
+            Delaware real estate market— I'm here to help. Let's start a
+            conversation about your goals.
           </p>
         </div>
       </div>
     </section>
 
-    {/* Contact Section */}
-    <div class="bg-base-300">
-      <div class="container max-w-7xl mx-auto py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Contact Form Section */}
-          <div class="lg:col-span-3 bg-white rounded-2xl shadow-xl p-8">
-            <div class="mb-8">
-              <h2 class="text-3xl font-bold text-base-content mb-2">
-                Send a Message
-              </h2>
-              <p class="text-base-content/70">
-                Ready to start your real estate journey? Let's discuss your
-                needs.
+    {/* Quick Contact Options */}
+    <section class="bg-base-200 py-8 border-y border-base-300">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a
+            href="tel:+18149312411"
+            class="flex items-center gap-4 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+            >
+              <Phone class="w-7 h-7 text-primary" />
+            </div>
+            <div>
+              <div
+                class="text-sm text-base-content/70 uppercase tracking-wider font-semibold"
+              >
+                Call Now
+              </div>
+              <div class="text-lg font-bold text-primary">(814) 931-2411</div>
+            </div>
+          </a>
+
+          <a
+            href="mailto:george@medairyrealestate.com"
+            class="flex items-center gap-4 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors"
+            >
+              <Mail class="w-7 h-7 text-secondary" />
+            </div>
+            <div>
+              <div
+                class="text-sm text-base-content/70 uppercase tracking-wider font-semibold"
+              >
+                Email Me
+              </div>
+              <div class="text-sm font-bold text-secondary break-all">
+                george@medairyrealestate.com
+              </div>
+            </div>
+          </a>
+
+          <div
+            class="flex items-center gap-4 bg-white rounded-xl p-6 shadow-md"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center"
+            >
+              <Clock class="w-7 h-7 text-accent" />
+            </div>
+            <div>
+              <div
+                class="text-sm text-base-content/70 uppercase tracking-wider font-semibold"
+              >
+                Available
+              </div>
+              <div class="text-lg font-bold text-accent">Mon-Sat, 9AM-7PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Main Contact Section */}
+    <section class="py-20 bg-base-100">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Contact Form */}
+          <div class="lg:col-span-2">
+            <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+              <div class="mb-8">
+                <span
+                  class="text-accent font-semibold uppercase tracking-wider text-sm"
+                  >Get In Touch</span
+                >
+                <h2 class="mt-4 mb-4">Send Me a Message</h2>
+                <p class="text-base-content/70 text-lg">
+                  Fill out the form below and I'll get back to you within 24
+                  hours. Or call/email me directly for immediate assistance.
+                </p>
+              </div>
+              <ContactForm client:load />
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div class="space-y-8">
+            {/* Agent Card */}
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+              <div class="text-center mb-6">
+                <Image
+                  src={georgeThumbsUp}
+                  alt="George Medairy - Delaware Real Estate Expert"
+                  class="rounded-xl mx-auto shadow-lg object-cover mb-4"
+                />
+                <h3
+                  class="font-bold text-xl"
+                  style="font-family: var(--font-serif);"
+                >
+                  George Medairy
+                </h3>
+                <p class="text-base-content/70 text-sm">
+                  Delaware Real Estate Expert
+                </p>
+              </div>
+
+              <div class="space-y-3">
+                <div
+                  class="flex items-center gap-3 text-sm bg-base-200 rounded-lg p-3"
+                >
+                  <Shield class="w-5 h-5 text-secondary flex-shrink-0" />
+                  <span>Veteran-Friendly Agent</span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-sm bg-base-200 rounded-lg p-3"
+                >
+                  <Award class="w-5 h-5 text-primary flex-shrink-0" />
+                  <span>15+ Years Experience</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+              <h4
+                class="font-bold text-lg mb-6"
+                style="font-family: var(--font-serif);"
+              >
+                Contact Information
+              </h4>
+
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <Phone class="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-base-content/70 uppercase tracking-wider font-semibold mb-1"
+                    >
+                      Phone
+                    </div>
+                    <a
+                      href="tel:+18149312411"
+                      class="text-primary hover:text-primary/75 transition-colors font-medium"
+                    >
+                      (814) 931-2411
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <Mail class="w-5 h-5 text-secondary" />
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-base-content/70 uppercase tracking-wider font-semibold mb-1"
+                    >
+                      Email
+                    </div>
+                    <a
+                      href="mailto:george@medairyrealestate.com"
+                      class="text-secondary hover:text-secondary/75 transition-colors font-medium break-all text-sm"
+                    >
+                      george@medairyrealestate.com
+                    </a>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0"
+                  >
+                    <MapPin class="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-base-content/70 uppercase tracking-wider font-semibold mb-1"
+                    >
+                      Location
+                    </div>
+                    <p class="text-base-content font-medium">Delaware, USA</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-base-300 flex items-center justify-center flex-shrink-0"
+                  >
+                    <Clock class="w-5 h-5 text-base-content" />
+                  </div>
+                  <div>
+                    <div
+                      class="text-xs text-base-content/70 uppercase tracking-wider font-semibold mb-1"
+                    >
+                      Hours
+                    </div>
+                    <p class="text-base-content font-medium">
+                      Mon-Sat, 9AM-7PM
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Why Reach Out */}
+            <div
+              class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl border-2 border-accent/20 p-8"
+            >
+              <h4
+                class="font-bold text-lg mb-4"
+                style="font-family: var(--font-serif);"
+              >
+                Why Reach Out?
+              </h4>
+              <ul class="space-y-3 text-sm">
+                <li class="flex items-start gap-2">
+                  <span class="text-accent mt-1">★</span>
+                  <span class="text-base-content/80"
+                    >Get a free home valuation</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent mt-1">★</span>
+                  <span class="text-base-content/80"
+                    >Learn about VA loan benefits</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent mt-1">★</span>
+                  <span class="text-base-content/80"
+                    >Schedule a property viewing</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent mt-1">★</span>
+                  <span class="text-base-content/80"
+                    >Market insights & analysis</span
+                  >
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-accent mt-1">★</span>
+                  <span class="text-base-content/80"
+                    >First-time buyer guidance</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Trust Section */}
+    <section class="py-16 bg-base-200">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto">
+          <h3
+            class="text-2xl font-bold mb-6"
+            style="font-family: var(--font-serif);"
+          >
+            What Happens After You Reach Out?
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <div
+                class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl font-bold text-primary">1</span>
+              </div>
+              <h4 class="font-bold mb-2">Quick Response</h4>
+              <p class="text-sm text-base-content/70">
+                I'll respond within 24 hours (usually much faster) to schedule a
+                conversation.
               </p>
             </div>
-            <ContactForm client:load />
-          </div>
 
-          {/* Contact Info & Image */}
-          <div
-            class="space-y-8 lg:col-span-2 bg-white rounded-2xl shadow-xl p-8"
-          >
-            <div class="text-center mb-6">
-              <Image
-                src={georgeThumbsUp}
-                alt="George Medairy"
-                class="rounded-xl mx-auto shadow-lg object-cover"
-              />
-              <h3 class="text-2xl font-bold text-gray-800 mt-4">
-                George Medairy
-              </h3>
-              <p class="text-gray-600">Your Trusted Real Estate Partner</p>
-            </div>
-
-            <div class="space-y-4">
-              <div class="flex items-center p-4 bg-primary/10 rounded-lg">
-                <Mail class="w-6 h-6 text-primary mr-3" />
-                <div>
-                  <a
-                    href="mailto:george@medairyrealestate.com"
-                    class="text-primary hover:text-primary/75 transition-colors"
-                  >
-                    george@medairyrealestate.com
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center p-4 bg-secondary/10 rounded-lg">
-                <Phone class="w-6 h-6 text-secondary mr-3" />
-                <div>
-                  <a
-                    href="tel:+18149312411"
-                    class="text-secondary hover:text-secondary/75 transition-colors"
-                  >
-                    (814) 931-2411
-                  </a>
-                </div>
-              </div>
-
-              <div class="flex items-center p-4 bg-accent/10 rounded-lg">
-                <MapPin class="w-6 h-6 text-accent mr-3" />
-                <div>
-                  <p class="text-accent">Delaware, USA</p>
-                </div>
-              </div>
-
-              <div class="flex items-center p-4 bg-base-300 rounded-lg">
-                <Clock class="w-6 h-6 text-base-content mr-3" />
-                <div>
-                  <p class="text-base-content">Mon-Sat, 9AM-7PM</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action Section */}
-      <div class="bg-primary text-primary-content">
-        <div class="container mx-auto max-w-7xl py-16">
-          <div class="bg-primary/50 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Whether you're buying, selling, or just exploring your options,
-              I'm here to help you navigate the real estate market with
-              confidence.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+18149312411" class="btn btn-lg btn-secondary">
-                Call Now
-              </a>
-              <a
-                href="mailto:george@medairyrealestate.com"
-                class="btn btn-lg btn-accent"
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <div
+                class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mx-auto mb-4"
               >
-                Send Email
-              </a>
+                <span class="text-2xl font-bold text-secondary">2</span>
+              </div>
+              <h4 class="font-bold mb-2">Discovery Call</h4>
+              <p class="text-sm text-base-content/70">
+                We'll discuss your goals, timeline, and what you're looking for
+                in detail.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-md">
+              <div
+                class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4"
+              >
+                <span class="text-2xl font-bold text-accent">3</span>
+              </div>
+              <h4 class="font-bold mb-2">Action Plan</h4>
+              <p class="text-sm text-base-content/70">
+                I'll create a personalized strategy to help you achieve your
+                real estate goals.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </Layout>

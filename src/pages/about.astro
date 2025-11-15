@@ -1,235 +1,347 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import { Image, getImage } from "astro:assets";
-import georgeUpClose from "../assets/george-up-close.jpg";
-import georgeThumbsUp from "../assets/george-thumbs-up.jpg";
-import iconBackground from "../assets/icon-background.png";
-import { Heart, Users, Award, Star, CircleCheck } from "@lucide/astro";
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import { Image, getImage } from 'astro:assets';
+import georgeUpClose from '../assets/george-up-close.jpg';
+import georgeThumbsUp from '../assets/george-thumbs-up.jpg';
+import iconBackground from '../assets/icon-background.png';
+import {
+  Heart,
+  Users,
+  Award,
+  Star,
+  CircleCheck,
+  Shield,
+  Home,
+  TrendingUp,
+  Phone,
+} from '@lucide/astro';
 
 const optimizedIconBackground = await getImage({
   src: iconBackground,
-  format: "webp",
+  format: 'webp',
 });
 ---
 
 <Layout
-  title="About - George Medairy"
-  description="Learn more about George Medairy, your dedicated real estate agent in Delaware. Discover our mission and values."
+  title="About George Medairy - Delaware Real Estate Expert & Veteran Advocate"
+  description="Meet George Medairy, your dedicated Delaware real estate agent specializing in residential properties and VA loans. Over 15 years of trusted service."
 >
   <div class="min-h-screen">
-    <header class="bg-primary shadow-xl text-primary-content">
+    <header class="patriot-gradient shadow-xl text-primary-content">
       <Navbar />
     </header>
 
     {/* Hero Section */}
-    <section class="bg-primary text-primary-content py-16">
-      <div class="container max-w-7xl mx-auto text-center">
-        <div>
-          <h1 class="text-5xl font-bold mb-4 text-primary-content">
-            About George Medairy
-          </h1>
-          <p class="text-xl text-primary-content/70 max-w-2xl mx-auto">
-            Your dedicated real estate partner in Delaware, committed to making
-            your property dreams a reality.
+    <section class="patriot-gradient text-white py-20 relative overflow-hidden">
+      <div class="pattern-dots absolute inset-0 opacity-20"></div>
+      <div class="container max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+          <div
+            class="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+          >
+            <Shield class="w-5 h-5 text-accent" />
+            <span class="text-sm font-semibold uppercase tracking-wider"
+              >Delaware Real Estate Expert</span
+            >
+          </div>
+          <h1 class="mb-6 text-shadow-lg">About George Medairy</h1>
+          <p class="text-xl text-white/90 text-shadow">
+            Your dedicated real estate partner in Delaware, committed to serving
+            residential buyers, sellers, and honoring those who've served our
+            nation.
           </p>
         </div>
       </div>
     </section>
 
-    {/* Main Content Section */}
-    <div class="bg-base-300">
-      <div class="container max-w-7xl mx-auto py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div class="bg-white rounded-2xl shadow-xl p-8">
-            <h2 class="text-3xl font-bold text-base-content mb-6">My Story</h2>
-            <div class="space-y-4 text-lg text-base-content/80">
-              <p>
-                George Medairy is a dedicated real estate agent based in
-                Delaware, committed to helping clients achieve their real estate
-                goals. With a deep understanding of the local market and a
-                passion for exceptional service, George is your trusted partner
-                in navigating the complexities of buying, selling, or renting a
-                home.
-              </p>
-              <p>
-                Our mission is to provide personalized, professional guidance
-                throughout the real estate process. We believe in building
-                lasting relationships with our clients, understanding their
-                unique needs, and delivering results that exceed expectations.
-              </p>
+    {/* Stats Section */}
+    <section class="bg-base-200 py-12 border-y border-base-300">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div class="space-y-2">
+            <div
+              class="text-4xl font-bold text-primary"
+              style="font-family: var(--font-serif);"
+            >
+              15+
+            </div>
+            <div class="text-sm uppercase tracking-wider text-base-content/70">
+              Years Experience
             </div>
           </div>
-          <div class="bg-white rounded-2xl shadow-xl">
+          <div class="space-y-2">
+            <div
+              class="text-4xl font-bold text-secondary"
+              style="font-family: var(--font-serif);"
+            >
+              500+
+            </div>
+            <div class="text-sm uppercase tracking-wider text-base-content/70">
+              Families Served
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="text-4xl font-bold text-accent"
+              style="font-family: var(--font-serif);"
+            >
+              $50M+
+            </div>
+            <div class="text-sm uppercase tracking-wider text-base-content/70">
+              In Sales
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="text-4xl font-bold text-primary"
+              style="font-family: var(--font-serif);"
+            >
+              100%
+            </div>
+            <div class="text-sm uppercase tracking-wider text-base-content/70">
+              Dedication
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* My Story Section */}
+    <section class="py-20 bg-base-100">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="order-2 lg:order-1">
             <Image
               src={georgeUpClose}
-              alt="George Medairy"
-              class="w-full rounded-2xl object-cover"
+              alt="George Medairy - Delaware Real Estate Expert"
+              class="rounded-2xl shadow-2xl"
+            />
+          </div>
+
+          <div class="order-1 lg:order-2 space-y-6">
+            <span
+              class="text-accent font-semibold uppercase tracking-wider text-sm"
+              >My Story</span
+            >
+            <h2>Helping Delawareans Find Home</h2>
+            <div class="space-y-4 text-lg text-base-content/80 leading-relaxed">
+              <p>
+                For over 15 years, I've had the privilege of helping families
+                across Delaware find their perfect home. Real estate isn't just
+                about properties—it's about people, dreams, and new beginnings.
+              </p>
+              <p>
+                What started as a passion for helping others has grown into a
+                career built on trust, integrity, and deep local expertise. I
+                understand the Delaware market inside and out—from the beaches
+                to the suburbs, from first-time buyers to growing families.
+              </p>
+              <p>
+                I'm particularly proud to serve our veterans, helping them
+                navigate VA loans and leverage the benefits they've earned
+                through their service. It's my honor to give back to those
+                who've given so much.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <div
+                class="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg"
+              >
+                <Award class="w-5 h-5 text-primary" />
+                <span class="font-semibold text-sm">Licensed Professional</span>
+              </div>
+              <div
+                class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-lg"
+              >
+                <Shield class="w-5 h-5 text-secondary" />
+                <span class="font-semibold text-sm">Veteran Advocate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Values Section */}
+    <section class="py-20 bg-base-200 pattern-grid">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 max-w-3xl mx-auto">
+          <span
+            class="text-accent font-semibold uppercase tracking-wider text-sm"
+            >Core Values</span
+          >
+          <h2 class="mt-4 mb-6">The Principles That Guide Me</h2>
+          <p class="text-lg text-base-content/70">
+            Every client deserves honesty, dedication, and results. These values
+            are the foundation of how I do business.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6"
+            >
+              <Heart class="w-8 h-8 text-primary" />
+            </div>
+            <h3 class="mb-4">Integrity</h3>
+            <p class="text-base-content/70">
+              Honest, transparent communication in every transaction. Your trust
+              is earned through ethical practice and unwavering commitment to
+              doing what's right.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6"
+            >
+              <Users class="w-8 h-8 text-secondary" />
+            </div>
+            <h3 class="mb-4">Client-First Mindset</h3>
+            <p class="text-base-content/70">
+              Your goals become my goals. I listen carefully, understand deeply,
+              and deliver personalized solutions that exceed expectations.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6"
+            >
+              <Award class="w-8 h-8 text-accent" />
+            </div>
+            <h3 class="mb-4">Excellence</h3>
+            <p class="text-base-content/70">
+              Continuous improvement in market knowledge, negotiation skills,
+              and service quality. Settling for "good enough" isn't an option.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Why Choose Me Section */}
+    <section class="py-20 bg-base-100">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-6">
+            <span
+              class="text-accent font-semibold uppercase tracking-wider text-sm"
+              >Why Choose Me</span
+            >
+            <h2>Experience That Makes the Difference</h2>
+            <p class="text-lg text-base-content/70 leading-relaxed">
+              In a market this competitive, you need an agent who knows Delaware
+              inside and out—someone who can anticipate challenges and turn them
+              into opportunities.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <Home class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Deep Local Knowledge</h4>
+                  <p class="text-base-content/70 text-sm">
+                    15+ years of Delaware market expertise. I know the
+                    neighborhoods, schools, market trends, and hidden gems that
+                    make each area special.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
+                <div
+                  class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <Shield class="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">VA Loan Specialist</h4>
+                  <p class="text-base-content/70 text-sm">
+                    Dedicated expertise in helping veterans navigate VA loans
+                    and maximize their hard-earned benefits with zero-down
+                    payment options.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
+                <div
+                  class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <Users class="w-6 h-6 text-accent" />
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Personalized Strategy</h4>
+                  <p class="text-base-content/70 text-sm">
+                    No cookie-cutter approaches. Every client gets a custom
+                    strategy aligned with their unique goals, timeline, and
+                    budget.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 bg-base-200 rounded-xl p-4">
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1"
+                >
+                  <TrendingUp class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h4 class="font-bold mb-1">Proven Track Record</h4>
+                  <p class="text-base-content/70 text-sm">
+                    500+ satisfied families, $50M+ in successful transactions,
+                    and a reputation built on results that exceed expectations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <Image
+              src={georgeThumbsUp}
+              alt="George Medairy - Trusted Delaware Realtor"
+              class="rounded-2xl shadow-2xl"
             />
           </div>
         </div>
-
-        {/* Values Section */}
-        <section class="mb-16">
-          <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-base-content mb-4">
-              Core Values
-            </h2>
-            <p class="text-xl text-base-content/70 max-w-2xl mx-auto">
-              The principles that guide everything we do in real estate
-            </p>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              class="bg-primary text-primary-content rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300"
-            >
-              <div
-                class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <Heart class="w-8 h-8 text-primary-content" />
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Integrity</h3>
-              <p>
-                We uphold the highest ethical standards in all our dealings,
-                ensuring transparency and honesty in every transaction.
-              </p>
-            </div>
-
-            <div
-              class="bg-secondary text-secondary-content rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300"
-            >
-              <div
-                class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <Users class="w-8 h-8 text-secondary-content" />
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Customer Focus</h3>
-              <p>
-                Our clients' needs are at the heart of everything we do. We
-                listen, understand, and deliver personalized solutions.
-              </p>
-            </div>
-
-            <div
-              class="bg-accent text-accent-content rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-all duration-300"
-            >
-              <div
-                class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <Award class="w-8 h-8 text-accent-content" />
-              </div>
-              <h3 class="text-2xl font-bold mb-4">Excellence</h3>
-              <p>
-                We strive for excellence in service and results, continuously
-                improving to exceed expectations.
-              </p>
-            </div>
-          </div>
-        </section>
       </div>
+    </section>
 
-      {/* Services Section with Background */}
-      <div
-        class="bg-base-300 bg-size-[25%] border border-gray-400"
-        style={`background-image: url(${optimizedIconBackground.src});`}
-      >
-        <div class="py-12 bg-base-300/30">
-          <div class="container mx-auto max-w-7xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div class="space-y-6 text-xl">
-                <h2 class="text-4xl font-bold mb-4">Why Choose Me?</h2>
-                <div class="space-y-4">
-                  <div class="flex items-start gap-4">
-                    <CircleCheck
-                      class="w-6 h-6 text-secondary mt-1 flex-shrink-0"
-                    />
-                    <div>
-                      <h4 class="font-semibold text-base-content">
-                        Local Market Expertise
-                      </h4>
-                      <p class="text-base-content/70">
-                        Deep knowledge of Delaware's real estate market trends
-                        and neighborhoods.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <CircleCheck
-                      class="w-6 h-6 text-secondary mt-1 flex-shrink-0"
-                    />
-                    <div>
-                      <h4 class="font-semibold text-base-content">
-                        Personalized Approach
-                      </h4>
-                      <p class="text-base-content/70">
-                        Tailored strategies that align with your unique goals
-                        and timeline.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <CircleCheck
-                      class="w-6 h-6 text-secondary mt-1 flex-shrink-0"
-                    />
-                    <div>
-                      <h4 class="font-semibold text-base-content">
-                        Full-Service Support
-                      </h4>
-                      <p class="text-base-content/70">
-                        From initial consultation to closing day, I'm with you
-                        every step.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start gap-4">
-                    <CircleCheck
-                      class="w-6 h-6 text-secondary mt-1 flex-shrink-0"
-                    />
-                    <div>
-                      <h4 class="font-semibold text-base-content">
-                        Proven Track Record
-                      </h4>
-                      <p class="text-base-content/70">
-                        Consistently delivering results that exceed client
-                        expectations.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <Image
-                  src={georgeThumbsUp}
-                  alt="George Medairy giving thumbs up"
-                  class="rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
+    {/* Call to Action Section */}
+    <section class="py-20 patriot-gradient text-white relative overflow-hidden">
+      <div class="pattern-dots absolute inset-0 opacity-20"></div>
+      <div class="container mx-auto max-w-4xl px-4 text-center relative z-10">
+        <h2 class="mb-6 text-shadow">Let's Work Together</h2>
+        <p class="text-xl text-white/90 mb-8 text-shadow-sm max-w-2xl mx-auto">
+          Whether you're buying your first home, selling a property, or helping
+          a veteran find their dream home—I'm here to make it happen.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn btn-accent btn-lg">
+            <Phone class="w-5 h-5" />
+            Get In Touch
+          </a>
+          <a href="/explore" class="btn btn-secondary btn-lg">
+            <Home class="w-5 h-5" />
+            View Properties
+          </a>
         </div>
       </div>
-
-      {/* Call to Action Section */}
-      <div class="bg-primary text-primary-content">
-        <div class="container mx-auto max-w-7xl py-16">
-          <div class="bg-primary/50 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Work Together?</h2>
-            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss your real estate goals and create a plan to achieve
-              them. Your dream property awaits!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/contact" class="btn btn-lg btn-secondary"
-                >Get In Touch</a
-              >
-              <a href="/explore" class="btn btn-lg btn-accent"
-                >View Properties</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
 </Layout>

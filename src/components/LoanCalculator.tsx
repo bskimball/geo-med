@@ -1,16 +1,5 @@
-import React, { useState } from "react";
-import {
-  Form,
-  TextField,
-  Label,
-  Input,
-  Select,
-  SelectValue,
-  Popover,
-  ListBox,
-  ListBoxItem,
-  Button,
-} from "react-aria-components";
+import React, { useState } from 'react';
+import { Form, TextField, Label, Input } from 'react-aria-components';
 
 const LoanCalculator: React.FC = () => {
   const [homePrice, setHomePrice] = useState(300000);
