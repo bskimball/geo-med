@@ -142,15 +142,16 @@ const schemaJson = JSON.stringify(schemaPayload, null, 2);
   }
   {
     extraMeta.map((meta, index) => (
-      <meta {...meta} key={meta.name ?? meta.property ?? index} />
+      <meta {...meta} data-meta-key={meta.name ?? meta.property ?? index} />
     ))
   }
   <script type="application/ld+json" set:html={schemaJson} />
-  <script
-    astro:if={gaMeasurementId}
-    async
-    src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-  ></script>
-  <script astro:if={gaMeasurementId} set:html={gaInlineScript} />
+  {gaMeasurementId && (
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+    ></script>
+  )}
+  {gaMeasurementId && <script set:html={gaInlineScript} />}
   <ClientRouter />
 </head>
