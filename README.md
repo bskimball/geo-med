@@ -41,6 +41,18 @@ All commands are run from the root of the project, from a terminal:
 | `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## � Environment Variables
+
+Create a `.env` file (you can copy `.env.example` as a starting point) and fill in the required values:
+
+```
+RESEND_API_KEY=your_resend_api_key
+CONTACT_EMAIL=recipient@example.com
+```
+
+- `RESEND_API_KEY` authenticates requests sent through the Resend API.
+- `CONTACT_EMAIL` is the destination for contact form submissions. You can supply a single email address or a comma-separated list if multiple recipients should be notified.
+
+## �👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

@@ -5,25 +5,81 @@ import ContactForm from '../components/ContactForm';
 import {
   Mail,
   Phone,
-  MapPin,
   Clock,
   MessageCircle,
   Shield,
   Award,
 } from '@lucide/astro';
 import georgeThumbsUp from '../assets/george-thumbs-up.jpg';
-import iconBackground from '../assets/icon-background.png';
+import aboutToCall from '../assets/about-to-call.jpg';
 import { Image, getImage } from 'astro:assets';
+import { SITE } from '../config/site';
 
-const optimizedIconBackground = await getImage({
-  src: iconBackground,
+const optimizedAboutToCall = await getImage({
+  src: aboutToCall,
   format: 'webp',
 });
+
+const contactOgImage = await getImage({
+  src: aboutToCall,
+  width: 1200,
+  height: 630,
+  format: 'webp',
+});
+
+const contactStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact George Medairy',
+    url: `${SITE.site}/contact`,
+    description:
+      'Reach out to George Medairy for Delaware real estate guidance, VA loan support, and property consultations.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPoint',
+    telephone: SITE.contact.phone,
+    email: SITE.contact.email,
+    contactType: 'customer service',
+    areaServed: SITE.serviceAreas,
+    availableLanguage: 'English',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE.site,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Contact',
+        item: `${SITE.site}/contact`,
+      },
+    ],
+  },
+];
 ---
 
 <Layout
   title="Contact George Medairy - Delaware Real Estate Agent"
   description="Ready to find your dream home in Delaware? Contact George Medairy today for expert real estate guidance. Serving residential buyers and veterans."
+  keywords={[
+    'contact George Medairy',
+    'Delaware realtor contact',
+    'schedule Delaware home consultation',
+    'speak with VA loan specialist Delaware',
+  ]}
+  image={{
+    src: contactOgImage.src,
+    alt: 'Phone consultation with George Medairy, Delaware real estate agent',
+  }}
+  structuredData={contactStructuredData}
 >
   <div class="min-h-screen">
     {/* Hero Section */}
@@ -31,28 +87,36 @@ const optimizedIconBackground = await getImage({
       <!-- Background Image -->
       <div
         class="absolute inset-0 bg-cover bg-center"
-        style={`background-image: url(${optimizedIconBackground.src});`}
+        style={`background-image: url(${optimizedAboutToCall.src});`}
       >
       </div>
       <div class="absolute inset-0 hero-gradient"></div>
 
       <!-- Navbar -->
-      <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20">
+      <header
+        class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20"
+      >
         <Navbar />
       </header>
 
       <!-- Hero Content -->
       <div class="relative h-[calc(60vh-5rem)] min-h-[420px]">
         <div class="relative z-10 h-full">
-          <div class="container mx-auto max-w-7xl px-4 h-full flex items-center">
-            <div class="w-full max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up">
+          <div
+            class="container mx-auto max-w-7xl px-4 h-full flex items-center"
+          >
+            <div
+              class="w-full max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up"
+            >
               <div class="inline-block">
                 <span class="badge-veteran">
                   <MessageCircle class="w-4 h-4" />
                   Let's Connect
                 </span>
               </div>
-              <h1 class="text-white text-shadow-lg">Ready to Find Your Home?</h1>
+              <h1 class="text-white text-shadow-lg">
+                Ready to Find Your Home?
+              </h1>
               <p class="text-xl text-white/90 text-shadow leading-relaxed">
                 Whether you're buying, selling, or just have questions about the
                 Delaware real estate market—I'm here to help. Let's start a
@@ -65,7 +129,10 @@ const optimizedIconBackground = await getImage({
     </div>
 
     {/* Main Contact Section */}
-    <section class="py-20" style="background-color: var(--color-section-light);">
+    <section
+      class="py-20"
+      style="background-color: var(--color-section-light);"
+    >
       <div class="container max-w-7xl mx-auto px-4">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-8">
           {/* Contact Form */}

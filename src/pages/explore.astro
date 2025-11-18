@@ -3,10 +3,12 @@ import LoanCalculator from '../components/LoanCalculator';
 import Navbar from '../components/Navbar.astro';
 import Layout from '../layouts/Layout.astro';
 import { Image, getImage } from 'astro:assets';
-import iconBackground from '../assets/icon-background.png';
 import dreamHome from '../assets/dream-home.jpg';
 import sellHome from '../assets/sell-home.jpg';
 import rentHome from '../assets/rent-home.jpg';
+import luxuryHome from '../assets/luxury-home.jpg';
+import { markets } from '../data/pseo/markets';
+import { SITE } from '../config/site';
 import {
   Search,
   Home,
@@ -17,14 +19,22 @@ import {
   Square,
   Heart,
   ArrowRight,
-  Filter,
   SlidersHorizontal,
 } from '@lucide/astro';
 
-const optimizedIconBackground = await getImage({
-  src: iconBackground,
+const optimizedLuxuryHome = await getImage({
+  src: luxuryHome,
   format: 'webp',
 });
+
+const exploreOgImage = await getImage({
+  src: luxuryHome,
+  width: 1200,
+  height: 630,
+  format: 'webp',
+});
+
+const featuredMarkets = markets.slice(0, 3);
 
 // Sample Delaware property listings
 const properties = [
@@ -40,7 +50,8 @@ const properties = [
     image: dreamHome,
     featured: true,
     status: 'For Sale',
-    description: 'Stunning beachfront property with panoramic ocean views, modern kitchen, and private deck.',
+    description:
+      'Stunning beachfront property with panoramic ocean views, modern kitchen, and private deck.',
   },
   {
     id: 2,
@@ -54,7 +65,8 @@ const properties = [
     image: sellHome,
     featured: false,
     status: 'For Sale',
-    description: 'Beautifully restored Victorian townhouse with original details and modern amenities.',
+    description:
+      'Beautifully restored Victorian townhouse with original details and modern amenities.',
   },
   {
     id: 3,
@@ -68,7 +80,8 @@ const properties = [
     image: rentHome,
     featured: false,
     status: 'For Sale',
-    description: 'Contemporary farmhouse on 2 acres with open floor plan and gourmet kitchen.',
+    description:
+      'Contemporary farmhouse on 2 acres with open floor plan and gourmet kitchen.',
   },
   {
     id: 4,
@@ -82,7 +95,8 @@ const properties = [
     image: dreamHome,
     featured: false,
     status: 'For Sale',
-    description: 'Serene waterfront living with private dock, sunset views, and chef\'s kitchen.',
+    description:
+      "Serene waterfront living with private dock, sunset views, and chef's kitchen.",
   },
   {
     id: 5,
@@ -96,7 +110,8 @@ const properties = [
     image: sellHome,
     featured: false,
     status: 'For Sale',
-    description: 'High-rise luxury condo with city views, fitness center, and concierge service.',
+    description:
+      'High-rise luxury condo with city views, fitness center, and concierge service.',
   },
   {
     id: 6,
@@ -110,17 +125,70 @@ const properties = [
     image: rentHome,
     featured: false,
     status: 'For Sale',
-    description: 'Expansive family home with finished basement, pool, and 3-car garage.',
+    description:
+      'Expansive family home with finished basement, pool, and 3-car garage.',
   },
 ];
 
 const featuredProperty = properties.find((p) => p.featured);
 const regularProperties = properties.filter((p) => !p.featured);
+
+const exploreStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Explore Delaware Homes',
+    url: `${SITE.site}/explore`,
+    description:
+      'Browse featured Delaware properties, explore market guides, and connect with George Medairy for expert real estate support.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: properties.map((property, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: property.title,
+      description: property.description,
+      url: `${SITE.site}/explore#property-${property.id}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: SITE.site,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Explore',
+        item: `${SITE.site}/explore`,
+      },
+    ],
+  },
+];
 ---
 
 <Layout
   title="Explore Homes - George Medairy"
   description="Explore the real estate market in Delaware with George Medairy. Find your Delaware dream home or investment property today."
+  keywords={[
+    'Delaware homes for sale',
+    'coastal Delaware real estate listings',
+    'Delaware VA loan homes',
+    'Rehoboth Beach property search',
+    'Bethany Beach listings',
+  ]}
+  image={{
+    src: exploreOgImage.src,
+    alt: 'Luxurious Delaware coastal home exterior',
+  }}
+  structuredData={exploreStructuredData}
 >
   <div class="min-h-screen">
     {/* Hero Section */}
@@ -128,31 +196,40 @@ const regularProperties = properties.filter((p) => !p.featured);
       <!-- Background Image -->
       <div
         class="absolute inset-0 bg-cover bg-center"
-        style={`background-image: url(${optimizedIconBackground.src});`}
+        style={`background-image: url(${optimizedLuxuryHome.src});`}
       >
       </div>
       <div class="absolute inset-0 hero-gradient"></div>
 
       <!-- Navbar -->
-      <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20">
+      <header
+        class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20"
+      >
         <Navbar />
       </header>
 
       <!-- Hero Content -->
       <div class="relative h-[calc(60vh-5rem)] min-h-[420px]">
         <div class="relative z-10 h-full">
-          <div class="container mx-auto max-w-7xl px-4 h-full flex items-center">
-            <div class="w-full max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up">
+          <div
+            class="container mx-auto max-w-7xl px-4 h-full flex items-center"
+          >
+            <div
+              class="w-full max-w-3xl mx-auto text-center space-y-6 animate-fade-in-up"
+            >
               <div class="inline-block">
                 <span class="badge-veteran">
                   <Home class="w-4 h-4" />
                   Delaware Homes
                 </span>
               </div>
-              <h1 class="text-white text-shadow-lg">Discover Your Dream Home</h1>
+              <h1 class="text-white text-shadow-lg">
+                Discover Your Dream Home
+              </h1>
               <p class="text-xl text-white/90 text-shadow leading-relaxed">
-                Explore exceptional properties across Delaware. From coastal retreats
-                to urban sophistication, find the home that fits your lifestyle.
+                Explore exceptional properties across Delaware. From coastal
+                retreats to urban sophistication, find the home that fits your
+                lifestyle.
               </p>
             </div>
           </div>
@@ -170,7 +247,9 @@ const regularProperties = properties.filter((p) => !p.featured);
           {/* Search Input */}
           <div class="flex-1 w-full lg:w-auto">
             <div class="relative">
-              <Search class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40" />
+              <Search
+                class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-base-content/40"
+              />
               <input
                 type="text"
                 placeholder="Search by city, zip, or neighborhood..."
@@ -202,13 +281,88 @@ const regularProperties = properties.filter((p) => !p.featured);
 
         {/* Active Filters Display */}
         <div class="mt-4 flex gap-2 flex-wrap">
-          <span class="text-sm text-base-content/60">Showing <strong>6 properties</strong> in Delaware</span>
+          <span class="text-sm text-base-content/60"
+            >Showing <strong>6 properties</strong> in Delaware</span
+          >
+        </div>
+      </div>
+    </section>
+
+    {/* Featured Market Guides */}
+    <section class="py-16" style="background-color: var(--color-section-sage);">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10"
+        >
+          <div>
+            <span
+              class="text-accent font-semibold uppercase tracking-wider text-sm"
+              >Market Guides</span
+            >
+            <h2 class="mt-2 text-3xl" style="font-family: var(--font-serif);">
+              Spotlight on Coastal Delaware
+            </h2>
+            <p class="text-base-content/70 mt-2 max-w-2xl">
+              Dive deeper into each community with data-backed guides built for
+              programmatic SEO. Each page includes lifestyle highlights, stats,
+              and buyer FAQs.
+            </p>
+          </div>
+          <a href="/areas" class="btn btn-secondary btn-lg">View All Areas</a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {
+            featuredMarkets.map((market) => (
+              <article class="bg-white rounded-2xl shadow-lg border border-base-200 p-6 flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                  <MapPin class="w-5 h-5 text-primary" />
+                  <h3
+                    class="text-xl font-semibold"
+                    style="font-family: var(--font-serif);"
+                  >
+                    {market.name}
+                  </h3>
+                </div>
+                <p class="text-sm text-base-content/70 flex-1">
+                  {market.tagline}
+                </p>
+                <ul class="text-sm text-base-content/60 space-y-2 mt-4">
+                  <li>
+                    <strong>Highlights:</strong>{' '}
+                    {market.highlights
+                      .map((h) => h.title)
+                      .slice(0, 2)
+                      .join(', ')}
+                    {market.highlights.length > 2 ? ', …' : ''}
+                  </li>
+                  <li>
+                    <strong>Median Price:</strong>{' '}
+                    {
+                      market.stats.find((stat) => stat.label.includes('Median'))
+                        ?.value
+                    }
+                  </li>
+                </ul>
+                <a
+                  href={`/areas/${market.slug}`}
+                  class="btn btn-primary btn-sm mt-6 inline-flex items-center gap-2 uppercase tracking-[0.12em]"
+                >
+                  Explore Guide
+                  <ArrowRight class="w-4 h-4" />
+                </a>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
 
     {/* Main Content Grid */}
-    <section class="py-16" style="background-color: var(--color-section-light);">
+    <section
+      class="py-16"
+      style="background-color: var(--color-section-light);"
+    >
       <div class="container max-w-7xl mx-auto px-4">
         <div class="grid lg:grid-cols-3 gap-8">
           {/* Left Column - Property Listings */}
@@ -227,7 +381,10 @@ const regularProperties = properties.filter((p) => !p.featured);
 
                     {/* Featured Badge */}
                     <div class="absolute top-6 left-6">
-                      <span class="px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider backdrop-blur-md text-white border border-white/20" style="background: linear-gradient(135deg, rgba(217,160,91,0.9) 0%, rgba(168,93,68,0.9) 100%);">
+                      <span
+                        class="px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider backdrop-blur-md text-white border border-white/20"
+                        style="background: linear-gradient(135deg, rgba(217,160,91,0.9) 0%, rgba(168,93,68,0.9) 100%);"
+                      >
                         Featured Property
                       </span>
                     </div>
@@ -243,24 +400,34 @@ const regularProperties = properties.filter((p) => !p.featured);
                     <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
                       <div class="flex items-center gap-2 mb-3">
                         <MapPin class="w-4 h-4 text-accent" />
-                        <span class="text-sm text-white/90">{featuredProperty.address}</span>
+                        <span class="text-sm text-white/90">
+                          {featuredProperty.address}
+                        </span>
                       </div>
-                      <h3 class="text-white mb-4 text-shadow">{featuredProperty.title}</h3>
+                      <h3 class="text-white mb-4 text-shadow">
+                        {featuredProperty.title}
+                      </h3>
                       <p class="text-white/90 mb-6 text-shadow-sm leading-relaxed">
                         {featuredProperty.description}
                       </p>
                       <div class="flex items-center gap-6 mb-6">
                         <div class="flex items-center gap-2">
                           <Bed class="w-5 h-5 text-accent" />
-                          <span class="font-semibold">{featuredProperty.beds} Beds</span>
+                          <span class="font-semibold">
+                            {featuredProperty.beds} Beds
+                          </span>
                         </div>
                         <div class="flex items-center gap-2">
                           <Bath class="w-5 h-5 text-accent" />
-                          <span class="font-semibold">{featuredProperty.baths} Baths</span>
+                          <span class="font-semibold">
+                            {featuredProperty.baths} Baths
+                          </span>
                         </div>
                         <div class="flex items-center gap-2">
                           <Square class="w-5 h-5 text-accent" />
-                          <span class="font-semibold">{featuredProperty.sqft.toLocaleString()} sqft</span>
+                          <span class="font-semibold">
+                            {featuredProperty.sqft.toLocaleString()} sqft
+                          </span>
                         </div>
                       </div>
                       <button class="btn-primary-gradient">
@@ -278,6 +445,7 @@ const regularProperties = properties.filter((p) => !p.featured);
               {
                 regularProperties.map((property, index) => (
                   <div
+                    id={`property-${property.id}`}
                     class="property-card group"
                     style={`animation-delay: ${index * 100}ms;`}
                   >
@@ -307,7 +475,9 @@ const regularProperties = properties.filter((p) => !p.featured);
                     <div class="p-6">
                       <div class="flex items-center gap-2 mb-3">
                         <MapPin class="w-4 h-4 text-primary" />
-                        <span class="text-sm text-base-content/70">{property.address}</span>
+                        <span class="text-sm text-base-content/70">
+                          {property.address}
+                        </span>
                       </div>
                       <h4 class="mb-3 text-primary group-hover:text-accent transition-colors duration-300">
                         {property.title}
@@ -320,15 +490,21 @@ const regularProperties = properties.filter((p) => !p.featured);
                       <div class="flex items-center gap-4 mb-4 pb-4 border-b border-base-200">
                         <div class="flex items-center gap-1.5">
                           <Bed class="w-4 h-4 text-primary" />
-                          <span class="text-sm font-medium">{property.beds}</span>
+                          <span class="text-sm font-medium">
+                            {property.beds}
+                          </span>
                         </div>
                         <div class="flex items-center gap-1.5">
                           <Bath class="w-4 h-4 text-primary" />
-                          <span class="text-sm font-medium">{property.baths}</span>
+                          <span class="text-sm font-medium">
+                            {property.baths}
+                          </span>
                         </div>
                         <div class="flex items-center gap-1.5">
                           <Square class="w-4 h-4 text-primary" />
-                          <span class="text-sm font-medium">{property.sqft.toLocaleString()}</span>
+                          <span class="text-sm font-medium">
+                            {property.sqft.toLocaleString()}
+                          </span>
                         </div>
                       </div>
 
@@ -372,9 +548,13 @@ const regularProperties = properties.filter((p) => !p.featured);
               <div class="card-gradient-sage p-8 text-white">
                 <h4 class="text-white mb-4">Need Help Finding Your Home?</h4>
                 <p class="text-white/90 mb-6 leading-relaxed">
-                  Let me guide you through Delaware's real estate market with personalized service and expert knowledge.
+                  Let me guide you through Delaware's real estate market with
+                  personalized service and expert knowledge.
                 </p>
-                <a href="/contact" class="btn-accent-gradient w-full cursor-pointer">
+                <a
+                  href="/contact"
+                  class="btn-accent-gradient w-full cursor-pointer"
+                >
                   <span>Contact George</span>
                   <ArrowRight class="w-5 h-5" />
                 </a>
@@ -389,7 +569,8 @@ const regularProperties = properties.filter((p) => !p.featured);
                   <div>
                     <h5 class="text-primary mb-2">VA Loan Specialist</h5>
                     <p class="text-sm text-base-content/70 leading-relaxed">
-                      Proud to serve veterans with VA loan expertise and dedicated support.
+                      Proud to serve veterans with VA loan expertise and
+                      dedicated support.
                     </p>
                   </div>
                 </div>
@@ -462,7 +643,11 @@ const regularProperties = properties.filter((p) => !p.featured);
     .price-badge {
       padding: 0.625rem 1.25rem;
       border-radius: 624px;
-      background: linear-gradient(135deg, rgba(217, 160, 91, 0.95) 0%, rgba(168, 93, 68, 0.95) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(217, 160, 91, 0.95) 0%,
+        rgba(168, 93, 68, 0.95) 100%
+      );
       backdrop-filter: blur(12px);
       color: white;
       font-weight: 700;
@@ -475,7 +660,11 @@ const regularProperties = properties.filter((p) => !p.featured);
     .price-badge-large {
       padding: 0.875rem 1.75rem;
       border-radius: 624px;
-      background: linear-gradient(135deg, rgba(217, 160, 91, 0.95) 0%, rgba(168, 93, 68, 0.95) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(217, 160, 91, 0.95) 0%,
+        rgba(168, 93, 68, 0.95) 100%
+      );
       backdrop-filter: blur(12px);
       color: white;
       font-weight: 800;

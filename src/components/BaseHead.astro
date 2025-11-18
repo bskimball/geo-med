@@ -1,13 +1,92 @@
 ---
 import { ClientRouter } from 'astro:transitions';
+import { SITE, DEFAULT_META_IMAGE_ALT } from '../config/site';
 import '../styles/global.css';
+
+interface MetaImage {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+}
+
+interface MetaTag {
+  name?: string;
+  property?: string;
+  content: string;
+}
 
 interface Props {
   title: string;
   description?: string;
+  canonical?: string;
+  keywords?: string[];
+  image?: string | MetaImage;
+  ogType?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>[];
+  extraMeta?: MetaTag[];
 }
 
-let { title, description } = Astro.props;
+const {
+  title,
+  description = SITE.description,
+  canonical,
+  keywords,
+  image,
+  ogType = 'website',
+  noindex = false,
+  structuredData = [],
+  extraMeta = [],
+} = Astro.props;
+
+const pageUrl = new URL(Astro.url.pathname, SITE.site).toString();
+const canonicalUrl = canonical ?? pageUrl;
+const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
+
+const resolvedImage: MetaImage | undefined =
+  typeof image === 'string'
+    ? { src: image, alt: DEFAULT_META_IMAGE_ALT }
+    : image;
+
+const imageUrl = resolvedImage?.src
+  ? resolvedImage.src.startsWith('http')
+    ? resolvedImage.src
+    : new URL(resolvedImage.src, SITE.site).toString()
+  : undefined;
+
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+
+const allKeywords = keywords?.length ? keywords : SITE.keywords;
+
+const gaInlineScript = gaMeasurementId
+  ? `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${gaMeasurementId}');`
+  : '';
+
+const schemaPayload = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'RealEstateAgent',
+    name: SITE.name,
+    url: SITE.site,
+    description,
+    telephone: SITE.contact.phone,
+    email: SITE.contact.email,
+    areaServed: SITE.serviceAreas,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: SITE.address.street,
+      addressLocality: SITE.address.city,
+      addressRegion: SITE.address.region,
+      postalCode: SITE.address.postalCode,
+      addressCountry: SITE.address.country,
+    },
+  },
+  ...structuredData,
+];
+
+const schemaJson = JSON.stringify(schemaPayload, null, 2);
 ---
 
 <head>
@@ -17,5 +96,61 @@ let { title, description } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {allKeywords && <meta name="keywords" content={allKeywords.join(', ')} />}
+  <meta name="robots" content={robotsContent} />
+  <meta name="theme-color" content="#2c4a3e" />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:locale" content={SITE.locale} />
+  {imageUrl && <meta property="og:image" content={imageUrl} />}
+  {
+    resolvedImage?.alt && (
+      <meta property="og:image:alt" content={resolvedImage.alt} />
+    )
+  }
+  {
+    resolvedImage?.width && (
+      <meta
+        property="og:image:width"
+        content={resolvedImage.width.toString()}
+      />
+    )
+  }
+  {
+    resolvedImage?.height && (
+      <meta
+        property="og:image:height"
+        content={resolvedImage.height.toString()}
+      />
+    )
+  }
+  <meta
+    name="twitter:card"
+    content={imageUrl ? 'summary_large_image' : 'summary'}
+  />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+  {
+    googleSiteVerification && (
+      <meta name="google-site-verification" content={googleSiteVerification} />
+    )
+  }
+  {
+    extraMeta.map((meta, index) => (
+      <meta {...meta} key={meta.name ?? meta.property ?? index} />
+    ))
+  }
+  <script type="application/ld+json" set:html={schemaJson} />
+  <script
+    astro:if={gaMeasurementId}
+    async
+    src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+  ></script>
+  <script astro:if={gaMeasurementId} set:html={gaInlineScript} />
   <ClientRouter />
 </head>

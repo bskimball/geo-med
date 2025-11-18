@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://medairyrealestate.com/sitemap-index.xml

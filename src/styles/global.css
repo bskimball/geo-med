@@ -66,7 +66,11 @@
 
   /* Heading sizes - Better hierarchy */
   --font-size-h1: clamp(3rem, 7vw, 5.5rem); /* 48px - 88px: Hero headlines */
-  --font-size-h2: clamp(2.25rem, 5vw, 3.75rem); /* 36px - 60px: Section titles */
+  --font-size-h2: clamp(
+    2.25rem,
+    5vw,
+    3.75rem
+  ); /* 36px - 60px: Section titles */
   --font-size-h3: clamp(1.625rem, 3vw, 2.25rem); /* 26px - 36px: Subsections */
   --font-size-h4: clamp(1rem, 2vw, 1.5rem); /* 18px - 24px: Section headers */
   --font-size-h5: 1.125rem; /* 18px: Small section headers */
@@ -273,51 +277,61 @@ p {
 
 /* Blue-Gray Gradient (for Veteran section only) */
 .veteran-gradient {
-  background: linear-gradient(
-    135deg,
-    #2c3e50 0%,
-    #34495e 50%,
-    #2c3e50 100%
-  );
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
 }
 
 /* Hero Gradient - Warm Earth Tones (Sage to Terracotta) */
+/* Lighter opacity to let background images show through */
 .hero-gradient {
+  background:
+    /* Subtle vignette for depth and text readability */
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    /* Main earth-tone gradient - reduced opacity */
+      linear-gradient(
+        135deg,
+        rgba(44, 74, 62, 0.85) 0%,
+        rgba(168, 93, 68, 0.65) 100%
+      );
+}
+
+/* Alternative: Even lighter for maximum image visibility */
+.hero-gradient-light {
+  background:
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(
+      135deg,
+      rgba(44, 74, 62, 0.4) 0%,
+      rgba(168, 93, 68, 0.35) 100%
+    );
+}
+
+/* Alternative: Gradient focused at bottom for text area */
+.hero-gradient-bottom {
   background: linear-gradient(
-    135deg,
-    rgba(44, 74, 62, 0.92) 0%,
-    rgba(168, 93, 68, 0.88) 100%
+    to top,
+    rgba(44, 74, 62, 0.75) 0%,
+    rgba(168, 93, 68, 0.45) 40%,
+    rgba(44, 74, 62, 0.25) 100%
   );
 }
 
 /* CTA Gradient - Earth Tones */
 .cta-gradient {
-  background: linear-gradient(
-    135deg,
-    #2c4a3e 0%,
-    #3a6250 50%,
-    #2c4a3e 100%
-  );
+  background: linear-gradient(135deg, #2c4a3e 0%, #3a6250 50%, #2c4a3e 100%);
 }
 
 /* Ocean Gradient - For subtle blue accents only */
 .ocean-gradient {
-  background: linear-gradient(
-    135deg,
-    #2c5f6f 0%,
-    #3a7a8a 50%,
-    #2c5f6f 100%
-  );
+  background: linear-gradient(135deg, #2c5f6f 0%, #3a7a8a 50%, #2c5f6f 100%);
 }
 
 /* Sage Gradient - Green with slight blue hints */
 .sage-gradient {
-  background: linear-gradient(
-    135deg,
-    #1e453e 0%,
-    #2a5a4d 60%,
-    #2c5f6f 100%
-  );
+  background: linear-gradient(135deg, #1e453e 0%, #2a5a4d 60%, #2c5f6f 100%);
 }
 
 /* Blue-Gray Background Gradients */
@@ -331,11 +345,7 @@ p {
 }
 
 .bg-gradient-slate-radial {
-  background: radial-gradient(
-    ellipse at top,
-    #34495e 0%,
-    #2c3e50 100%
-  );
+  background: radial-gradient(ellipse at top, #34495e 0%, #2c3e50 100%);
 }
 
 /* Glass-morphism Utilities */
@@ -406,17 +416,32 @@ p {
   background-size: 32px 32px;
 }
 
-/* Text Shadows for Readability */
+/* Text Shadows for Readability - Enhanced for lighter backgrounds */
 .text-shadow-sm {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .text-shadow-lg {
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 2px 4px rgba(44, 74, 62, 0.3);
+}
+
+/* Extra strong shadow for hero headings over images */
+.text-shadow-hero {
+  text-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.7),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 2px 6px rgba(44, 74, 62, 0.4);
 }
 
 /* Animation Utilities */

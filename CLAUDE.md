@@ -13,6 +13,7 @@ A modern, sophisticated real estate website for George Medairy, Delaware real es
 **Coastal Delaware Nature - Refined Organic Aesthetic**
 
 The design prioritizes:
+
 - **Trust & Professionalism**: Clean layouts, sophisticated earth-tone palette, professional imagery
 - **Warmth & Approachability**: Earthy sage greens and terracotta tones that feel welcoming and grounded
 - **Premium Feel**: Subtle animations, elegant typography, larger readable text, refined micro-interactions
@@ -27,6 +28,7 @@ The design prioritizes:
 Our sophisticated earth tone palette with subtle blue accents conveys stability, growth, and warmth:
 
 ### Primary Colors (Earth Tones - DOMINANT)
+
 - **Deep Sage** `#2c4a3e` (Primary)
   - Represents: Growth, Stability, Trust, Nature
   - Use: Navigation, primary buttons, headings, hero gradients, CTA sections
@@ -40,11 +42,13 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
   - Use: CTAs, important highlights, veteran badges, icons, decorative elements
 
 ### Subtle Accent Colors
+
 - **Ocean Blue** `#2c5f6f` - Used sparingly in section backgrounds for variety
 - **Midnight Blue-Gray** `#2c3e50` - Reserved for Veteran section only
 - **Wet Asphalt** `#34495e` - Veteran section gradient variations
 
 ### Neutral Colors
+
 - **Rich Black** `#1a1a1a` (Base Content)
 - **White** `#ffffff` (Base 100 / Section Light)
 - **Soft Sage Mist** `#f5f7f5` (Base 200)
@@ -52,12 +56,14 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 - **Pale Sage** `#dce8e3` (Base 300)
 
 ### Section Background Colors (For Alternation)
+
 - **Light** `#ffffff` - Clean white sections
 - **Sage** `#f0f4f1` - Light sage green
 - **Ocean Mist** `#f0f5f7` - Light blue (subtle accent)
 - **Cream** `#faf8f5` - Warm cream
 
 ### Functional Colors
+
 - **Info**: `#2563eb` (Blue)
 - **Success**: `#059669` (Green)
 - **Warning**: `#d97706` (Orange)
@@ -68,24 +74,28 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 ## Typography System
 
 ### Font Families
+
 ```css
 --font-serif: 'Playfair Display', Georgia, serif;
 --font-sans: 'Inter', system-ui, sans-serif;
 ```
 
 ### Heading Scale (Playfair Display - Serif)
+
 - **H1**: `clamp(3rem, 7vw, 5.5rem)` (48px - 88px) - Hero headlines
 - **H2**: `clamp(2.25rem, 5vw, 3.75rem)` (36px - 60px) - Section titles
 - **H3**: `clamp(1.75rem, 3.5vw, 2.5rem)` (28px - 40px) - Card titles, subsections
 - **H4**: `clamp(1.375rem, 2.5vw, 1.875rem)` (22px - 30px) - Feature titles
 
 ### Body Text (Inter - Sans-serif)
+
 - **Base**: `1.0625rem` (17px) - Comfortable reading size
 - **Mobile**: `1rem` (16px)
 - **Line Height**: `1.7` - Excellent readability
 - **Large**: `1.25rem` (20px) - Emphasized paragraphs
 
 ### Font Weights
+
 - Regular: 400
 - Medium: 500
 - Semibold: 600
@@ -99,12 +109,14 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 **IMPORTANT**: We love the hero sections as they are. Keep this design consistent across all pages.
 
 ### Design Principles
+
 - **Earth-tone gradient**: Deep Sage → Terracotta (warm, welcoming, professional)
 - **Consistent across all pages**: Homepage, About, Contact all use the same hero structure
 - **Background images**: Subtle background with hero-gradient overlay
 - **Backdrop-blur navbar**: Semi-transparent with blur for modern feel
 
 ### Homepage Hero - Full Screen
+
 ```
 ┌─────────────────────────────────────────────────┐
 │ Navbar (Backdrop blur, Primary/30)              │
@@ -124,6 +136,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 ```
 
 ### About & Contact Heroes - 60vh Height
+
 ```
 ┌─────────────────────────────────────────────────┐
 │ Navbar (Backdrop blur, Primary/30)              │
@@ -141,6 +154,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 ```
 
 ### Hero Components
+
 1. **Background Layer**: Background image (sold home, icon background, etc.)
 2. **Gradient Overlay**: `hero-gradient` - Deep Sage `#2c4a3e` → Terracotta `#a85d44`
 3. **Navbar**: `bg-primary/30 backdrop-blur-md` - Semi-transparent with modern blur
@@ -153,11 +167,13 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 6. **Spacing**: `space-y-6` or `space-y-8` for vertical rhythm
 
 ### Hero Sizing
+
 - **Homepage**: `h-screen` - Full viewport height
 - **About/Contact**: `h-[60vh] min-h-[500px]` - 60% viewport with minimum height
 - **Content area**: `h-[calc(100vh-5rem)]` or `h-[calc(60vh-5rem)]` (accounts for navbar)
 
 ### Hero Animations (GSAP)
+
 - `.animate-fade-in-up` on main content
 - Fade-in-up effect with opacity transition
 - Staggered animations on homepage trust indicators
@@ -173,6 +189,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 #### Cards
 
 **Standard Cards** (Light backgrounds):
+
 - White background with subtle border
 - Rounded corners (`rounded-2xl` or `rounded-xl`)
 - Hover effects: lift up 8px, enhanced shadow
@@ -180,6 +197,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 - Smooth transitions (0.4s cubic-bezier)
 
 **Glass-Morphism Cards** (Dark backgrounds):
+
 - Semi-transparent white background: `rgba(255, 255, 255, 0.05)`
 - Backdrop blur effect: `backdrop-filter: blur(12px)`
 - Border: `1px solid rgba(255, 255, 255, 0.1)`
@@ -208,6 +226,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 ```
 
 #### Buttons
+
 - Uppercase text, increased letter spacing
 - Gradient backgrounds (not solid colors)
 - Large sizes for primary CTAs
@@ -217,10 +236,12 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 - Rounded (`rounded-xl`)
 
 **Button Sizes**:
+
 - Default: `0.875rem padding, 0.9375rem font`
 - Large: `1.125rem × 2.25rem padding, 1.0625rem font`
 
 #### Sections
+
 - Generous padding: `py-20` (5rem vertical)
 - Alternating backgrounds (Base 100 ↔ Base 200)
 - Pattern overlays (dots, grid) for visual interest
@@ -228,6 +249,7 @@ Our sophisticated earth tone palette with subtle blue accents conveys stability,
 - Consistent spacing: `mb-16` for section headers
 
 #### Icons
+
 - Lucide icons throughout
 - Colored backgrounds at 10% opacity
 - Rounded containers (`rounded-full` or `rounded-lg`)
@@ -292,15 +314,19 @@ Border: 1px solid rgba(217,160,91,0.2)
 ```css
 /* Dot Pattern */
 .pattern-dots {
-  background-image: radial-gradient(circle, rgba(217,160,91,0.12) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(217, 160, 91, 0.12) 1px,
+    transparent 1px
+  );
   background-size: 24px 24px;
 }
 
 /* Grid Pattern */
 .pattern-grid {
   background-image:
-    linear-gradient(rgba(217,160,91,0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(217,160,91,0.06) 1px, transparent 1px);
+    linear-gradient(rgba(217, 160, 91, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 160, 91, 0.06) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 ```
@@ -308,14 +334,21 @@ Border: 1px solid rgba(217,160,91,0.2)
 ### Text Shadows (For Text Over Images)
 
 ```css
-.text-shadow-sm { text-shadow: 0 1px 2px rgba(0,0,0,0.3); }
-.text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
-.text-shadow-lg { text-shadow: 0 4px 8px rgba(0,0,0,0.5); }
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
 ```
 
 ### Animation Guidelines
 
 **GSAP Scroll Animations**:
+
 - Section headers: Fade in up, staggered children
 - Service cards: Fade in up with 0.2s stagger
 - Process steps: Scale + fade in with back easing
@@ -323,6 +356,7 @@ Border: 1px solid rgba(217,160,91,0.2)
 - Trigger: `start: 'top 70-85%'`
 
 **Hover Micro-interactions**:
+
 - Buttons: Scale to 1.05, lift -3px
 - Cards: Lift -8px, enhanced shadow
 - Images: Slight scale on parent hover
@@ -330,6 +364,7 @@ Border: 1px solid rgba(217,160,91,0.2)
 - Easing: `cubic-bezier(0.4, 0, 0.2, 1)`
 
 **Performance**:
+
 - Use `transform` and `opacity` for animations (GPU accelerated)
 - Avoid animating `width`, `height`, `top`, `left`
 - Use `will-change` sparingly
@@ -337,12 +372,14 @@ Border: 1px solid rgba(217,160,91,0.2)
 ### Spacing System
 
 **Vertical Rhythm**:
+
 - Section padding: `py-20` (5rem)
 - Section headers margin: `mb-16` (4rem)
 - Card spacing: `gap-8` (2rem)
 - Content spacing: `space-y-6` (1.5rem)
 
 **Container Widths**:
+
 - Max width: `max-w-7xl` (1280px)
 - Text content: `max-w-3xl` (768px)
 - Centered with `mx-auto`
@@ -357,6 +394,7 @@ Large Desktop: > 1280px
 ```
 
 **Mobile Adjustments**:
+
 - Hide George's image on mobile (< lg)
 - Reduce heading sizes via clamp()
 - Stack grid layouts to single column
@@ -368,18 +406,21 @@ Large Desktop: > 1280px
 ## Image Guidelines
 
 ### Hero Images
+
 - **Format**: WebP (optimized via Astro)
 - **Quality**: High resolution, professionally shot
 - **Aspect Ratio**: Maintain original for portrait images
 - **Positioning**: `object-cover` with strategic focal point
 
 ### Card Images
+
 - **Height**: Fixed at `h-56` (224px)
 - **Overlay**: Dark gradient from bottom (60% opacity)
 - **Text Overlay**: White text with shadow on bottom-left
 - **Hover**: Slight scale effect on parent card
 
 ### Profile Images
+
 - **Style**: Professional, approachable
 - **Background**: Clean, uncluttered
 - **Sizing**: `rounded-2xl` with `shadow-2xl`
@@ -390,18 +431,21 @@ Large Desktop: > 1280px
 ## Veteran/Military Design Elements
 
 ### Veteran Badge
+
 ```html
 <span class="badge-veteran">
   <Shield class="w-4 h-4" />
   Veteran-Friendly Agent
 </span>
 ```
+
 - Gradient background (Secondary → Primary)
 - Shield icon from Lucide
 - Uppercase, tracked text
 - Pill shape (fully rounded)
 
 ### Patriot Sections
+
 - Use `patriot-gradient` background
 - Pattern overlay at 20-30% opacity
 - White text with text shadows
@@ -413,12 +457,14 @@ Large Desktop: > 1280px
 ## Content Strategy
 
 ### Voice & Tone
+
 - **Professional yet warm**: Not overly corporate, approachable
 - **Confident**: Expertise-driven language
 - **Service-oriented**: Focus on client benefits
 - **Respectful**: Especially for veteran content
 
 ### Key Messaging
+
 1. Local Delaware expertise
 2. Veteran advocacy and VA loan specialization
 3. Personalized, client-first service
@@ -426,6 +472,7 @@ Large Desktop: > 1280px
 5. Modern marketing and technology
 
 ### Call-to-Actions
+
 - Primary: "Contact Me Today", "Get Started"
 - Secondary: "Browse Properties", "Learn More"
 - Veteran-specific: "Schedule Consultation"
@@ -435,12 +482,14 @@ Large Desktop: > 1280px
 ## Known Issues / TODO
 
 ### Font Sizing
+
 - [ ] Review and standardize heading sizes across all pages
 - [ ] Ensure consistency between mobile and desktop scales
 - [ ] Fine-tune paragraph sizing for optimal readability
 - [ ] Audit button font sizes for hierarchy
 
 ### Gradients
+
 - [ ] Standardize gradient angles (currently mix of 135deg)
 - [ ] Review gradient opacity for readability
 - [ ] Simplify gradient definitions (reduce complexity)
@@ -448,6 +497,7 @@ Large Desktop: > 1280px
 - [ ] Consider reducing number of unique gradients
 
 ### Other Refinements
+
 - [ ] Optimize GSAP animation performance
 - [ ] Add loading states for images
 - [ ] Improve mobile navigation experience
@@ -479,6 +529,7 @@ src/
 ## Development Notes
 
 ### When Adding New Sections
+
 1. Follow alternating background pattern (Base 100 ↔ Base 200)
 2. Add pattern overlay if background is colored
 3. Include section header with accent label
@@ -487,6 +538,7 @@ src/
 6. Test on mobile breakpoints
 
 ### When Creating New Components
+
 1. Use existing color variables (no hardcoded colors)
 2. Include hover states and transitions
 3. Use semantic HTML
@@ -495,6 +547,7 @@ src/
 6. Follow established spacing system
 
 ### Performance Checklist
+
 - [ ] Optimize images (WebP format, appropriate sizes)
 - [ ] Lazy load below-fold images
 - [ ] Minimize animation complexity
@@ -507,11 +560,13 @@ src/
 ## Brand Assets
 
 ### Logo
+
 - RE/MAX logo used in footer
 - Consistent sizing: `h-16`
 - White background container with shadow
 
 ### Photography Style
+
 - Professional real estate photography
 - Delaware locations and landmarks
 - Warm, natural lighting
@@ -519,6 +574,7 @@ src/
 - Properties in various states (homes, beaches, neighborhoods)
 
 ### Iconography
+
 - **Library**: Lucide icons
 - **Style**: Outline/stroke based
 - **Colors**: Theme colors (primary, secondary, accent)
@@ -529,6 +585,7 @@ src/
 ## Accessibility
 
 ### Current Implementation
+
 - Semantic HTML structure
 - Alt text on all images
 - Color contrast (earth tones chosen for readability)
@@ -536,6 +593,7 @@ src/
 - Keyboard-accessible navigation
 
 ### To Improve
+
 - [ ] Add skip-to-content link
 - [ ] Improve focus indicators
 - [ ] Add ARIA labels to interactive elements
@@ -548,18 +606,21 @@ src/
 ## Testing Checklist
 
 ### Browser Testing
+
 - [ ] Chrome/Edge (Chromium)
 - [ ] Firefox
 - [ ] Safari (macOS and iOS)
 - [ ] Mobile browsers (iOS Safari, Chrome Mobile)
 
 ### Device Testing
+
 - [ ] Desktop (1920x1080, 1440p)
 - [ ] Laptop (1366x768, 1440x900)
 - [ ] Tablet (iPad, Android tablets)
 - [ ] Mobile (iPhone, Android phones)
 
 ### Performance Testing
+
 - [ ] Lighthouse score > 90
 - [ ] Page load < 3s
 - [ ] First Contentful Paint < 1.5s
@@ -613,9 +674,11 @@ src/
   - Glass-morphism on veteran section
 
 ### Previous Versions
+
 - **Initial**: Basic layout and structure
 
 ### In Progress
+
 - Font sizing standardization
 - Animation performance optimization
 - Accessibility improvements

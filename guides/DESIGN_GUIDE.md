@@ -8,17 +8,18 @@
 
 ### Primary Palette
 
-| Color Name | Hex Code | Usage | CSS Variable |
-|------------|----------|-------|--------------|
-| **Deep Sage** | `#2c4a3e` | Primary buttons, headers, navigation | `--color-primary` |
-| **Warm Terracotta** | `#a85d44` | Secondary buttons, accents | `--color-secondary` |
-| **Golden Amber** | `#d9a05b` | CTAs, highlights, veteran badges | `--color-accent` |
-| **Rich Black** | `#1a1a1a` | Body text | `--color-base-content` |
-| **White** | `#ffffff` | Backgrounds, light text | `--color-base-100` |
-| **Soft Cream** | `#faf8f5` | Alternate backgrounds | `--color-base-200` |
-| **Warm Sand** | `#f0ebe3` | Tertiary backgrounds | `--color-base-300` |
+| Color Name          | Hex Code  | Usage                                | CSS Variable           |
+| ------------------- | --------- | ------------------------------------ | ---------------------- |
+| **Deep Sage**       | `#2c4a3e` | Primary buttons, headers, navigation | `--color-primary`      |
+| **Warm Terracotta** | `#a85d44` | Secondary buttons, accents           | `--color-secondary`    |
+| **Golden Amber**    | `#d9a05b` | CTAs, highlights, veteran badges     | `--color-accent`       |
+| **Rich Black**      | `#1a1a1a` | Body text                            | `--color-base-content` |
+| **White**           | `#ffffff` | Backgrounds, light text              | `--color-base-100`     |
+| **Soft Cream**      | `#faf8f5` | Alternate backgrounds                | `--color-base-200`     |
+| **Warm Sand**       | `#f0ebe3` | Tertiary backgrounds                 | `--color-base-300`     |
 
 ### Color Psychology
+
 - **Deep Sage**: Trust, stability, growth, professional
 - **Warm Terracotta**: Welcoming, home, grounded, comfortable
 - **Golden Amber**: Premium, success, achievement, warmth
@@ -33,25 +34,26 @@
 **Body**: Inter (Sans-serif)
 
 ```css
-font-family: 'Playfair Display', Georgia, serif;  /* Headings */
-font-family: 'Inter', system-ui, sans-serif;      /* Body */
+font-family: 'Playfair Display', Georgia, serif; /* Headings */
+font-family: 'Inter', system-ui, sans-serif; /* Body */
 ```
 
 ### Type Scale
 
-| Element | Size (Desktop) | Size (Mobile) | Weight | Usage |
-|---------|---------------|---------------|--------|-------|
-| **H1** | 88px (5.5rem) | 48px (3rem) | 800 | Hero headlines only |
-| **H2** | 60px (3.75rem) | 36px (2.25rem) | 700 | Section titles |
-| **H3** | 40px (2.5rem) | 28px (1.75rem) | 600 | Card titles, subsections |
-| **H4** | 30px (1.875rem) | 22px (1.375rem) | 600 | Feature titles |
-| **Body** | 17px (1.0625rem) | 16px (1rem) | 400 | Paragraph text |
-| **Body Large** | 20px (1.25rem) | 18px (1.125rem) | 400 | Emphasized paragraphs |
-| **Small** | 15px (0.9375rem) | 14px (0.875rem) | 400 | Helper text, captions |
+| Element        | Size (Desktop)   | Size (Mobile)   | Weight | Usage                    |
+| -------------- | ---------------- | --------------- | ------ | ------------------------ |
+| **H1**         | 88px (5.5rem)    | 48px (3rem)     | 800    | Hero headlines only      |
+| **H2**         | 60px (3.75rem)   | 36px (2.25rem)  | 700    | Section titles           |
+| **H3**         | 40px (2.5rem)    | 28px (1.75rem)  | 600    | Card titles, subsections |
+| **H4**         | 30px (1.875rem)  | 22px (1.375rem) | 600    | Feature titles           |
+| **Body**       | 17px (1.0625rem) | 16px (1rem)     | 400    | Paragraph text           |
+| **Body Large** | 20px (1.25rem)   | 18px (1.125rem) | 400    | Emphasized paragraphs    |
+| **Small**      | 15px (0.9375rem) | 14px (0.875rem) | 400    | Helper text, captions    |
 
 ### Typography Rules
 
 ✅ **DO**
+
 - Use Playfair Display for all headings (h1-h6)
 - Use Inter for body text, buttons, and UI elements
 - Maintain line-height of 1.7 for body text
@@ -59,6 +61,7 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 - Add text shadows when text overlays images
 
 ❌ **DON'T**
+
 - Mix serif fonts in body text
 - Use more than 3 font weights per font family
 - Go below 16px for body text on mobile
@@ -88,18 +91,20 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 
 #### Button Specifications
 
-| Variant | Background | Text Color | Use Case |
-|---------|-----------|------------|----------|
-| Primary | Deep Sage gradient | White | Navigation, primary actions |
-| Secondary | Terracotta gradient | White | Secondary CTAs |
-| Accent | Golden Amber gradient | Rich Black | Hero CTAs, important actions |
+| Variant   | Background            | Text Color | Use Case                     |
+| --------- | --------------------- | ---------- | ---------------------------- |
+| Primary   | Deep Sage gradient    | White      | Navigation, primary actions  |
+| Secondary | Terracotta gradient   | White      | Secondary CTAs               |
+| Accent    | Golden Amber gradient | Rich Black | Hero CTAs, important actions |
 
 **Spacing**:
+
 - Default: `padding: 0.875rem 1.75rem`
 - Large: `padding: 1.125rem 2.25rem`
 - Border radius: `rounded-xl` (12px)
 
 **Hover States**:
+
 - Scale: `1.05`
 - Transform: `translateY(-3px)`
 - Shadow: Enhanced
@@ -128,6 +133,7 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 - **Padding**: `p-8` (2rem)
 
 **Hover Effect**:
+
 - Lift: `translateY(-8px)`
 - Shadow: `0 20px 40px rgba(0,0,0,0.12)`
 - Top accent bar: Gradient scale from 0 to 1
@@ -139,10 +145,14 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 ### Service Cards (Image + Content)
 
 ```html
-<div class="card bg-base-100 shadow-xl service-card rounded-lg overflow-hidden border">
+<div
+  class="card bg-base-100 shadow-xl service-card rounded-lg overflow-hidden border"
+>
   <div class="relative h-56 overflow-hidden">
     <img src="..." class="card-image w-full h-full object-cover" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+    ></div>
     <div class="absolute bottom-4 left-4 right-4">
       <h3 class="text-white font-bold text-2xl text-shadow">Title</h3>
     </div>
@@ -154,6 +164,7 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 ```
 
 **Image Specifications**:
+
 - Height: `h-56` (224px fixed)
 - Overlay: Dark gradient from bottom (60% opacity)
 - Text: White with shadow, bottom-left positioning
@@ -172,6 +183,7 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 ```
 
 **Styling**:
+
 - Background: Gradient (Secondary → Primary)
 - Text: White, uppercase, tracked
 - Shape: Pill (`rounded-2rem`)
@@ -185,6 +197,7 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 **Library**: [Lucide Icons](https://lucide.dev/)
 
 **Standard Sizes**:
+
 - Inline with text: `w-5 h-5` (20px)
 - Feature icons: `w-6 h-6` (24px)
 - Large feature icons: `w-8 h-8` (32px)
@@ -192,12 +205,15 @@ font-family: 'Inter', system-ui, sans-serif;      /* Body */
 **Icon Container Pattern**:
 
 ```html
-<div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+<div
+  class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
+>
   <Award class="w-6 h-6 text-accent" />
 </div>
 ```
 
 **Container Variants**:
+
 - Circle: `rounded-full`
 - Rounded square: `rounded-lg`
 - Background: Color at 10-20% opacity
@@ -218,20 +234,10 @@ background: linear-gradient(
 );
 
 /* Patriot Gradient (Veteran sections) */
-background: linear-gradient(
-  135deg,
-  #2c4a3e 0%,
-  #a85d44 50%,
-  #2c4a3e 100%
-);
+background: linear-gradient(135deg, #2c4a3e 0%, #a85d44 50%, #2c4a3e 100%);
 
 /* CTA Gradient */
-background: linear-gradient(
-  135deg,
-  #2c4a3e 0%,
-  #3a6250 50%,
-  #2c4a3e 100%
-);
+background: linear-gradient(135deg, #2c4a3e 0%, #3a6250 50%, #2c4a3e 100%);
 
 /* Button Gradients */
 /* Primary */
@@ -246,11 +252,11 @@ background: linear-gradient(135deg, #d9a05b 0%, #edb970 100%);
 
 ### Gradient Usage
 
-| Gradient | Class | Usage |
-|----------|-------|-------|
-| Hero | `.hero-gradient` | Hero section overlays |
-| Patriot | `.patriot-gradient` | Veteran/military sections |
-| CTA | `.cta-gradient` | Call-to-action sections |
+| Gradient | Class               | Usage                     |
+| -------- | ------------------- | ------------------------- |
+| Hero     | `.hero-gradient`    | Hero section overlays     |
+| Patriot  | `.patriot-gradient` | Veteran/military sections |
+| CTA      | `.cta-gradient`     | Call-to-action sections   |
 
 ---
 
@@ -290,16 +296,16 @@ background: linear-gradient(135deg, #d9a05b 0%, #edb970 100%);
 
 ### Tailwind Spacing Reference
 
-| Class | Size | Pixels | Usage |
-|-------|------|--------|-------|
-| `gap-4` | 1rem | 16px | Small element spacing |
-| `gap-8` | 2rem | 32px | Card grids, medium spacing |
-| `gap-12` | 3rem | 48px | Large content blocks |
-| `gap-16` | 4rem | 64px | Section spacing |
-| `py-12` | 3rem | 48px | Mobile section padding |
-| `py-20` | 5rem | 80px | Desktop section padding |
-| `mb-6` | 1.5rem | 24px | Paragraph spacing |
-| `mb-16` | 4rem | 64px | Section header spacing |
+| Class    | Size   | Pixels | Usage                      |
+| -------- | ------ | ------ | -------------------------- |
+| `gap-4`  | 1rem   | 16px   | Small element spacing      |
+| `gap-8`  | 2rem   | 32px   | Card grids, medium spacing |
+| `gap-12` | 3rem   | 48px   | Large content blocks       |
+| `gap-16` | 4rem   | 64px   | Section spacing            |
+| `py-12`  | 3rem   | 48px   | Mobile section padding     |
+| `py-20`  | 5rem   | 80px   | Desktop section padding    |
+| `mb-6`   | 1.5rem | 24px   | Paragraph spacing          |
+| `mb-16`  | 4rem   | 64px   | Section header spacing     |
 
 ### Container Widths
 
@@ -325,23 +331,19 @@ max-w-7xl  /* 1280px - For full sections */
 ```html
 <section class="py-20 bg-base-100">
   <div class="container mx-auto max-w-7xl px-4">
-
     <!-- Section Header -->
     <div class="text-center mb-16 max-w-3xl mx-auto">
       <span class="text-accent font-semibold uppercase tracking-wider text-sm">
         Label
       </span>
       <h2 class="mt-4 mb-6">Section Title</h2>
-      <p class="text-lg text-base-content/70">
-        Description text
-      </p>
+      <p class="text-lg text-base-content/70">Description text</p>
     </div>
 
     <!-- Section Content -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Cards or content -->
     </div>
-
   </div>
 </section>
 ```
@@ -353,12 +355,12 @@ max-w-7xl  /* 1280px - For full sections */
 ```html
 <!-- 3 Column (Desktop) -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-<!-- 2 Column (Desktop) -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-<!-- 4 Column Stats -->
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+  <!-- 2 Column (Desktop) -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <!-- 4 Column Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8"></div>
+  </div>
+</div>
 ```
 
 ### Alternating Backgrounds
@@ -422,13 +424,13 @@ gsap.fromTo(
 
 ### Animation Timing
 
-| Element | Duration | Delay | Stagger | Easing |
-|---------|----------|-------|---------|--------|
-| Section headers | 0.8s | - | 0.15s | power2.out |
-| Cards | 1s | - | 0.2s | power3.out |
-| Process steps | 0.9s | - | 0.25s | back.out(1.7) |
-| Images | 1.2s | - | - | power2.out |
-| Hero content | 1s | 0.3s | - | power3.out |
+| Element         | Duration | Delay | Stagger | Easing        |
+| --------------- | -------- | ----- | ------- | ------------- |
+| Section headers | 0.8s     | -     | 0.15s   | power2.out    |
+| Cards           | 1s       | -     | 0.2s    | power3.out    |
+| Process steps   | 0.9s     | -     | 0.25s   | back.out(1.7) |
+| Images          | 1.2s     | -     | -       | power2.out    |
+| Hero content    | 1s       | 0.3s  | -       | power3.out    |
 
 ### Hover Animations
 
@@ -466,13 +468,16 @@ Use these when placing text over images:
 
 ```html
 <!-- Dark gradient from bottom -->
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div
+  class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+></div>
 
 <!-- Overall dark overlay -->
 <div class="absolute inset-0 bg-black/40"></div>
 ```
 
 **Best Practices**:
+
 - Always add gradient or solid overlay when placing text on images
 - Use appropriate text-shadow class for additional readability
 - White text on dark overlays, dark text on light overlays
@@ -496,17 +501,20 @@ xl:  1280px  /* Desktops */
 ### Mobile Adjustments
 
 **Typography**:
+
 - Base font: 16px (vs 17px desktop)
 - Buttons: Smaller padding
 - Headings: Reduce via clamp()
 
 **Layout**:
+
 - Hide decorative images < lg
 - Stack grids to single column
 - Reduce section padding (py-12 vs py-20)
 - Full-width on mobile, add padding
 
 **Navigation**:
+
 - Hamburger menu < lg
 - Full-screen mobile menu
 - Larger touch targets (min 44x44px)
@@ -524,13 +532,13 @@ xl:  1280px  /* Desktops */
 
 ### Image Sizes
 
-| Usage | Dimensions | Class |
-|-------|-----------|-------|
-| Hero background | 1920x1080+ | Full screen |
-| Hero portrait | 1000x1400+ | Full height |
-| Card images | 800x600 | `h-56` fixed |
-| Profile images | 800x800+ | Responsive |
-| Thumbnails | 400x400 | Small icons |
+| Usage           | Dimensions | Class        |
+| --------------- | ---------- | ------------ |
+| Hero background | 1920x1080+ | Full screen  |
+| Hero portrait   | 1000x1400+ | Full height  |
+| Card images     | 800x600    | `h-56` fixed |
+| Profile images  | 800x800+   | Responsive   |
+| Thumbnails      | 400x400    | Small icons  |
 
 ### Image Effects
 
@@ -554,6 +562,7 @@ xl:  1280px  /* Desktops */
 All color combinations meet WCAG AA standards:
 
 ✅ **Passing Combinations**:
+
 - White text on Deep Sage: **7.3:1**
 - White text on Terracotta: **4.8:1**
 - Rich Black text on Golden Amber: **8.1:1**
@@ -572,6 +581,7 @@ All color combinations meet WCAG AA standards:
 ### Semantic HTML
 
 ✅ **DO**:
+
 - Use `<nav>` for navigation
 - Use `<header>`, `<main>`, `<footer>` landmarks
 - Use `<section>` with headings
@@ -579,6 +589,7 @@ All color combinations meet WCAG AA standards:
 - Add `alt` text to all images
 
 ❌ **DON'T**:
+
 - Use `<div>` for buttons
 - Skip heading levels (h2 → h4)
 - Use images without alt text
@@ -605,6 +616,7 @@ All color combinations meet WCAG AA standards:
 ### Writing Style
 
 ✅ **DO**:
+
 - Use active voice
 - Keep paragraphs short (2-4 sentences)
 - Include clear CTAs
@@ -612,6 +624,7 @@ All color combinations meet WCAG AA standards:
 - Use "you" and "your" (client-focused)
 
 ❌ **DON'T**:
+
 - Use jargon without explanation
 - Write long paragraphs
 - Be overly salesy or pushy
@@ -625,7 +638,9 @@ All color combinations meet WCAG AA standards:
 
 ```html
 <div class="flex items-center gap-3 text-white/90">
-  <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+  <div
+    class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center"
+  >
     <Award class="w-6 h-6 text-accent" />
   </div>
   <div>
@@ -656,7 +671,10 @@ All color combinations meet WCAG AA standards:
 
 ```html
 <div class="text-center space-y-2">
-  <div class="text-4xl font-bold text-primary" style="font-family: var(--font-serif);">
+  <div
+    class="text-4xl font-bold text-primary"
+    style="font-family: var(--font-serif);"
+  >
     100+
   </div>
   <div class="text-sm uppercase tracking-wider text-base-content/70">
@@ -672,6 +690,7 @@ All color combinations meet WCAG AA standards:
 ### Before Launch
 
 **Visual Design**:
+
 - [ ] All colors from defined palette
 - [ ] Typography hierarchy consistent
 - [ ] Proper spacing throughout
@@ -679,6 +698,7 @@ All color combinations meet WCAG AA standards:
 - [ ] Animations smooth and performant
 
 **Responsiveness**:
+
 - [ ] Mobile layout tested (320px - 768px)
 - [ ] Tablet layout tested (768px - 1024px)
 - [ ] Desktop layout tested (1024px+)
@@ -686,6 +706,7 @@ All color combinations meet WCAG AA standards:
 - [ ] Touch targets min 44x44px
 
 **Accessibility**:
+
 - [ ] Color contrast passes WCAG AA
 - [ ] All images have alt text
 - [ ] Keyboard navigation works
@@ -693,12 +714,14 @@ All color combinations meet WCAG AA standards:
 - [ ] Semantic HTML used
 
 **Performance**:
+
 - [ ] Images lazy loaded
 - [ ] Lighthouse score > 90
 - [ ] No layout shift
 - [ ] Fast first paint
 
 **Content**:
+
 - [ ] No lorem ipsum
 - [ ] All CTAs functional
 - [ ] Contact info correct
@@ -710,12 +733,14 @@ All color combinations meet WCAG AA standards:
 ## Resources
 
 ### Design Tools
+
 - **Figma**: Component library and mockups
 - **Adobe XD**: Alternative design tool
 - **Coolors**: Color palette generator
 - **Google Fonts**: Playfair Display, Inter
 
 ### Development Tools
+
 - **Astro**: Framework
 - **Tailwind CSS**: Utility-first CSS
 - **DaisyUI**: Component library
@@ -723,6 +748,7 @@ All color combinations meet WCAG AA standards:
 - **Lucide Icons**: Icon library
 
 ### Testing Tools
+
 - **Chrome DevTools**: Responsive testing
 - **Lighthouse**: Performance audit
 - **WebAIM**: Contrast checker
@@ -733,6 +759,7 @@ All color combinations meet WCAG AA standards:
 ## Support & Questions
 
 For design questions or clarifications:
+
 1. Review this guide first
 2. Check CLAUDE.md for comprehensive documentation
 3. Review existing implementations on live pages

@@ -10,10 +10,9 @@ let year = date.getFullYear();
   class="relative text-white overflow-hidden border-t-4 border-primary"
   style="background: linear-gradient(45deg, #2c4a3e 0%, #3a6250 35%, #a85d44 100%);"
 >
-
   <!-- Dot Pattern Overlay -->
   <div
-    class="absolute inset-0 opacity-20 pointer-events-none"
+    class="absolute inset-0 opacity-40 pointer-events-none"
     style="background-image: radial-gradient(circle, rgba(217,160,91,0.3) 1px, transparent 1px); background-size: 24px 24px;"
   >
   </div>
@@ -31,12 +30,19 @@ let year = date.getFullYear();
         >
           George Medairy
         </h3>
-        <p class="text-white/80 leading-relaxed">
-          Your trusted Delaware real estate expert serving residential buyers,
-          sellers, and veterans. Helping you find your place to call home.
-        </p>
+        <div class="space-y-3">
+          <p class="text-white text-lg font-medium leading-relaxed">
+            Your trusted Delaware real estate expert serving residential buyers,
+            sellers, and veterans.
+          </p>
+          <p class="text-white/95 leading-relaxed">
+            From Rehoboth Beach to Wilmington, Newark to Dover—I know Delaware
+            inside and out. Let me help you find your perfect home in the First
+            State.
+          </p>
+        </div>
         <div
-          class="inline-flex items-center gap-2 bg-accent/20 px-4 py-2.5 rounded-lg"
+          class="inline-flex items-center gap-2 bg-accent/20 px-4 py-2.5 rounded-lg border border-accent/30"
         >
           <Shield class="w-5 h-5 text-accent" />
           <span class="text-sm font-semibold text-accent"
@@ -76,6 +82,14 @@ let year = date.getFullYear();
               class="text-white/80 hover:text-accent transition-colors"
             >
               Explore Properties
+            </a>
+          </li>
+          <li>
+            <a
+              href="/areas"
+              class="text-white/80 hover:text-accent transition-colors"
+            >
+              Area Guides
             </a>
           </li>
           <li>

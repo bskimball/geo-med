@@ -7,48 +7,51 @@ import {
   Button,
   FieldError,
 } from 'react-aria-components';
-import { useState } from 'react';
+import { useActionState } from 'react';
+import { actions } from 'astro:actions';
+
+type FormState = {
+  success: boolean;
+  message: string;
+} | null;
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [state, formAction, isPending] = useActionState<FormState, FormData>(
+    async (_previousState: FormState, formData: FormData) => {
+      try {
+        // Call the Astro action to send the email
+        const { data, error } = await actions.sendContactEmail(formData);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
+        if (error) {
+          return {
+            success: false,
+            message: error.message || 'Failed to send message',
+          };
+        }
 
-    // Collect form data (currently used for logging / future API integration)
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      setSubmitMessage(
-        "Thank you for your message! We'll get back to you soon."
-      );
-      (e.target as HTMLFormElement).reset();
-      console.log('Contact form submitted', {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        subject: formData.get('subject'),
-        message: formData.get('message'),
-      });
-    } catch (error) {
-      console.error('Error submitting contact form', error);
-      setSubmitMessage(
-        'There was an error sending your message. Please try again.'
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+        return {
+          success: true,
+          message:
+            data?.message ||
+            "Thank you for your message! We'll get back to you soon.",
+        };
+      } catch (error) {
+        console.error('Error submitting contact form:', error);
+        return {
+          success: false,
+          message:
+            error instanceof Error
+              ? error.message
+              : 'There was an error sending your message. Please try again.',
+        };
+      }
+    },
+    null
+  );
 
   return (
     <div>
-      <Form onSubmit={handleSubmit} className="space-y-6" validationErrors={{}}>
+      <Form action={formAction} className="space-y-6" validationErrors={{}}>
         {/* Name Field */}
         <TextField name="name" isRequired className="w-full">
           <Label className="label">
@@ -114,10 +117,10 @@ export default function ContactForm() {
         <div className="flex flex-col space-y-4">
           <Button
             type="submit"
-            isDisabled={isSubmitting}
+            isDisabled={isPending}
             className="btn btn-primary w-full sm:w-auto"
           >
-            {isSubmitting ? (
+            {isPending ? (
               <div className="flex items-center space-x-2">
                 <div className="loading loading-spinner loading-sm"></div>
                 <span>Sending...</span>
@@ -128,15 +131,13 @@ export default function ContactForm() {
           </Button>
 
           {/* Success/Error Message */}
-          {submitMessage && (
+          {state?.message && (
             <div
               className={`alert ${
-                submitMessage.includes('Thank you')
-                  ? 'alert-success'
-                  : 'alert-error'
+                state.success ? 'alert-success' : 'alert-error'
               }`}
             >
-              <span>{submitMessage}</span>
+              <span>{state.message}</span>
             </div>
           )}
         </div>
