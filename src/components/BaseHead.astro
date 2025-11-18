@@ -146,12 +146,16 @@ const schemaJson = JSON.stringify(schemaPayload, null, 2);
     ))
   }
   <script type="application/ld+json" set:html={schemaJson} />
-  {gaMeasurementId && (
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-    ></script>
-  )}
-  {gaMeasurementId && <script set:html={gaInlineScript} />}
+  {
+    gaMeasurementId && (
+      <>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+        />
+        <script set:html={gaInlineScript} />
+      </>
+    )
+  }
   <ClientRouter />
 </head>
