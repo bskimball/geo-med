@@ -27,6 +27,7 @@ import {
 } from '@lucide/astro';
 import Navbar from '../components/Navbar.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 const optimizedSoldHomeBkg = await getImage({
   src: soldHomeBkg,
@@ -140,9 +141,9 @@ const homepageStructuredData = [
                 <Search class="w-5 h-5 mr-1" />
                 Browse Homes
               </a>
-              <a href="/contact" class="btn btn-secondary btn-lg">
-                <MousePointerClick class="w-5 h-5 mr-1" />
-                Get Started
+              <a href="/home-valuation" class="btn btn-secondary btn-lg">
+                <TrendingUp class="w-5 h-5 mr-1" />
+                What's My Home Worth?
               </a>
             </div>
 
@@ -266,6 +267,11 @@ const homepageStructuredData = [
               <span>Multi-channel marketing</span>
             </li>
           </ul>
+          <div class="mt-4 pt-4 border-t border-base-200">
+            <a href="/home-valuation" class="btn btn-sm btn-outline w-full">
+              Get Free Home Valuation
+            </a>
+          </div>
         </ServiceCard>
 
         <ServiceCard title="Find Rentals">
@@ -453,10 +459,10 @@ const homepageStructuredData = [
           </div>
 
           <a
-            href="/contact"
+            href="/veterans"
             class="btn btn-accent btn-lg inline-flex mt-4 group"
           >
-            <span>Schedule Consultation</span>
+            <span>Visit Veteran's Center</span>
             <Rocket
               class="w-5 h-5 group-hover:translate-x-1 transition-transform"
             />
@@ -578,6 +584,9 @@ const homepageStructuredData = [
       </div>
     </div>
   </section>
+
+  <!-- Testimonials Section -->
+  <Testimonials />
 
   <!-- Why Choose Me Section -->
   <section

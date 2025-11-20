@@ -16,9 +16,17 @@ export const server = {
       subject: z.string().min(1, 'Subject is required'),
       message: z.string().min(10, 'Message must be at least 10 characters'),
     }),
-    handler: async (input) => {
+    handler: async (input, context) => {
       try {
         const { name, email, phone, subject, message } = input;
+
+        // Extract Location Data
+        const ip = context.clientAddress || 'Unknown';
+        const city = context.request.headers.get('cf-ipcity') || 'Unknown';
+        const country = context.request.headers.get('cf-ipcountry') || 'Unknown';
+        const region = context.request.headers.get('cf-region') || 'Unknown';
+
+        const locationString = `${city}, ${region}, ${country} (IP: ${ip})`;
 
         if (!contactEmail) {
           throw new Error(
@@ -37,7 +45,34 @@ export const server = {
           );
         }
 
-        // Send email using Resend
+        // 1. Attempt to save contact to Resend Audience (Lead Capture)
+        const audienceId = import.meta.env.RESEND_AUDIENCE_ID;
+        if (audienceId) {
+          try {
+            const { error: contactError } = await resend.contacts.create({
+              email: email,
+              firstName: name.split(' ')[0],
+              lastName: name.split(' ').slice(1).join(' '),
+              unsubscribed: false,
+              audienceId: audienceId,
+            });
+
+            if (contactError) {
+              console.warn('Failed to save contact to Resend:', contactError);
+            } else {
+              console.log('Contact saved to Resend Audience:', email);
+            }
+          } catch (contactErr) {
+            console.warn('Error saving contact to Resend:', contactErr);
+            // Don't block the email sending if this fails
+          }
+        } else {
+          console.info(
+            'RESEND_AUDIENCE_ID not set. Skipping lead capture storage.'
+          );
+        }
+
+        // 2. Send email using Resend
         const { data, error } = await resend.emails.send({
           from: 'Contact Form <onboarding@resend.dev>', // Update this with your verified domain
           to: recipients,
@@ -53,6 +88,7 @@ export const server = {
                 <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
                 ${phone ? `<p style="margin: 10px 0;"><strong>Phone:</strong> ${phone}</p>` : ''}
                 <p style="margin: 10px 0;"><strong>Subject:</strong> ${subject}</p>
+                <p style="margin: 10px 0; border-top: 1px solid #ddd; padding-top: 10px;"><strong>Location:</strong> ${locationString}</p>
               </div>
 
               <div style="background-color: #ffffff; padding: 20px; border-left: 4px solid #2c4a3e; margin: 20px 0;">
@@ -73,6 +109,7 @@ export const server = {
             Email: ${email}
             ${phone ? `Phone: ${phone}` : ''}
             Subject: ${subject}
+            Location: ${locationString}
 
             Message:
             ${message}

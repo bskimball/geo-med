@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { TrendingUp, Home, CheckCircle, ArrowRight } from 'lucide-astro';
+import soldHomeBkg from '../assets/sold-home-bkg.jpg'; // Reusing existing asset
+
+---
+
+<Layout
+  title="What's My Delaware Home Worth? | Free Market Analysis"
+  description="Get a precise, professional home valuation for your Delaware property. Don't rely on automated estimates—get a real analysis from a local expert."
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0">
+      <Image
+        src={soldHomeBkg}
+        alt="Sold home in Delaware"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
+    </div>
+
+    <div class="container mx-auto max-w-4xl px-4 relative z-10 text-center text-white">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-full mb-8">
+        <TrendingUp class="w-5 h-5 text-accent" />
+        <span class="font-medium tracking-wide">Market Update 2025</span>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        What is Your Home <br/>
+        <span class="text-accent">Really Worth?</span>
+      </h1>
+      
+      <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+        Automated estimates can be off by 10-20%. Get a comprehensive Comparative Market Analysis (CMA) based on real-time local data, upgrades, and market trends.
+      </p>
+    </div>
+  </section>
+
+  <!-- Valuation Form Section -->
+  <section class="py-20 bg-base-100 -mt-20 relative z-20">
+    <div class="container mx-auto max-w-3xl px-4">
+      <div class="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border border-base-200">
+        <div class="text-center mb-10">
+          <h2 class="text-2xl font-bold mb-2">Request Your Free Valuation</h2>
+          <p class="text-base-content/60">No obligation. Just accurate data.</p>
+        </div>
+
+        <form class="space-y-6" method="POST" action="/api/valuation">
+          <!-- Property Details -->
+          <div class="space-y-4">
+            <h3 class="text-sm font-bold uppercase text-base-content/40 tracking-wider">Property Details</h3>
+            
+            <div>
+              <label class="label">
+                <span class="label-text font-medium">Property Address *</span>
+              </label>
+              <input
+                type="text"
+                name="address"
+                required
+                placeholder="e.g. 123 Coastal Hwy, Rehoboth Beach"
+                class="input input-bordered w-full"
+              />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="label">
+                  <span class="label-text font-medium">Bedrooms</span>
+                </label>
+                <select name="beds" class="select select-bordered w-full">
+                  <option value="">Select...</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5+">5+</option>
+                </select>
+              </div>
+              <div>
+                <label class="label">
+                  <span class="label-text font-medium">Bathrooms</span>
+                </label>
+                <select name="baths" class="select select-bordered w-full">
+                  <option value="">Select...</option>
+                  <option value="1">1</option>
+                  <option value="1.5">1.5</option>
+                  <option value="2">2</option>
+                  <option value="2.5">2.5</option>
+                  <option value="3+">3+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="label">
+                <span class="label-text font-medium">Condition / Upgrades</span>
+              </label>
+              <textarea
+                name="condition"
+                class="textarea textarea-bordered w-full h-24"
+                placeholder="Tell me about any recent renovations, new roof, HVAC, etc."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <h3 class="text-sm font-bold uppercase text-base-content/40 tracking-wider">Your Contact Info</h3>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="label">
+                  <span class="label-text font-medium">Name *</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Full Name"
+                  class="input input-bordered w-full"
+                />
+              </div>
+              <div>
+                <label class="label">
+                  <span class="label-text font-medium">Email *</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email Address"
+                  class="input input-bordered w-full"
+                />
+              </div>
+            </div>
+            
+            <div>
+              <label class="label">
+                <span class="label-text font-medium">Phone</span>
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="(555) 123-4567"
+                class="input input-bordered w-full"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-full mt-8">
+            Get My Valuation
+            <ArrowRight class="w-5 h-5" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Me -->
+  <section class="py-20 bg-base-200/50">
+    <div class="container mx-auto max-w-6xl px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Why Trust My Valuation?</h2>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+          Algorithms don't walk through homes. I combine data with on-the-ground expertise.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+            <TrendingUp class="w-6 h-6 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Local Market Trends</h3>
+          <p class="text-base-content/70">I analyze recent sales in your specific neighborhood, not just the zip code.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+            <Home class="w-6 h-6 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Property Condition</h3>
+          <p class="text-base-content/70">I factor in your specific upgrades, view, and lot positioning which algorithms miss.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+            <CheckCircle class="w-6 h-6 text-accent" />
+          </div>
+          <h3 class="text-xl font-bold mb-3">Strategic Pricing</h3>
+          <p class="text-base-content/70">I provide a pricing strategy designed to get you the highest possible offer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

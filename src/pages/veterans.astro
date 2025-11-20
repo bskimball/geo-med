@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { Shield, Check, Home, DollarSign, Calendar } from 'lucide-astro';
+import LoanCalculator from '../components/LoanCalculator';
+import Testimonials from '../components/Testimonials.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import georgeUpClose from '../assets/george-up-close.jpg'; // Reusing existing asset
+
+const benefits = [
+  {
+    title: '0% Down Payment',
+    description:
+      'Purchase your dream home without the barrier of a large down payment. Keep your savings for renovations or furniture.',
+    icon: DollarSign,
+  },
+  {
+    title: 'No PMI Required',
+    description:
+      'Unlike conventional loans with low down payments, VA loans do not require Private Mortgage Insurance, saving you hundreds monthly.',
+    icon: Shield,
+  },
+  {
+    title: 'Competitive Rates',
+    description:
+      'VA loans typically offer lower interest rates than conventional loans, maximizing your purchasing power.',
+    icon: Calendar,
+  },
+  {
+    title: 'Flexible Credit',
+    description:
+      'VA loans have more lenient credit score requirements, making homeownership accessible to more veterans.',
+    icon: Check,
+  },
+];
+---
+
+<Layout
+  title="Delaware VA Loan Specialist | George Medairy"
+  description="Expert guidance for veterans using VA loans in Delaware. 0% down payment, no PMI, and specialized support for those who served."
+>
+  <!-- Hero Section -->
+  <section class="relative py-24 bg-primary text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="container mx-auto max-w-7xl px-4 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div
+            class="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 px-4 py-2 rounded-full"
+          >
+            <Shield class="w-5 h-5 text-accent" />
+            <span class="text-accent font-bold tracking-wider uppercase text-sm"
+              >Veteran Advocacy</span
+            >
+          </div>
+          <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+            Serving Those <br />
+            <span class="text-accent">Who Served</span>
+          </h1>
+          <p class="text-xl text-white/90 leading-relaxed max-w-lg">
+            You've defended our home, now let me help you find yours. Expert
+            guidance on VA loans, 0% down options, and maximizing your benefits
+            in Delaware's coastal market.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#calculator" class="btn btn-accent btn-lg">
+              Calculate Payments
+            </a>
+            <a href="/contact" class="btn btn-outline text-white btn-lg hover:bg-white/10 hover:text-white">
+              Get Started
+            </a>
+          </div>
+        </div>
+        <div class="relative hidden lg:block">
+          <div
+            class="absolute -inset-4 bg-accent/20 rounded-full blur-3xl"
+          >
+          </div>
+          <Image
+            src={georgeUpClose}
+            alt="George Medairy - Veteran Real Estate Specialist"
+            class="relative rounded-2xl shadow-2xl border-4 border-white/10 w-full max-w-md mx-auto transform rotate-2 hover:rotate-0 transition-transform duration-500"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Grid -->
+  <section class="py-20 bg-base-100">
+    <div class="container mx-auto max-w-7xl px-4">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+          Why the VA Loan is Your <span class="text-primary">Best Weapon</span>
+        </h2>
+        <p class="text-lg text-base-content/70">
+          The VA Home Loan benefit is one of the most powerful tools available
+          for building wealth through real estate.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          benefits.map((benefit) => (
+            <div class="bg-base-200/50 p-8 rounded-2xl hover:bg-base-200 transition-colors duration-300">
+              <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 text-primary">
+                <benefit.icon class="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-bold mb-3">{benefit.title}</h3>
+              <p class="text-base-content/70 leading-relaxed">
+                {benefit.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section id="calculator" class="py-20 bg-base-200 relative">
+    <div class="container mx-auto max-w-7xl px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            See Your <span class="text-accent">Purchasing Power</span>
+          </h2>
+          <p class="text-lg text-base-content/70 mb-8">
+            Use our specialized VA loan calculator to estimate your monthly
+            payments. Remember, with a VA loan, you can often buy with <strong
+              class="text-primary">0% down</strong
+            >.
+          </p>
+          
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3">
+              <Check class="w-5 h-5 text-success" />
+              <span>No Private Mortgage Insurance (PMI)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <Check class="w-5 h-5 text-success" />
+              <span>Competitive interest rates</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <Check class="w-5 h-5 text-success" />
+              <span>Closing costs can be paid by the seller</span>
+            </li>
+          </ul>
+
+          <div class="alert bg-white shadow-lg border-l-4 border-primary">
+            <div>
+              <h4 class="font-bold text-primary">Did you know?</h4>
+              <p class="text-sm mt-1">
+                Disabled veterans may be exempt from the VA Funding Fee and even
+                property taxes in Delaware. Ask me for details!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <LoanCalculator client:load />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Magnet Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto max-w-5xl px-4">
+      <LeadMagnet 
+        title="The 2025 Delaware Veteran's Home Buying Guide"
+        description="Get the complete breakdown of VA loan limits, property tax exemptions for disabled veterans, and the best neighborhoods for military families in Delaware."
+        resourceId="veteran-guide-2025"
+        buttonText="Download Veteran's Guide"
+      />
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <Testimonials 
+    title="Trusted by Veterans"
+    subtitle="I'm proud to have helped these service members find their home base."
+    filter="veteran"
+  />
+
+  <!-- CTA -->
+  <section class="py-20 bg-primary text-white text-center">
+    <div class="container mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Ready to Use Your Benefits?
+      </h2>
+      <p class="text-xl text-white/80 mb-8">
+        Don't leave money on the table. Work with an agent who understands the
+        VA process inside and out.
+      </p>
+      <a href="/contact" class="btn btn-accent btn-lg">
+        Schedule Your VA Consultation
+      </a>
+    </div>
+  </section>
+</Layout>

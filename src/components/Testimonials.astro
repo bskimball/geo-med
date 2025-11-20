@@ -1,0 +1,124 @@
+---
+import { Star, Quote } from 'lucide-react';
+import { Image } from 'astro:assets';
+import georgeThumbsUp from '../assets/george-thumbs-up.jpg'; // Fallback image if needed
+
+interface Testimonial {
+  name: string;
+  role?: string; // e.g., "First-Time Buyer", "Veteran Homeowner"
+  content: string;
+  rating: number;
+  location?: string;
+  image?: ImageMetadata;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  testimonials?: Testimonial[];
+  filter?: 'all' | 'veteran' | 'seller' | 'buyer';
+}
+
+const defaultTestimonials: Testimonial[] = [
+  {
+    name: 'The Sullivan Family',
+    role: 'Veteran Homebuyers',
+    content:
+      "George's knowledge of the VA loan process was a game-changer for us. He knew exactly how to navigate the inspection requirements and got us into our dream home in Lewes with $0 down. Truly a veteran advocate!",
+    rating: 5,
+    location: 'Lewes, DE',
+  },
+  {
+    name: 'Michael & Sarah T.',
+    role: 'Relocating from NY',
+    content:
+      'We were nervous about buying a beach house from out of state, but George made it seamless. He sent us detailed video tours and was our eyes and ears on the ground. We love our new place in Rehoboth!',
+    rating: 5,
+    location: 'Rehoboth Beach, DE',
+  },
+  {
+    name: 'James R.',
+    role: 'Property Investor',
+    content:
+      'I’ve worked with many agents, but George’s data-driven approach to rental ROI in Dewey Beach is unmatched. He found me a duplex that’s already cash-flowing beautifully.',
+    rating: 5,
+    location: 'Dewey Beach, DE',
+  },
+];
+
+const {
+  title = 'Client Success Stories',
+  subtitle = 'Hear from families who found their home in Delaware',
+  testimonials = defaultTestimonials,
+  filter = 'all',
+} = Astro.props;
+
+const filteredTestimonials =
+  filter === 'all'
+    ? testimonials
+    : testimonials.filter((t) => t.role?.toLowerCase().includes(filter));
+---
+
+<section class="py-20 bg-base-200/50 relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div
+    class="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style="background-image: radial-gradient(circle, currentColor 1px, transparent 1px); background-size: 24px 24px;"
+  >
+  </div>
+
+  <div class="container mx-auto max-w-7xl px-4 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-accent font-semibold uppercase tracking-wider text-sm"
+        >Testimonials</span
+      >
+      <h2 class="mt-4 mb-6">{title}</h2>
+      <p class="text-lg text-base-content/70">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        filteredTestimonials.map((testimonial) => (
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 relative group">
+            <div class="absolute top-6 right-8 text-accent/20 group-hover:text-accent/40 transition-colors">
+              <Quote class="w-10 h-10" />
+            </div>
+
+            <div class="flex gap-1 mb-6">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star
+                  class={`w-5 h-5 ${
+                    i < testimonial.rating
+                      ? 'text-warning fill-warning'
+                      : 'text-base-300'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <p class="text-base-content/80 mb-8 leading-relaxed relative z-10">
+              "{testimonial.content}"
+            </p>
+
+            <div class="flex items-center gap-4 mt-auto">
+              <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                {testimonial.name.charAt(0)}
+              </div>
+              <div>
+                <div class="font-bold text-base-content">
+                  {testimonial.name}
+                </div>
+                <div class="text-sm text-base-content/60">
+                  {testimonial.role}
+                  {testimonial.location && ` • ${testimonial.location}`}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

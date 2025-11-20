@@ -430,7 +430,7 @@ const exploreStructuredData = [
                           </span>
                         </div>
                       </div>
-                      <button class="btn-primary-gradient">
+                      <button class="btn btn-primary">
                         <span>View Details</span>
                         <ArrowRight class="w-5 h-5" />
                       </button>
@@ -509,7 +509,7 @@ const exploreStructuredData = [
                       </div>
 
                       {/* Action */}
-                      <button class="w-full btn-outline-primary group-hover:btn-primary-gradient transition-all duration-300">
+                      <button class="w-full btn btn-outline-primary group-hover:btn-primary transition-all duration-300">
                         <span>View Details</span>
                         <ArrowRight class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                       </button>
@@ -521,7 +521,7 @@ const exploreStructuredData = [
 
             {/* Load More Section */}
             <div class="text-center pt-8">
-              <button class="btn-secondary-gradient">
+              <button class="btn btn-secondary">
                 <span>Load More Properties</span>
                 <ArrowRight class="w-5 h-5" />
               </button>
@@ -553,7 +553,7 @@ const exploreStructuredData = [
                 </p>
                 <a
                   href="/contact"
-                  class="btn-accent-gradient w-full cursor-pointer"
+                  class="btn btn-accent w-full cursor-pointer"
                 >
                   <span>Contact George</span>
                   <ArrowRight class="w-5 h-5" />
@@ -693,100 +693,7 @@ const exploreStructuredData = [
       box-shadow: 0 8px 24px rgba(44, 74, 62, 0.2);
     }
 
-    /* Button Variants */
-    .btn-primary-gradient {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.875rem 1.75rem;
-      border-radius: 0.75rem;
-      background: linear-gradient(135deg, #2c4a3e 0%, #3a6250 100%);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(44, 74, 62, 0.3);
-    }
 
-    .btn-primary-gradient:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(44, 74, 62, 0.4);
-    }
-
-    .btn-secondary-gradient {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      border-radius: 0.75rem;
-      background: linear-gradient(135deg, #a85d44 0%, #c67659 100%);
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(168, 93, 68, 0.3);
-    }
-
-    .btn-secondary-gradient:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(168, 93, 68, 0.4);
-    }
-
-    .btn-accent-gradient {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.875rem 1.75rem;
-      border-radius: 0.75rem;
-      background: linear-gradient(135deg, #d9a05b 0%, #edb970 100%);
-      color: var(--color-base-content);
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(217, 160, 91, 0.3);
-    }
-
-    .btn-accent-gradient:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 24px rgba(217, 160, 91, 0.4);
-    }
-
-    .btn-outline-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      background: transparent;
-      color: var(--color-primary);
-      font-weight: 600;
-      font-size: 0.9375rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid var(--color-primary);
-      cursor: pointer;
-    }
-
-    .btn-outline-primary:hover {
-      background: linear-gradient(135deg, #2c4a3e 0%, #3a6250 100%);
-      color: white;
-      border-color: transparent;
-    }
 
     /* Line Clamp */
     .line-clamp-2 {
