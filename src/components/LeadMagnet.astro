@@ -1,0 +1,102 @@
+---
+import { FileText, Download, Lock } from 'lucide-react';
+
+interface Props {
+  title: string;
+  description: string;
+  buttonText?: string;
+  image?: string; // URL or path to an image
+  resourceId: string; // Identifier for the specific resource (e.g., 'veteran-guide-2025')
+}
+
+const {
+  title,
+  description,
+  buttonText = 'Get Free Guide',
+  resourceId,
+} = Astro.props;
+---
+
+<div
+  class="bg-gradient-to-br from-primary to-[#2c3e50] rounded-2xl p-1 shadow-2xl overflow-hidden my-12"
+>
+  <div class="bg-white/5 backdrop-blur-sm rounded-xl p-8 md:p-12 relative">
+    <!-- Decorative Elements -->
+    <div class="absolute top-0 right-0 -mt-10 -mr-10 opacity-10">
+      <FileText class="w-64 h-64 text-white" />
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="space-y-6">
+        <div
+          class="inline-flex items-center gap-2 bg-accent/20 text-accent px-3 py-1 rounded-full text-sm font-medium border border-accent/20"
+        >
+          <Download class="w-4 h-4" />
+          <span>Free Resource</span>
+        </div>
+
+        <h3 class="text-3xl font-bold text-white leading-tight">
+          {title}
+        </h3>
+        <p class="text-lg text-white/80 leading-relaxed">
+          {description}
+        </p>
+
+        <div class="flex items-center gap-4 text-sm text-white/60">
+          <div class="flex items-center gap-1">
+            <Lock class="w-4 h-4" />
+            <span>No spam, ever.</span>
+          </div>
+          <div class="w-1 h-1 bg-white/20 rounded-full"></div>
+          <div>Instant PDF Download</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 shadow-lg">
+        <form
+          class="space-y-4"
+          method="POST"
+          action="/api/lead-magnet"
+          data-resource-id={resourceId}
+        >
+          <input type="hidden" name="resourceId" value={resourceId} />
+          
+          <div>
+            <label class="label">
+              <span class="label-text font-medium">First Name</span>
+            </label>
+            <input
+              type="text"
+              name="firstName"
+              required
+              placeholder="Your first name"
+              class="input input-bordered w-full bg-base-100"
+            />
+          </div>
+
+          <div>
+            <label class="label">
+              <span class="label-text font-medium">Email Address</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="Where should we send it?"
+              class="input input-bordered w-full bg-base-100"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-accent w-full text-lg">
+            {buttonText}
+            <Download class="w-5 h-5 ml-2" />
+          </button>
+          
+          <p class="text-xs text-center text-base-content/50 mt-4">
+            By downloading, you agree to receive helpful real estate updates. Unsubscribe anytime.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
