@@ -3,7 +3,7 @@
   "pages_build_output_dir": "./dist",
   // Update to today's date
   "compatibility_date": "2025-11-09",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "disable_nodejs_process_v2"],
 
   "observability": {
     "enabled": true
