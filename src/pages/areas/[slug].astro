@@ -23,7 +23,12 @@ export async function getStaticPaths() {
   }));
 }
 
-const { market } = Astro.props;
+const { slug } = Astro.params;
+const market = Astro.props.market ?? markets.find((m) => m.slug === slug);
+
+if (!market) {
+  return Astro.redirect('/areas');
+}
 
 const heroImage = await getImage({
   src: market.hero.image,
