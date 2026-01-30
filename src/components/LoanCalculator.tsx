@@ -43,6 +43,7 @@ const LoanCalculator: React.FC = () => {
             className="input input-bordered rounded-lg w-full"
             value={homePrice}
             min={0}
+            autoComplete="off"
             onChange={(e) => {
               setHomePrice(Number(e.target.value));
             }}
@@ -60,6 +61,7 @@ const LoanCalculator: React.FC = () => {
             value={downPayment}
             min={0}
             max={homePrice}
+            autoComplete="off"
             onChange={(e) => {
               setDownPayment(Number(e.target.value));
               setDownPaymentManuallyChanged(true);
@@ -69,10 +71,12 @@ const LoanCalculator: React.FC = () => {
 
         {/* Loan Program Field */}
         <div className="w-full">
-          <Label className="label">
+          <label htmlFor="loan-program" className="label">
             <span className="label-text font-medium">Loan Program</span>
-          </Label>
+          </label>
           <select
+            id="loan-program"
+            name="loanProgram"
             className="select select-bordered rounded-lg w-full"
             value={loanProgram}
             onChange={(e) => setLoanProgram(Number(e.target.value))}
@@ -93,6 +97,7 @@ const LoanCalculator: React.FC = () => {
             value={interestRate}
             min={0}
             step={0.01}
+            autoComplete="off"
             onChange={(e) => setInterestRate(Number(e.target.value))}
           />
         </TextField>

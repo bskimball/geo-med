@@ -3,6 +3,8 @@ import luxuryHome from '../../assets/luxury-home.jpg';
 import handingOverKeys from '../../assets/handing-over-keys.jpg';
 import georgeThumbsUp from '../../assets/george-thumbs-up.jpg';
 import delawareRoadMap from '../../assets/delaware-road-map.png';
+import dreamHome from '../../assets/dream-home.jpg';
+import rentHome from '../../assets/rent-home.jpg';
 
 export interface MarketHighlight {
   title: string;
@@ -461,6 +463,213 @@ export const markets: MarketGuide[] = [
       subheading:
         'Compare established neighborhoods with new-build communities to match your lifestyle and timeline.',
       actionText: 'Start Lewes Home Search',
+      actionUrl: '/contact',
+    },
+  },
+  {
+    slug: 'millsboro',
+    name: 'Millsboro',
+    tagline: 'Affordable Inland Living Near Coastal Attractions',
+    description:
+      'Millsboro offers budget-friendly homes, growing amenities, and quick access to Delaware beaches—ideal for families and commuters seeking value.',
+    summary:
+      'Discover affordable single-family homes, new construction communities, and a welcoming small-town atmosphere just minutes from Rehoboth Beach.',
+    hero: {
+      image: dreamHome,
+      alt: 'Charming family home in Millsboro, Delaware neighborhood',
+    },
+    coordinates: {
+      latitude: 38.5918,
+      longitude: -75.2916,
+    },
+    meta: {
+      keywords: [
+        'Millsboro homes for sale',
+        'affordable Delaware real estate',
+        'Millsboro new construction',
+        'Sussex County homes',
+        'Millsboro DE communities',
+      ],
+    },
+    highlights: [
+      {
+        title: 'Affordable Entry Point',
+        description:
+          'Home prices significantly below coastal averages make Millsboro attractive for first-time buyers and growing families.',
+      },
+      {
+        title: 'Growing Infrastructure',
+        description:
+          'New retail centers, healthcare facilities, and dining options continue expanding to serve the growing population.',
+      },
+      {
+        title: 'Beach Proximity',
+        description:
+          'Reach Rehoboth Beach in under 20 minutes while enjoying lower property taxes and larger lot sizes.',
+      },
+    ],
+    stats: [
+      {
+        label: 'Median Home Price',
+        value: '$385K',
+        detail: 'Single-family homes including new construction',
+      },
+      {
+        label: 'Drive to Beach',
+        value: '18 mins',
+        detail: 'Quick access to Rehoboth and Dewey beaches',
+      },
+      {
+        label: 'New Communities',
+        value: '8+',
+        detail: 'Active builders with available inventory',
+      },
+    ],
+    neighborhoods: [
+      'Plantation Lakes',
+      'Stockley',
+      'Long Neck',
+      'Oak Orchard',
+      'Angola',
+    ],
+    lifestyle: [
+      'Family-oriented communities',
+      'Outdoor recreation',
+      'Local dining and shopping',
+      'Easy beach access',
+    ],
+    propertyTypes: [
+      'Single-family homes',
+      'New construction',
+      'Townhomes',
+      'Manufactured homes',
+    ],
+    nearbyAttractions: [
+      'Indian River Inlet',
+      'Tanger Outlets Rehoboth Beach',
+      'James Farm Ecological Preserve',
+      'Millsboro Pond',
+    ],
+    faqs: [
+      {
+        question: 'Is Millsboro a good place for families?',
+        answer:
+          'Yes. Millsboro offers affordable housing, good schools in the Indian River School District, and family-friendly neighborhoods with community amenities.',
+      },
+      {
+        question: 'How far is Millsboro from the beach?',
+        answer:
+          'Millsboro is approximately 15-20 minutes from Rehoboth Beach and Dewey Beach, making it ideal for beach lovers seeking affordable inland housing.',
+      },
+    ],
+    cta: {
+      heading: 'Explore Millsboro real estate opportunities',
+      subheading:
+        'Find affordable homes near Delaware beaches with room to grow. Let George show you the best Millsboro has to offer.',
+      actionText: 'Search Millsboro Homes',
+      actionUrl: '/contact',
+    },
+  },
+  {
+    slug: 'milton',
+    name: 'Milton',
+    tagline: 'Historic Charm with Small-Town Character',
+    description:
+      'Milton combines 19th-century architecture, artisan culture, and proximity to Cape Henlopen—perfect for buyers seeking character and community.',
+    summary:
+      "Experience a walkable downtown, thriving arts scene, and beautifully restored historic homes in one of Delaware's most charming small towns.",
+    hero: {
+      image: rentHome,
+      alt: 'Historic Main Street in Milton, Delaware with local shops',
+    },
+    coordinates: {
+      latitude: 38.7776,
+      longitude: -75.3099,
+    },
+    meta: {
+      keywords: [
+        'Milton Delaware homes for sale',
+        'historic Milton real estate',
+        'Milton DE downtown living',
+        'Dogfish Head Milton',
+        'Cape Henlopen area homes',
+      ],
+    },
+    highlights: [
+      {
+        title: 'Historic Downtown',
+        description:
+          'Tree-lined streets, 19th-century architecture, and locally owned shops create a walkable village atmosphere.',
+      },
+      {
+        title: 'Artisan Culture',
+        description:
+          'Home to Dogfish Head Brewery and a thriving creative community with galleries, studios, and seasonal markets.',
+      },
+      {
+        title: 'Nature Access',
+        description:
+          'Minutes from Prime Hook National Wildlife Refuge and Cape Henlopen State Park for hiking, birding, and kayaking.',
+      },
+    ],
+    stats: [
+      {
+        label: 'Median Home Price',
+        value: '$425K',
+        detail: 'Mix of historic homes and newer construction',
+      },
+      {
+        label: 'Drive to Lewes',
+        value: '10 mins',
+        detail: 'Quick access to beaches, ferry, and dining',
+      },
+      {
+        label: 'Walk Score',
+        value: '72',
+        detail: 'Highly walkable downtown core',
+      },
+    ],
+    neighborhoods: [
+      'Historic Downtown Milton',
+      'Wagamons West Shores',
+      'Milton Elks Lodge Area',
+      'Broadkill Beach',
+    ],
+    lifestyle: [
+      'Walkable downtown',
+      'Craft beer scene',
+      'Art galleries and studios',
+      'Nature and wildlife',
+    ],
+    propertyTypes: [
+      'Historic single-family homes',
+      'Restored Victorians',
+      'Waterfront properties',
+      'New construction communities',
+    ],
+    nearbyAttractions: [
+      'Dogfish Head Brewery',
+      'Prime Hook National Wildlife Refuge',
+      'Milton Theatre',
+      'Broadkill River kayaking',
+    ],
+    faqs: [
+      {
+        question: 'What makes Milton unique compared to beach towns?',
+        answer:
+          'Milton offers historic charm, lower prices than oceanfront communities, and a tight-knit artistic community while remaining just 10 minutes from Lewes and Cape Henlopen beaches.',
+      },
+      {
+        question: 'Are there new construction options in Milton?',
+        answer:
+          'Yes. Several developments offer new single-family homes while the historic district features beautifully restored properties with modern updates.',
+      },
+    ],
+    cta: {
+      heading: "Discover Milton's historic charm",
+      subheading:
+        "Find your perfect blend of character, community, and coastal access in one of Delaware's most welcoming small towns.",
+      actionText: 'Explore Milton Properties',
       actionUrl: '/contact',
     },
   },

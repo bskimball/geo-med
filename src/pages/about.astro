@@ -13,7 +13,6 @@ import {
   Star,
   Shield,
   Home,
-  TrendingUp,
   Phone,
 } from '@lucide/astro';
 
@@ -127,7 +126,7 @@ const aboutStructuredData = [
               <p class="text-xl text-white/90 text-shadow leading-relaxed">
                 Your dedicated real estate partner in Delaware, committed to
                 serving residential buyers, sellers, and honoring those who've
-                served our nation.
+                served our communities.
               </p>
             </div>
           </div>
@@ -218,7 +217,7 @@ const aboutStructuredData = [
                 about properties—it's about people, dreams, and new beginnings.
               </p>
               <p>
-                As a lifelong Delaware resident, I bring a deep understanding of
+                As a Delaware resident, I bring a deep understanding of
                 our local communities—from the beaches to the suburbs, the
                 hidden gems and the up-and-coming neighborhoods. My dedication
                 to staying current with market trends, combined with genuine
@@ -226,10 +225,10 @@ const aboutStructuredData = [
                 to making your real estate journey smooth and successful.
               </p>
               <p>
-                I'm particularly passionate about serving our veterans, helping
-                them navigate VA loans and leverage the benefits they've earned
+                I'm particularly passionate about serving our Community Heroes, helping
+                them navigate the buying/selling process and leverage the benefits they've earned
                 through their service. It's my honor to give back to those
-                who've given so much for our country.
+                who've given so much for our community.
               </p>
             </div>
 
@@ -244,7 +243,7 @@ const aboutStructuredData = [
                 class="inline-flex items-center gap-2 bg-secondary/10 px-4 py-2 rounded-lg"
               >
                 <Shield class="w-5 h-5 text-secondary" />
-                <span class="font-semibold text-sm">Veteran Advocate</span>
+                <span class="font-semibold text-sm">Homes for Heroes Affiliate</span>
               </div>
             </div>
           </div>
@@ -272,7 +271,7 @@ const aboutStructuredData = [
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div
-            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-accent/30 border border-transparent transition-all duration-300"
           >
             <div
               class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6"
@@ -288,7 +287,7 @@ const aboutStructuredData = [
           </div>
 
           <div
-            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-accent/30 border border-transparent transition-all duration-300"
           >
             <div
               class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6"
@@ -303,7 +302,7 @@ const aboutStructuredData = [
           </div>
 
           <div
-            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 hover:border-accent/30 border border-transparent transition-all duration-300"
           >
             <div
               class="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6"
@@ -322,7 +321,7 @@ const aboutStructuredData = [
 
     {/* Why Choose Me Section */}
     <section
-      class="py-24 relative overflow-hidden bg-gradient-to-br from-[#2c3e50] via-[#34495e] to-[#2c3e50]"
+      class="py-24 relative overflow-hidden bg-gradient-to-br from-[#2c4a3e] via-[#3a6250] to-[#2c4a3e]"
     >
       <!-- Decorative background elements -->
       <div class="absolute inset-0 opacity-[0.03]">
@@ -381,7 +380,7 @@ const aboutStructuredData = [
                       Deep Local Knowledge
                     </h4>
                     <p class="text-white/70 text-sm">
-                      15+ years of Delaware market expertise. I know the
+                      8+ years of Delaware market expertise. I know the
                       neighborhoods, schools, market trends, and hidden gems
                       that make each area special.
                     </p>
@@ -412,12 +411,10 @@ const aboutStructuredData = [
                   </div>
                   <div class="flex-1">
                     <h4 class="font-bold text-white mb-1">
-                      VA Loan Specialist
+                      Homes for Heroes Affiliate
                     </h4>
                     <p class="text-white/70 text-sm">
-                      Dedicated expertise in helping veterans navigate VA loans
-                      and maximize their hard-earned benefits with zero-down
-                      payment options.
+                      Proud to serve Firefighters/EMS, Law Enforcement, Military (Active, Reserves, & Veterans), Healthcare Professionals and Teachers.
                     </p>
                   </div>
                 </div>
@@ -469,39 +466,6 @@ const aboutStructuredData = [
                 </div>
               </div>
 
-              <div
-                class="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 hover:border-accent/30 transition-all duration-500"
-              >
-                <div class="flex items-start gap-4">
-                  <div
-                    class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-accent/30 to-accent/10 flex items-center justify-center border border-accent/20 group-hover:scale-110 group-hover:border-accent/40 transition-all duration-500"
-                  >
-                    <TrendingUp class="w-6 h-6 text-accent" />
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-bold text-white mb-1">
-                      Proven Track Record
-                    </h4>
-                    <p class="text-white/70 text-sm">
-                      500+ satisfied families, $50M+ in successful transactions,
-                      and a reputation built on results that exceed
-                      expectations.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                >
-                  <div
-                    class="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-accent to-transparent"
-                  >
-                  </div>
-                  <div
-                    class="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-accent to-transparent"
-                  >
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -540,7 +504,7 @@ const aboutStructuredData = [
         <h2 class="mb-6">Let's Work Together</h2>
         <p class="text-xl text-base-content/80 mb-8 max-w-2xl mx-auto">
           Whether you're buying your first home, selling a property, or helping
-          a veteran find their dream home—I'm here to make it happen.
+          a hero find their dream home—I'm here to make it happen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/contact" class="btn btn-accent btn-lg">

@@ -8,7 +8,7 @@ const { title, className = '' } = Astro.props as Props;
 ---
 
 <div
-  class={`card bg-base-100 shadow-xl service-card rounded-lg overflow-hidden border ${className}`.trim()}
+  class={`card bg-base-100 shadow-xl service-card rounded-2xl overflow-hidden border ${className}`.trim()}
 >
   <div class="relative h-56 overflow-hidden">
     <slot name="media">

@@ -567,10 +567,9 @@ const exploreStructuredData = [
                     <Home class="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h5 class="text-primary mb-2">VA Loan Specialist</h5>
+                    <h5 class="text-primary mb-2">Homes for Heroes Affiliate</h5>
                     <p class="text-sm text-base-content/70 leading-relaxed">
-                      Proud to serve veterans with VA loan expertise and
-                      dedicated support.
+                      Proud to serve Firefighters/EMS, Law Enforcement, Military (Active, Reserves, & Veterans), Healthcare Professionals and Teachers.
                     </p>
                   </div>
                 </div>
@@ -607,6 +606,11 @@ const exploreStructuredData = [
       box-shadow: 0 8px 16px rgba(44, 74, 62, 0.15);
     }
 
+    .filter-btn:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
     /* Property Cards */
     .property-card {
       background: white;
@@ -639,10 +643,18 @@ const exploreStructuredData = [
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .property-card,
+      .property-card-featured {
+        animation: none;
+        opacity: 1;
+      }
+    }
+
     /* Price Badges */
     .price-badge {
       padding: 0.625rem 1.25rem;
-      border-radius: 624px;
+      border-radius: 9999px;
       background: linear-gradient(
         135deg,
         rgba(217, 160, 91, 0.95) 0%,
@@ -659,7 +671,7 @@ const exploreStructuredData = [
 
     .price-badge-large {
       padding: 0.875rem 1.75rem;
-      border-radius: 624px;
+      border-radius: 9999px;
       background: linear-gradient(
         135deg,
         rgba(217, 160, 91, 0.95) 0%,
@@ -717,6 +729,11 @@ const exploreStructuredData = [
       box-shadow: 0 8px 24px rgba(44, 74, 62, 0.4);
     }
 
+    .btn-primary-gradient:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
     .btn-secondary-gradient {
       display: inline-flex;
       align-items: center;
@@ -738,6 +755,11 @@ const exploreStructuredData = [
     .btn-secondary-gradient:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 8px 24px rgba(168, 93, 68, 0.4);
+    }
+
+    .btn-secondary-gradient:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
     }
 
     .btn-accent-gradient {
@@ -764,6 +786,11 @@ const exploreStructuredData = [
       box-shadow: 0 8px 24px rgba(217, 160, 91, 0.4);
     }
 
+    .btn-accent-gradient:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
     .btn-outline-primary {
       display: inline-flex;
       align-items: center;
@@ -788,6 +815,11 @@ const exploreStructuredData = [
       border-color: transparent;
     }
 
+    .btn-outline-primary:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
     /* Line Clamp */
     .line-clamp-2 {
       display: -webkit-box;
@@ -804,6 +836,12 @@ const exploreStructuredData = [
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (!prefersReducedMotion) {
     // Animate property cards on scroll
     gsap.from('.property-card', {
       scrollTrigger: {
@@ -828,5 +866,6 @@ const exploreStructuredData = [
       duration: 0.8,
       ease: 'power2.out',
     });
+    }
   </script>
 </Layout>

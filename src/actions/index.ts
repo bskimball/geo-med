@@ -2,10 +2,6 @@ import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key from environment variables
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-const contactEmail = import.meta.env.CONTACT_EMAIL;
-
 export const server = {
   sendContactEmail: defineAction({
     accept: 'form',
@@ -19,6 +15,10 @@ export const server = {
     handler: async (input) => {
       try {
         const { name, email, phone, subject, message } = input;
+
+        // Initialize Resend inside handler to avoid module-load errors
+        const resend = new Resend(import.meta.env.RESEND_API_KEY);
+        const contactEmail = import.meta.env.CONTACT_EMAIL;
 
         if (!contactEmail) {
           throw new Error(

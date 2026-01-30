@@ -59,7 +59,8 @@ export default function ContactForm() {
           </Label>
           <Input
             className="input input-bordered rounded-lg w-full"
-            placeholder="Enter your full name"
+            placeholder="Enter your full name…"
+            autoComplete="name"
           />
           <FieldError className="text-error text-sm mt-1" />
         </TextField>
@@ -71,7 +72,9 @@ export default function ContactForm() {
           </Label>
           <Input
             className="input input-bordered rounded-lg w-full"
-            placeholder="Enter your email address"
+            placeholder="Enter your email address…"
+            autoComplete="email"
+            spellCheck={false}
           />
           <FieldError className="text-error text-sm mt-1" />
         </TextField>
@@ -83,7 +86,8 @@ export default function ContactForm() {
           </Label>
           <Input
             className="input input-bordered rounded-lg w-full"
-            placeholder="Enter your phone number"
+            placeholder="Enter your phone number…"
+            autoComplete="tel"
           />
           <FieldError className="text-error text-sm mt-1" />
         </TextField>
@@ -95,7 +99,8 @@ export default function ContactForm() {
           </Label>
           <Input
             className="input input-bordered rounded-lg w-full"
-            placeholder="What can we help you with?"
+            placeholder="What can we help you with…"
+            autoComplete="off"
           />
           <FieldError className="text-error text-sm mt-1" />
         </TextField>
@@ -107,7 +112,7 @@ export default function ContactForm() {
           </Label>
           <TextArea
             className="textarea textarea-bordered rounded-lg w-full min-h-[120px] resize-y"
-            placeholder="Tell us about your real estate needs..."
+            placeholder="Tell us about your real estate needs…"
             rows={5}
           />
           <FieldError className="text-error text-sm mt-1" />

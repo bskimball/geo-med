@@ -24,6 +24,7 @@ import {
   Phone,
   House as Home,
   MousePointerClick,
+  ChevronDown,
 } from '@lucide/astro';
 import Navbar from '../components/Navbar.astro';
 import ServiceCard from '../components/ServiceCard.astro';
@@ -44,6 +45,34 @@ const homepageOgImage = await getImage({
   height: 630,
   format: 'webp',
 });
+
+const homepageFaqs = [
+  {
+    question: 'What areas of Delaware do you serve?',
+    answer:
+      'I serve all of coastal Delaware including Rehoboth Beach, Bethany Beach, Dewey Beach, Lewes, Milton, and Millsboro. Whether you want oceanfront living or an affordable inland community, I can help you find the right fit.',
+  },
+  {
+    question: 'Do you help veterans with VA loans?',
+    answer:
+      'Absolutely. As a Homes for Heroes affiliate, I specialize in helping veterans, active military, first responders, healthcare workers, and teachers navigate the home buying process, including VA loan transactions.',
+  },
+  {
+    question: 'What should first-time buyers expect?',
+    answer:
+      'First-time buyers can expect personalized guidance from start to finish. I help with pre-approval, property searches, negotiations, inspections, and closing. My goal is to make the process clear and stress-free.',
+  },
+  {
+    question: 'How quickly can I start viewing homes?',
+    answer:
+      'Once we connect and discuss your needs, we can typically schedule viewings within 24-48 hours. I work around your schedule to make the process as convenient as possible.',
+  },
+  {
+    question: 'Do you help with selling homes too?',
+    answer:
+      'Yes. I provide full-service listing support including market analysis, professional photography, strategic pricing, and negotiation to help you sell for top dollar in the shortest time.',
+  },
+];
 
 const homepageStructuredData = [
   {
@@ -69,11 +98,23 @@ const homepageStructuredData = [
       },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homepageFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
 ];
 ---
 
 <Layout
-  title="George Medairy - Delaware Real Estate Agent | Serving Residential & Veterans"
+  title="George Medairy | Delaware Real Estate Agent"
   description="Expert Delaware real estate agent specializing in residential properties and VA loans. Trusted by veterans and families. Find your dream home today."
   keywords={[
     'Delaware real estate agent',
@@ -121,7 +162,7 @@ const homepageStructuredData = [
             <div class="inline-block">
               <span class="badge-veteran">
                 <Shield class="w-4 h-4" />
-                Veteran-Friendly Agent
+                Homes for Heroes Affiliate
               </span>
             </div>
 
@@ -131,8 +172,8 @@ const homepageStructuredData = [
 
             <p class="text-xl text-white/90 text-shadow leading-relaxed">
               Trusted Delaware real estate expert serving residential buyers,
-              sellers, and proud veterans. Whether you're using a VA loan or
-              traditional financing, I'll guide you home.
+              sellers, and community heroes. Whether you are a first time buyer
+              or planning your beach retirement, I'll guide you home.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -326,7 +367,7 @@ const homepageStructuredData = [
             <Shield class="w-5 h-5 text-accent" />
             <span
               class="font-semibold uppercase tracking-[0.15em] text-sm text-accent"
-              >Proudly Serving Veterans</span
+              >Proudly Serving Community Heroes</span
             >
           </div>
 
@@ -342,10 +383,12 @@ const homepageStructuredData = [
           </div>
 
           <p class="text-lg text-white/80 leading-relaxed">
-            As a dedicated advocate for veterans, I specialize in VA home loans
-            and understand the unique benefits available to those who've served
-            our nation. Let me help you leverage your hard-earned benefits to
-            find the perfect home.
+            As a dedicated advocate for Homes for Heroes, I specialize in getting
+            unique benefits available to those who served our community.
+            Firefighters/EMS, Law Enforcement, Military (Active, Reserves, Veterans)
+            Healthcare Professionals and Educators/Teachers can get cash back after
+            closing with the Program. Let me help you leverage your hard-earned
+            benefits to find the perfect home.
           </p>
 
           <!-- Feature Cards - Redesigned -->
@@ -361,10 +404,9 @@ const homepageStructuredData = [
                   <BadgeCheck class="w-6 h-6 text-accent" />
                 </div>
                 <div class="flex-1">
-                  <h4 class="font-bold text-white mb-1">VA Loan Expertise</h4>
+                  <h4 class="font-bold text-white mb-1">Homes for Heroes Affiliate</h4>
                   <p class="text-white/70">
-                    Navigate the VA loan process with confidence and maximize
-                    your benefits.
+                    Dedicated expertise in helping Heroes (Firefighters/EMS, Law Enforcement, Military, Healthcare Professionals and Teachers) maximize their hard earned benefits with cash back after closing.
                   </p>
                 </div>
               </div>
@@ -709,6 +751,41 @@ const homepageStructuredData = [
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section
+    class="py-20 faq-section"
+    style="background-color: var(--color-section-light);"
+  >
+    <div class="container mx-auto max-w-4xl px-4">
+      <div class="text-center mb-12">
+        <span class="text-accent font-semibold uppercase tracking-wider text-sm"
+          >Common Questions</span
+        >
+        <h2 class="mt-4 mb-6">Frequently Asked Questions</h2>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+          Get quick answers to the most common questions about buying and
+          selling real estate in Delaware.
+        </p>
+      </div>
+
+      <div class="space-y-4 faq-items">
+        {
+          homepageFaqs.map((faq, index) => (
+            <details class="group bg-white rounded-xl shadow-md border border-base-200 overflow-hidden faq-item">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer px-6 py-5 text-base font-semibold hover:bg-base-50 transition-colors">
+                <span>{faq.question}</span>
+                <ChevronDown class="w-5 h-5 text-secondary flex-shrink-0 transition-transform duration-300 group-open:rotate-180" />
+              </summary>
+              <div class="px-6 pb-6 text-base-content/70 leading-relaxed">
+                {faq.answer}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section
     class="py-20 relative overflow-hidden"
@@ -754,8 +831,14 @@ const homepageStructuredData = [
 
   gsap.registerPlugin(ScrollTrigger);
 
+  // Respect user's motion preferences
+  const prefersReducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
   // Wait for DOM to be fully loaded
   document.addEventListener('DOMContentLoaded', () => {
+    if (prefersReducedMotion) return;
     // Hero Section Animations
     const heroTimeline = gsap.timeline({ delay: 0.3 });
 
