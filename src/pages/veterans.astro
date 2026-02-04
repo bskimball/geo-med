@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { Shield, Check, Home, DollarSign, Calendar } from '@lucide/astro';
 import LoanCalculator from '../components/LoanCalculator';
-import Testimonials from '../components/Testimonials.astro';
+
 import LeadMagnet from '../components/LeadMagnet.astro';
 import georgeUpClose from '../assets/george-up-close.jpg'; // Reusing existing asset
 
@@ -177,12 +177,7 @@ const benefits = [
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <Testimonials 
-    title="Trusted by Veterans"
-    subtitle="I'm proud to have helped these service members find their home base."
-    filter="veteran"
-  />
+  
 
   <!-- CTA -->
   <section class="py-20 bg-primary text-white text-center">
