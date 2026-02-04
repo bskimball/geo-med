@@ -3,17 +3,17 @@ import { Menu, Phone } from '@lucide/astro';
 ---
 
 <nav class="navbar container mx-auto max-w-7xl px-4 py-4">
-  <div class="navbar-start">
-    <div class="dropdown lg:hidden">
-      <button
-        type="button"
-        aria-label="Open menu"
-        class="btn btn-ghost lg:hidden text-primary-content hover:bg-white/10"
+  <div class="navbar-start items-center">
+    <details class="dropdown lg:hidden" id="mobile-menu">
+      <summary
+        class="btn btn-ghost lg:hidden text-primary-content hover:bg-white/10 list-none"
+        aria-label="Toggle menu"
       >
         <Menu class="w-6 h-6" />
-      </button>
+      </summary>
       <ul
         class="menu menu-sm dropdown-content bg-white text-base-content rounded-xl z-50 mt-3 w-56 p-3 shadow-2xl border border-base-300"
+        role="menu"
       >
         <li>
           <a
@@ -29,14 +29,6 @@ import { Menu, Phone } from '@lucide/astro';
             Explore Homes
           </a>
         </li>
-        <!-- <li>
-          <a
-            href="/areas"
-            class="rounded-lg hover:bg-primary/10 hover:text-primary"
-          >
-            Area Guides
-          </a>
-        </li> -->
         <li>
           <details>
             <summary class="rounded-lg hover:bg-primary/10 hover:text-primary"
@@ -62,14 +54,14 @@ import { Menu, Phone } from '@lucide/astro';
             </ul>
           </details>
         </li>
-        <li class="mt-2">
+        <li class="mt-2" role="menuitem">
           <a href="/contact" class="btn btn-secondary btn-sm w-full">
             <Phone class="w-4 h-4" />
             Contact
           </a>
         </li>
       </ul>
-    </div>
+    </details>
     <a
       class="text-2xl font-bold text-primary-content hover:text-accent transition-colors"
       href="/"
@@ -78,8 +70,8 @@ import { Menu, Phone } from '@lucide/astro';
       George Medairy
     </a>
   </div>
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal items-center gap-2 px-1">
+  <div class="navbar-end hidden lg:flex items-center">
+    <ul class="menu menu-horizontal items-center gap-2 px-1 flex-nowrap">
       <li>
         <a
           href="/about"
@@ -96,14 +88,6 @@ import { Menu, Phone } from '@lucide/astro';
           Explore Homes
         </a>
       </li>
-      <!-- <li>
-        <a
-          href="/areas"
-          class="text-primary-content hover:text-accent transition-colors font-medium"
-        >
-          Area Guides
-        </a>
-      </li> -->
       <li class="relative z-10">
         <details>
           <summary

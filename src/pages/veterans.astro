@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { Shield, Check, Home, DollarSign, Calendar } from '@lucide/astro';
 import LoanCalculator from '../components/LoanCalculator';
-
+import Navbar from '../components/Navbar.astro';
 import LeadMagnet from '../components/LeadMagnet.astro';
-import georgeUpClose from '../assets/george-up-close.jpg'; // Reusing existing asset
+import georgeUpClose from '../assets/george-up-close.jpg';
 
 const benefits = [
   {
@@ -40,9 +40,15 @@ const benefits = [
   description="Expert guidance for veterans using VA loans in Delaware. 0% down payment, no PMI, and specialized support for those who served."
 >
   <!-- Hero Section -->
-  <section class="relative py-24 bg-primary text-white overflow-hidden">
+  <section class="relative min-h-[80vh] bg-primary text-white overflow-hidden">
     <div class="absolute inset-0 bg-black/20"></div>
-    <div class="container mx-auto max-w-7xl px-4 relative z-10">
+    
+    <!-- Navbar -->
+    <header class="relative z-20 bg-primary/30 backdrop-blur-md shadow-lg h-20">
+      <Navbar />
+    </header>
+    
+    <div class="container mx-auto max-w-7xl px-4 relative z-10 py-16">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
           <div

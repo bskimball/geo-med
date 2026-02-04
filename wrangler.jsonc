@@ -1,9 +1,7 @@
 {
-  "name": "my-astro-app",
+  "name": "medairyrealestate",
   "pages_build_output_dir": "./dist",
-  // Update to today's date
-  "compatibility_date": "2025-11-09",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public", "disable_nodejs_process_v2"],
+  "compatibility_date": "2025-01-15",
 
   "observability": {
     "enabled": true

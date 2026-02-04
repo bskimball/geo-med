@@ -30,11 +30,6 @@ import Navbar from '../components/Navbar.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 
 
-const optimizedSoldHomeBkg = await getImage({
-  src: soldHomeBkg,
-  format: 'webp',
-});
-
 const optimizedDelawareRoadMap = await getImage({
   src: delawareRoadMap,
   format: 'webp',
@@ -126,6 +121,8 @@ const homepageStructuredData = [
   ]}
   image={{
     src: homepageOgImage.src,
+    width: 1200,
+    height: 630,
     alt: 'George Medairy standing confidently as a Delaware real estate agent',
   }}
   structuredData={homepageStructuredData}
@@ -133,11 +130,13 @@ const homepageStructuredData = [
   <!-- Hero Section -->
   <div class="relative h-screen overflow-hidden">
     <!-- Background Image -->
-    <div
-      class="absolute inset-0 bg-cover bg-center"
-      style={`background-image: url(${optimizedSoldHomeBkg.src});`}
-    >
-    </div>
+    <Image
+      src={soldHomeBkg}
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover"
+      fetchpriority="high"
+      loading="eager"
+    />
     <div class="absolute inset-0 hero-gradient"></div>
 
     <!-- Navbar -->

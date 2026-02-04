@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import { SITE, DEFAULT_META_IMAGE_ALT } from '../config/site';
 import '../styles/global.css';
 
@@ -68,19 +67,25 @@ const schemaPayload = [
   {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
+    '@id': `${SITE.site}/#agent`,
     name: SITE.name,
     url: SITE.site,
     description,
     telephone: SITE.contact.phone,
     email: SITE.contact.email,
     areaServed: SITE.serviceAreas,
+    sameAs: SITE.sameAs,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: SITE.address.street,
       addressLocality: SITE.address.city,
       addressRegion: SITE.address.region,
       postalCode: SITE.address.postalCode,
       addressCountry: SITE.address.country,
+    },
+    worksFor: {
+      '@type': 'RealEstateAgent',
+      name: SITE.brokerage.name,
+      url: SITE.brokerage.url,
     },
   },
   ...structuredData,
@@ -157,5 +162,4 @@ const schemaJson = JSON.stringify(schemaPayload, null, 2);
       </>
     )
   }
-  <ClientRouter />
 </head>

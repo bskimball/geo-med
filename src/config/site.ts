@@ -12,11 +12,18 @@ export const SITE = {
     email: 'george@medairyrealestate.com',
   },
   address: {
-    street: 'Coastal Delaware',
     city: 'Rehoboth Beach',
     region: 'DE',
     postalCode: '19971',
     country: 'US',
+  },
+  sameAs: [
+    'https://www.facebook.com/profile.php?id=61583597131998',
+    'https://www.instagram.com/georgemedairy3',
+  ],
+  brokerage: {
+    name: 'RE/MAX Coastal',
+    url: 'https://www.remax.com/',
   },
   serviceAreas: [
     'Rehoboth Beach, Delaware',
